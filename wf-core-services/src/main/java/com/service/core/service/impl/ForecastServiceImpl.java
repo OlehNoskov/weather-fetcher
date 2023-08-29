@@ -10,14 +10,11 @@ import com.service.core.service.ForecastService;
 import com.service.core.util.enums.Scale;
 import org.springframework.stereotype.Service;
 
-import javax.print.DocFlavor;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.service.core.util.constants.DateFormatConstants.DATE_FORMAT;
 import static com.service.core.util.constants.WeatherFields.*;
-
 
 @Service
 public class ForecastServiceImpl implements ForecastService {
@@ -35,11 +32,6 @@ public class ForecastServiceImpl implements ForecastService {
     }
 
     private Date getFormattedDate(String date) throws ParseException {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-        Date date1 = df.parse(date);
-        DateFormat dateFormat2 = new SimpleDateFormat("dd.MM.yyyy hh:mm aa");
-        System.out.println(dateFormat2.format(date1));
-        System.out.println(dateFormat2.parse(dateFormat2.format(date1)));
-        return dateFormat2.parse(dateFormat2.format(date1));
+        return DATE_FORMAT.parse(date);
     }
 }

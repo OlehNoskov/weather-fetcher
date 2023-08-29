@@ -11,8 +11,7 @@ import java.util.Date;
 public class Forecast {
     private String country;
     private String city;
-    @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy hh:mm a")
     private Date date;
     private Weather weather;
 }
