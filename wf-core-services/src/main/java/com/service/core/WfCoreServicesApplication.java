@@ -1,12 +1,11 @@
 package com.service.core;
 
-import com.service.core.config.ConfigProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableConfigurationProperties(ConfigProperties.class)
+@EnableFeignClients
 public class WfCoreServicesApplication {
 
     public static void main(String[] args) {
