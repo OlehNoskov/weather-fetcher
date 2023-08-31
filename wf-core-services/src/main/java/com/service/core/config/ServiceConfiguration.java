@@ -24,8 +24,7 @@ public class ServiceConfiguration {
     @Bean
     public Endpoint endpoint() {
         EndpointImpl endpoint = new EndpointImpl(springBus(), new ForecastServiceImpl(weatherClient));
-//        endpoint.publish("http://localhost:8080/weather");
-        endpoint.publish("/weather");
+        endpoint.publish("http://localhost:8080/weather");
         return endpoint;
     }
 }
