@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ClientConfiguration {
+public class WebClientConfiguration {
 
     @Bean(name = "client")
     public Object generateProxy() {
@@ -17,7 +17,7 @@ public class ClientConfiguration {
     public JaxWsProxyFactoryBean proxyFactoryBean() {
         JaxWsProxyFactoryBean proxyFactory = new JaxWsProxyFactoryBean();
         proxyFactory.setServiceClass(ForecastService.class);
-        proxyFactory.setAddress("http://localhost:8080/weather");
+        proxyFactory.setAddress("/");
         return proxyFactory;
     }
 }

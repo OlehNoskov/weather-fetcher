@@ -1,6 +1,5 @@
 package com.service.core.config;
 
-import com.service.core.service.ForecastService;
 import com.service.core.service.WeatherClient;
 import com.service.core.service.impl.ForecastServiceImpl;
 import jakarta.xml.ws.Endpoint;
@@ -13,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
-public class ServiceConfiguration {
+public class WebServiceConfiguration {
     private final WeatherClient weatherClient;
 
     @Bean
@@ -24,7 +23,7 @@ public class ServiceConfiguration {
     @Bean
     public Endpoint endpoint() {
         EndpointImpl endpoint = new EndpointImpl(springBus(), new ForecastServiceImpl(weatherClient));
-        endpoint.publish("http://localhost:8080/weather");
+        endpoint.publish("/weather");
         return endpoint;
     }
 }
