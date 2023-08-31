@@ -1,6 +1,8 @@
 package com.service.core.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.AllArgsConstructor;
@@ -12,11 +14,16 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
 public class Forecast {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String country;
     private String city;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy hh:mm a")
     private Date date;
+    @OneToOne(cascade = CascadeType.ALL)
     private Weather weather;
 }
 
