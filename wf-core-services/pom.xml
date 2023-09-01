@@ -20,6 +20,7 @@
         <springframework.version>6.0.11</springframework.version>
         <javax.servlet.version>4.0.1</javax.servlet.version>
         <javax.ws.rs.version>2.0.1</javax.ws.rs.version>
+        <mariadb.version>2.0.1</mariadb.version>
     </properties>
     <dependencies>
         <dependency>
@@ -29,7 +30,7 @@
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
-            <version>3.1.4</version>
+            <version>${mariadb.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
