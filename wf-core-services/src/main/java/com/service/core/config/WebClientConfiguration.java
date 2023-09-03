@@ -17,7 +17,7 @@ public class WebClientConfiguration {
     public JaxWsProxyFactoryBean proxyFactoryBean() {
         JaxWsProxyFactoryBean proxyFactory = new JaxWsProxyFactoryBean();
         proxyFactory.setServiceClass(ForecastService.class);
-        proxyFactory.setAddress("/");
+        proxyFactory.setAddress("/weather");
         return proxyFactory;
     }
 }
