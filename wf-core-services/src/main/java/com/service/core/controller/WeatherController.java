@@ -1,23 +1,18 @@
 package com.service.core.controller;
 
 import com.service.core.entity.Forecast;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.text.ParseException;
 
 @Path("/weather")
 public interface WeatherController {
 
-//    @GET
-//    @Path("/countries/{country}/cities/{city}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    Forecast getWeatherByCityAndCountry(@PathParam("country") String country,
-//                                        @PathParam("city") String city) throws ParseException;
     @GET
-    @Path("/countries")
+    @Path("/countries/{country}/cities/{city}")
     @Produces(MediaType.APPLICATION_JSON)
-    Forecast getWeatherByCityAndCountry() throws ParseException;
+    @Consumes(MediaType.APPLICATION_JSON)
+    Forecast getWeatherByCityAndCountry(@PathParam("country") String country,
+                                        @PathParam("city") String city) throws ParseException;
 }
