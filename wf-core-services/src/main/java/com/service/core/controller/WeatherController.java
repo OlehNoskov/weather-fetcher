@@ -12,7 +12,6 @@ public interface WeatherController {
     @GET
     @Path("/countries/{country}/cities/{city}")
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     Forecast getWeatherByCityAndCountry(@PathParam("country") String country,
                                         @PathParam("city") String city) throws ParseException;
 }
