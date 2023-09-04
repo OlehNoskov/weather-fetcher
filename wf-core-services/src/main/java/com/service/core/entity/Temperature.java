@@ -1,5 +1,6 @@
 package com.service.core.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.service.core.util.enums.Scale;
 
 import jakarta.persistence.Entity;
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 public class Temperature {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
     private Scale scale;
     private int degrees;
