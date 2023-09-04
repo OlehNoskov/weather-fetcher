@@ -1,7 +1,10 @@
 package com.service.core.controller;
 
 import com.service.core.entity.Forecast;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.MediaType;
 
 import java.text.ParseException;
