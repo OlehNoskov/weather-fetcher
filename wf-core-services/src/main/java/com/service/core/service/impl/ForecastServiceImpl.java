@@ -8,7 +8,6 @@ import com.service.core.service.ForecastService;
 import com.service.core.service.WeatherClient;
 import com.service.core.util.enums.OverallWeather;
 import com.service.core.util.enums.Scale;
-import jakarta.jws.WebService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,6 @@ import java.text.SimpleDateFormat;
 
 @Service
 @RequiredArgsConstructor
-@WebService(endpointInterface = "com.service.core.service.ForecastService", serviceName = "ForecastService")
 public class ForecastServiceImpl implements ForecastService {
     private final WeatherClient weatherClient;
     private final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm");

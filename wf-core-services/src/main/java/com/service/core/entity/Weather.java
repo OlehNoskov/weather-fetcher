@@ -1,5 +1,6 @@
 package com.service.core.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.service.core.util.enums.OverallWeather;
 
 import jakarta.persistence.*;
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
 public class Weather {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
     private OverallWeather overall;
     @OneToOne(cascade = CascadeType.ALL)
