@@ -9,6 +9,8 @@ services:
       - "8080:8080"
     depends_on:
       - db
+    environment:
+      SPRING_DATASOURCE_URL: "${SPRING_DATASOURCE_URL}"
 
   db:
     image: mariadb:latest
@@ -17,6 +19,6 @@ services:
       MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD}"
       MARIADB_USER": "${MARIADB_USER}"
       MARIADB_PASSWORD": "${MARIADB_PASSWORD}"
-      MARIADB_DATABASE : "${MARIADB_DATABASE}"
+      MARIADB_DATABASE: "${MARIADB_DATABASE}"
     ports:
       - "3306:3306"
