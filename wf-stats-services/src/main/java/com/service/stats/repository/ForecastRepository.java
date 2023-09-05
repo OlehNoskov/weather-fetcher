@@ -16,5 +16,6 @@ public interface ForecastRepository extends CrudRepository<Forecast, Long> {
     List<Forecast> getForecastsByDateBetween(Date startDate, Date finishDate);
 
     List<Forecast> getForecastsByDateBefore(Date date);
+
     List<Forecast> getForecastsByDateAfter(Date date);
 }

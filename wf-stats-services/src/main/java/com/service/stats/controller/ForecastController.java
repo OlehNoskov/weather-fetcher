@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/forecast")
-public class WeatherController {
+public class ForecastController {
     private final ForecastRepository forecastRepository;
 
     @GetMapping("/country/{country}")
@@ -31,7 +31,7 @@ public class WeatherController {
         return forecastRepository.getForecastsByCountryAndCity(country, city);
     }
 
-    @GetMapping("/dates/between")
+    @GetMapping("/date/between")
     public List<Forecast> getAllForecastsBetweenDates(@RequestParam("startDate")
                                                       @DateTimeFormat(pattern = "dd.MM.yyyy") Date startDate,
                                                       @RequestParam("finishDate")
