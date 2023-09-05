@@ -12,6 +12,17 @@ services:
     environment:
       SPRING_DATASOURCE_URL: "${SPRING_DATASOURCE_URL}"
 
+  backend-statistics:
+    image: backend-statistics:latest
+    build:
+      context: ./wf-stats-services
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: "${SPRING_DATASOURCE_URL}"
+
   db:
     image: mariadb:latest
     restart: always
