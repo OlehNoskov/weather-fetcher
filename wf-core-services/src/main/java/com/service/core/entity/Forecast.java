@@ -3,7 +3,12 @@ package com.service.core.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.CascadeType;
 import lombok.Builder;
 import lombok.Data;
 import lombok.AllArgsConstructor;
