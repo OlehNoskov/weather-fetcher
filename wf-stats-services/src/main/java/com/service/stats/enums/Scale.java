@@ -1,4 +1,4 @@
-package com.service.core.util.enums;
+package com.service.stats.enums;
 
 public enum Scale {
     CELSIUS,

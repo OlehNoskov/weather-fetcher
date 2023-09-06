@@ -1,30 +1,27 @@
-package com.service.core.entity;
+package com.service.stats.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.service.core.util.enums.OverallWeather;
 
+import com.service.stats.enums.Scale;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Entity
-public class Weather {
+public class Temperature {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id;
-    private OverallWeather overall;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Temperature temperature;
+    private Scale scale;
+    private int degrees;
 }
