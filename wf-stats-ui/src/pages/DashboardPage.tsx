@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {Button, TextField} from "@mui/material";
 import {getForecast} from "../service/Service";
-import './SearchPage.css';
+import './DashboardPage.css';
 import {Forecast} from "../dto/Forecast";
-import ShowForecastPage from "./ShowForecastPage";
+import ForecastPage from "./ForecastPage";
 import {useNavigate} from "react-router-dom";
 
-export default function SearchPage() {
+export default function DashboardPage() {
     const [forecast, setForecast] = useState<Forecast>();
     const [country, setCountry] = useState(window.localStorage.getItem("country"));
     const [city, setCity] = useState(window.localStorage.getItem("city"));
@@ -58,7 +58,7 @@ export default function SearchPage() {
                     Search
                 </Button>
             </div>
-            <ShowForecastPage forecast={forecast}/>
+            <ForecastPage forecast={forecast}/>
             <div className={"statistic-page"}>
                 <Button variant="contained" color={"success"} size={"large"} onClick={navigateToStatistic}>
                     Statistic page
