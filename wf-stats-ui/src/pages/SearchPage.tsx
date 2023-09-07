@@ -17,30 +17,28 @@ export default function SearchPage() {
     return (
         <div className="App">
             <div className={"header"}>
-                <h1>World Forecast</h1>
+                <h1 className={"main-title"}>World Forecast</h1>
             </div>
-            <form>
-                <div className={"inputs"}>
-                    <div>
-                        <TextField
-                            label="Country" variant="outlined"
-                            type="text" value={country}
-                            onChange={(value) => {
-                                setCountry(value.target.value);
-                            }} required={true}/>
-                    </div>
-                    <div>
-                        <TextField label="City" variant="outlined"
-                                   className={"city"} type="text" value={city}
-                                   onChange={(value) => {
-                                       setCity(value.target.value);
-                                   }} required={true}/>
-                    </div>
-                    <Button variant="contained" onClick={getForecastWeather} className={"search-button"}>
-                        Search
-                    </Button>
+            <div className={"inputs"}>
+                <div>
+                    <TextField className={"input"}
+                               label="Country" variant="outlined"
+                               type="text" value={country}
+                               onChange={(value) => {
+                                   setCountry(value.target.value);
+                               }} required={true}/>
                 </div>
-            </form>
+                <div>
+                    <TextField label="City" variant="outlined"
+                               className={"city"} type="text" value={city}
+                               onChange={(value) => {
+                                   setCity(value.target.value);
+                               }} required={true}/>
+                </div>
+                <Button variant="contained" onClick={getForecastWeather} className={"search-button"}>
+                    Search
+                </Button>
+            </div>
             <hr/>
             <ShowForecast forecast={forecast}/>
         </div>

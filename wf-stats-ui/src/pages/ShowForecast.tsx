@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import {Forecast} from "../dto/Forecast";
 import {ScaleSymbols} from "../enum/ScaleSymbols";
-import {Scale} from "../enum/Scale";
-import './ShowForecast.css';
+import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 
 interface ForecastProps {
     forecast?: Forecast;
@@ -11,31 +10,26 @@ interface ForecastProps {
 export default function ShowForecast(props: ForecastProps) {
     const [scaleSymbol, setScaleSymbol] = useState<ScaleSymbols>(ScaleSymbols.CELSIUS);
 
-    const getScaleSymbol = () => {
-        return props.forecast?.weather.temperature.scale === Scale.CELSIUS ?
-            setScaleSymbol(ScaleSymbols.CELSIUS) : setScaleSymbol(ScaleSymbols.FAHRENHEIT);
-    };
-
-
     return (
-        <div className={"show-forecast"}>
-            <div className={"country"}>
-                <h1>Country</h1>
-                <h1>{props.forecast?.country}</h1>
-            </div>
-            <div className={"city"}>
-                <h1>City</h1>
-                <h1>{props.forecast?.city}</h1>
-            </div>
-            <div className={"overall"}>
-                <h1>Overall</h1>
-                <h1>{props.forecast?.weather.overall}</h1>
-            </div>
-            <div className={"degrees"}>
-                <h1>Degrees</h1>
-                <h1>{props.forecast?.weather.temperature.degrees} {scaleSymbol}</h1>
-            </div>
-            <hr/>
-        </div>
+        <TableContainer component={Paper}>
+            <Table size="medium">
+                <TableHead>
+                    <TableRow>
+                        <TableCell align="center">Country</TableCell>
+                        <TableCell align="center">City</TableCell>
+                        <TableCell align="center">Overall</TableCell>
+                        <TableCell align="center">Degrees {scaleSymbol}</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                        <TableCell align="center">{props.forecast?.country}</TableCell>
+                        <TableCell align="center">{props.forecast?.city}</TableCell>
+                        <TableCell align="center">{props.forecast?.weather.overall}</TableCell>
+                        <TableCell align="center">{props.forecast?.weather.temperature.degrees}</TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </TableContainer>
     );
 };
