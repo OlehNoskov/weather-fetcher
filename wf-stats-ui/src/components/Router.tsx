@@ -8,11 +8,9 @@ export const Router = () => {
     return (
         <div>
             <Routes>
-                <Route path="/dashboard"
-                       element={<SearchPage/>}/>
-                <Route path="/statistic"
-                       element={<StatisticPage/>}/>
-                <Route path='*' element={<ErrorPage/>}/>
+                <Route path="/dashboard" element={<SearchPage/>}/>
+                <Route path="/statistic" element={<StatisticPage/>}/>
+                <Route path='/*' element={<ErrorPage/>}/>
             </Routes>
         </div>
     );

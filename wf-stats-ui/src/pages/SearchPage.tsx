@@ -35,7 +35,7 @@ export default function SearchPage() {
     return (
         <div className="App">
             <div className={"header"}>
-                <h1 className={"main-title"}>World Forecast</h1>
+                <h1 className={"main-title"}>Weather forecast</h1>
             </div>
             <div className={"inputs"}>
                 <div>
@@ -58,7 +58,6 @@ export default function SearchPage() {
                     Search
                 </Button>
             </div>
-            <hr/>
             <ShowForecastPage forecast={forecast}/>
             <div className={"statistic-page"}>
                 <Button variant="contained" color={"success"} size={"large"} onClick={navigateToStatistic}>
