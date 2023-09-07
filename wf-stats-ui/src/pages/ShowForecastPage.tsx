@@ -7,7 +7,7 @@ interface ForecastProps {
     forecast?: Forecast;
 }
 
-export default function ShowForecast(props: ForecastProps) {
+export default function ShowForecastPage(props: ForecastProps) {
     const [scaleSymbol, setScaleSymbol] = useState<ScaleSymbols>(ScaleSymbols.CELSIUS);
 
     return (

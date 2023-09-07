@@ -8,7 +8,7 @@ export const Router = () => {
     return (
         <div>
             <Routes>
-                <Route path="/search"
+                <Route path="/dashboard"
                        element={<SearchPage/>}/>
                 <Route path="/statistic"
                        element={<StatisticPage/>}/>

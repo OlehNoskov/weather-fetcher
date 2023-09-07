@@ -13,4 +13,9 @@
     .not-found {
         text-align: center;
     }
+
+    .statistic-page {
+        margin-top: 25px;
+        text-align: center;
+    }
 }
