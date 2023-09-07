@@ -1,0 +1,16 @@
+.App {
+    .cell-header {
+        font-size: 20px;
+        font-family: -apple-system, serif;
+    }
+
+    .cell-data {
+        font-size: 18px;
+        font-family: -moz-fixed, serif;
+        color: #3a3939;
+    }
+
+    .not-found {
+        text-align: center;
+    }
+}

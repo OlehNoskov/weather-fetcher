@@ -15,18 +15,19 @@ export default function ShowForecast(props: ForecastProps) {
             <Table size="medium">
                 <TableHead>
                     <TableRow>
-                        <TableCell align="center">Country</TableCell>
-                        <TableCell align="center">City</TableCell>
-                        <TableCell align="center">Overall</TableCell>
-                        <TableCell align="center">Degrees {scaleSymbol}</TableCell>
+                        <TableCell align="center" className={"cell-header"}>Country</TableCell>
+                        <TableCell align="center" className={"cell-header"}>City</TableCell>
+                        <TableCell align="center" className={"cell-header"}>Overall</TableCell>
+                        <TableCell align="center" className={"cell-header"}>Degrees {scaleSymbol}</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     <TableRow>
-                        <TableCell align="center">{props.forecast?.country}</TableCell>
-                        <TableCell align="center">{props.forecast?.city}</TableCell>
-                        <TableCell align="center">{props.forecast?.weather.overall}</TableCell>
-                        <TableCell align="center">{props.forecast?.weather.temperature.degrees}</TableCell>
+                        <TableCell align="center" className={"cell-data"}>{props.forecast?.country}</TableCell>
+                        <TableCell align="center" className={"cell-data"}>{props.forecast?.city}</TableCell>
+                        <TableCell align="center" className={"cell-data"}>{props.forecast?.weather.overall}</TableCell>
+                        <TableCell align="center" className={"cell-data"}>{props.forecast?.weather.temperature.degrees}
+                        </TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
