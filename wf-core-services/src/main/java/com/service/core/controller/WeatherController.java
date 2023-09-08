@@ -1,6 +1,6 @@
 package com.service.core.controller;
 
-import com.service.core.entity.Forecast;
+import com.service.core.dto.response.ForecastResponse;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Produces;
@@ -15,6 +15,6 @@ public interface WeatherController {
     @GET
     @Path("/countries/{country}/cities/{city}")
     @Produces(MediaType.APPLICATION_JSON)
-    Forecast getWeatherByCityAndCountry(@PathParam("country") String country,
-                                        @PathParam("city") String city) throws ParseException;
+    ForecastResponse getWeatherByCityAndCountry(@PathParam("country") String country,
+                                                @PathParam("city") String city) throws ParseException;
 }

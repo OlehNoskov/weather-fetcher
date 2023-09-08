@@ -7,8 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.CascadeType;
 import lombok.Builder;
 import lombok.Data;
 import lombok.AllArgsConstructor;
@@ -30,7 +28,5 @@ public class Forecast {
     private String city;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy hh:mm a")
     private Date date;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Weather weather;
 }
 
