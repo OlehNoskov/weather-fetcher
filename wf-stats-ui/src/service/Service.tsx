@@ -7,3 +7,11 @@ export async function getForecast(country?: string, city?: string): Promise<Fore
             console.log(rejected);
         });
 }
+
+export async function getAllForecast(): Promise<Forecast[]> {
+    return await fetch(`localhost:8081/forecast/all`)
+        .then(response => response.json())
+        .catch(rejected => {
+            console.log(rejected);
+        });
+}

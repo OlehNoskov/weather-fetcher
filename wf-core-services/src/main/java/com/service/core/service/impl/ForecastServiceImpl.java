@@ -34,7 +34,6 @@ public class ForecastServiceImpl implements ForecastService {
                 .weather(getWeather(forecastDto))
                 .build();
         forecastRepository.save(forecast);
-
         return forecast;
     }
 
