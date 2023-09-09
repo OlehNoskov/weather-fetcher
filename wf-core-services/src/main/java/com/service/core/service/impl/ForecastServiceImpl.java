@@ -27,11 +27,12 @@ public class ForecastServiceImpl implements ForecastService {
 
     @Override
     public ForecastResponse getForecast(String country, String city) throws ParseException {
-        ForecastRequest forecastRequest = weatherClient.getWeather(country, city);
+        ForecastRequest forecastRequest = weatherClient.getForecast(country, city);
         Forecast forecast = Forecast.builder()
                 .country(forecastRequest.getLocationRequest().getCountry())
                 .city(forecastRequest.getLocationRequest().getCity())
                 .date(getDate(forecastRequest)).build();
+
         forecastRepository.save(forecast);
 
         return ForecastResponse

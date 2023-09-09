@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface WeatherClient {
     @RequestMapping(method = RequestMethod.GET,
             value = "/v1/current.json?key=${weather.key}&q={country}&q={city}")
-    ForecastRequest getWeather(@RequestParam("country") String country,
+    ForecastRequest getForecast(@RequestParam("country") String country,
                                @RequestParam("city") String city);
 }
