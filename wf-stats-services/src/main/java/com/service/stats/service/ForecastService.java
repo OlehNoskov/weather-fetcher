@@ -1,16 +1,17 @@
 package com.service.stats.service;
 
 import com.service.stats.entity.Forecast;
+import com.service.stats.entity.response.StatisticResponse;
 
 import java.util.Date;
 import java.util.List;
 
 public interface ForecastService {
-    List<Forecast> getForecastsByCountry(String country);
+    List<StatisticResponse> getCountries();
 
-    List<Forecast> getForecastsByCity(String city);
+    List<StatisticResponse> getCities();
 
-    List<Forecast> getForecastsByCountryAndCity(String country, String city);
+    List<StatisticResponse> getCitiesByCountry(String country);
 
     List<Forecast> getForecastsByDateBetween(Date startDate, Date finishDate);
 

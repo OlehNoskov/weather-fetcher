@@ -1,7 +1,8 @@
 package com.service.stats.controller;
 
 import com.service.stats.entity.Forecast;
-import com.service.stats.repository.ForecastRepository;
+import com.service.stats.entity.response.StatisticResponse;
+import com.service.stats.service.ForecastService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -13,22 +14,21 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/forecast")
 public class ForecastController {
-    private final ForecastRepository forecastRepository;
+    private final ForecastService forecastService;
+
+    @GetMapping("/countries")
+    public List<StatisticResponse> getAllForecastsByCountry() {
+        return forecastService.getCountries();
+    }
+
+    @GetMapping("/cities")
+    public List<StatisticResponse> getAllForecastsByCity() {
+        return forecastService.getCities();
+    }
 
     @GetMapping("/country/{country}")
-    public List<Forecast> getAllForecastsByCountry(@PathVariable String country) {
-        return forecastRepository.getForecastsByCountry(country);
-    }
-
-    @GetMapping("/city/{city}")
-    public List<Forecast> getAllForecastsByCity(@PathVariable String city) {
-        return forecastRepository.getForecastsByCity(city);
-    }
-
-    @GetMapping("/country/{country}/city/{city}")
-    public List<Forecast> getAllForecastsByCountryAndCity(@PathVariable String country,
-                                                          @PathVariable String city) {
-        return forecastRepository.getForecastsByCountryAndCity(country, city);
+    public List<StatisticResponse> getCitiesByCountry(@PathVariable String country) {
+        return forecastService.getCitiesByCountry(country);
     }
 
     @GetMapping("/date/between")
@@ -36,23 +36,18 @@ public class ForecastController {
                                                       @DateTimeFormat(pattern = "dd.MM.yyyy") Date startDate,
                                                       @RequestParam("finishDate")
                                                       @DateTimeFormat(pattern = "dd.MM.yyyy") Date finishDate) {
-        return forecastRepository.getForecastsByDateBetween(startDate, finishDate);
+        return forecastService.getForecastsByDateBetween(startDate, finishDate);
     }
 
     @GetMapping("/date/before")
     public List<Forecast> getAllForecastsByDateBefore(@RequestParam("date")
                                                       @DateTimeFormat(pattern = "dd.MM.yyyy") Date date) {
-        return forecastRepository.getForecastsByDateBefore(date);
+        return forecastService.getForecastsByDateBefore(date);
     }
 
     @GetMapping("/date/after")
     public List<Forecast> getAllForecastsByDateAfter(@RequestParam("date")
                                                      @DateTimeFormat(pattern = "dd.MM.yyyy") Date date) {
-        return forecastRepository.getForecastsByDateAfter(date);
-    }
-
-    @GetMapping("/all")
-    public List<Forecast> getAllForecasts() {
-        return (List<Forecast>) forecastRepository.findAll();
+        return forecastService.getForecastsByDateAfter(date);
     }
 }
