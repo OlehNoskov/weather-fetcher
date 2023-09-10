@@ -46,7 +46,7 @@ public class StatisticServiceImpl implements StatisticService {
     @Override
     public List<StatisticResponse> getCountriesByDateBetweenStatistic(Date startDate, Date finishDate) {
         List<StatisticResponse> statisticCountries = new LinkedList<>();
-        statisticRepository.getCountriesByDateBetweenStatistic(startDate, finishDate)
+        statisticRepository.getCountriesByDateBetweenStatistic(getSqlDate(startDate), getSqlDate(finishDate))
                 .forEach(s -> statisticCountries.add(getStatisticResponse(s)));
 
         return statisticCountries;
@@ -55,7 +55,7 @@ public class StatisticServiceImpl implements StatisticService {
     @Override
     public List<StatisticResponse> getCitiesByDateBetweenStatistic(Date startDate, Date finishDate) {
         List<StatisticResponse> statisticCities = new LinkedList<>();
-        statisticRepository.getCitiesByDateBetweenStatistic(startDate, finishDate)
+        statisticRepository.getCitiesByDateBetweenStatistic(getSqlDate(startDate), getSqlDate(finishDate))
                 .forEach(s -> statisticCities.add(getStatisticResponse(s)));
 
         return statisticCities;
@@ -64,7 +64,7 @@ public class StatisticServiceImpl implements StatisticService {
     @Override
     public List<StatisticResponse> getCitiesByCountryAndDateBetweenStatistic(String country, Date startDate, Date finishDate) {
         List<StatisticResponse> statisticCities = new LinkedList<>();
-        statisticRepository.getCitiesByCountryAndDateBetweenStatistic(country, startDate, finishDate)
+        statisticRepository.getCitiesByCountryAndDateBetweenStatistic(country, getSqlDate(startDate), getSqlDate(finishDate))
                 .forEach(s -> statisticCities.add(getStatisticResponse(s)));
 
         return statisticCities;
@@ -74,5 +74,9 @@ public class StatisticServiceImpl implements StatisticService {
     private StatisticResponse getStatisticResponse(String data) {
         return StatisticResponse.builder().data(data.split(COMMA)[INDEX_DATA])
                 .count(Integer.parseInt(data.split(COMMA)[INDEX_COUNT])).build();
+    }
+
+    private java.sql.Date getSqlDate(Date date) {
+        return new java.sql.Date(date.getTime());
     }
 }

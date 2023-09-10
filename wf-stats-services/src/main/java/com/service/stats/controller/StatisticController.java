@@ -33,7 +33,7 @@ public class StatisticController {
         return statisticService.getCitiesByCountryStatistic(country);
     }
 
-    @GetMapping("/counties/date/between")
+    @GetMapping("/countries/date/between")
     public List<StatisticResponse> getCountriesBetweenDatesStatistic(@RequestParam(START_DATE)
                                                                      @DateTimeFormat(pattern = DATE_PATTERN) Date startDate,
                                                                      @RequestParam(FINISH_DATE)
