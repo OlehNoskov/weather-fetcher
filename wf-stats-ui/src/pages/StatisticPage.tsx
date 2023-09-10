@@ -9,7 +9,7 @@ export default function StatisticPage() {
     const navigate = useNavigate();
 
     const navigateDashboard = () => {
-        navigate('/dashboard');
+        navigate('/weather');
     };
 
     const getForecastWeather = () => {

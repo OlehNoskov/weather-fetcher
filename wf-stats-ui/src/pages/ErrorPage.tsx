@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 export default function ErrorPage() {
     const navigate = useNavigate();
     const navigateDashboard = () => {
-        navigate('/dashboard');
+        navigate('/weather');
     };
 
     return (
