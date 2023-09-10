@@ -1,6 +1,6 @@
 package com.service.stats.service;
 
-import com.service.stats.entity.response.StatisticResponse;
+import com.service.stats.dto.response.StatisticResponse;
 
 import java.util.Date;
 import java.util.List;

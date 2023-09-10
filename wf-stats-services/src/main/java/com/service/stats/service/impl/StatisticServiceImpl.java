@@ -1,6 +1,6 @@
 package com.service.stats.service.impl;
 
-import com.service.stats.entity.response.StatisticResponse;
+import com.service.stats.dto.response.StatisticResponse;
 import com.service.stats.repository.StatisticRepository;
 import com.service.stats.service.StatisticService;
 import lombok.AllArgsConstructor;

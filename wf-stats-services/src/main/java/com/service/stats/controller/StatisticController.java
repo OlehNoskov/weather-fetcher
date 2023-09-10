@@ -1,6 +1,6 @@
 package com.service.stats.controller;
 
-import com.service.stats.entity.response.StatisticResponse;
+import com.service.stats.dto.response.StatisticResponse;
 import com.service.stats.service.StatisticService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;

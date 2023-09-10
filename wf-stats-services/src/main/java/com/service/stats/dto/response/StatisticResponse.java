@@ -1,4 +1,4 @@
-package com.service.stats.entity.response;
+package com.service.stats.dto.response;
 
 import lombok.Builder;
 import lombok.Data;

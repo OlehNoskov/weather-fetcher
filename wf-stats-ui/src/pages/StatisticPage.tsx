@@ -1,11 +1,11 @@
-import {Button, TextField} from "@mui/material";
+import {Button} from "@mui/material";
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {Forecast} from "../dto/Forecast";
-import {getAllForecast} from "../service/Service";
+import {getCountriesStatistic} from "../service/Service";
+import {Statistic} from "../dto/Statistic";
 
 export default function StatisticPage() {
-    const [forecasts, setForecasts] = useState<Forecast[]>();
+    const [statistics, setStatistics] = useState<Statistic[]>();
     const navigate = useNavigate();
 
     const navigateDashboard = () => {
@@ -13,9 +13,9 @@ export default function StatisticPage() {
     };
 
     const getForecastWeather = () => {
-        getAllForecast().then((response) => setForecasts(response));
-        if (forecasts) {
-            console.log(forecasts[0].country);
+        getCountriesStatistic().then((response) => setStatistics(response));
+        if (statistics) {
+            console.log(statistics);
         }
     };
 
