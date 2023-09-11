@@ -10,7 +10,7 @@ export async function getForecast(country?: string, city?: string): Promise<Fore
 }
 
 export async function getCountriesStatistic(): Promise<Statistic[]> {
-    return await fetch(`localhost:8081/statistic/countries`)
+    return await fetch(`/statistic/countries`)
         .then(response => response.json())
         .catch(rejected => {
             console.log(rejected);
@@ -18,7 +18,7 @@ export async function getCountriesStatistic(): Promise<Statistic[]> {
 }
 
 export async function getCitiesStatistic(): Promise<Statistic[]> {
-    return await fetch(`localhost:8081/statistic/cities`)
+    return await fetch(`/statistic/cities`)
         .then(response => response.json())
         .catch(rejected => {
             console.log(rejected);
@@ -26,7 +26,7 @@ export async function getCitiesStatistic(): Promise<Statistic[]> {
 }
 
 export async function getCitiesByCountryStatistic(country?: string): Promise<Statistic[]> {
-    return await fetch(`localhost:8081/statistic/cities/${country}`)
+    return await fetch(`/statistic/cities/${country}`)
         .then(response => response.json())
         .catch(rejected => {
             console.log(rejected);
@@ -34,7 +34,7 @@ export async function getCitiesByCountryStatistic(country?: string): Promise<Sta
 }
 
 export async function getCountriesBetweenDatesStatistic(startDate?: Date, finishDate?: Date): Promise<Statistic[]> {
-    return await fetch(`localhost:8081/statistic/countries/date/between?startDate=${startDate}&finishDate=${finishDate}`)
+    return await fetch(`/statistic/countries/date/between?startDate=${startDate}&finishDate=${finishDate}`)
         .then(response => response.json())
         .catch(rejected => {
             console.log(rejected);
@@ -42,7 +42,7 @@ export async function getCountriesBetweenDatesStatistic(startDate?: Date, finish
 }
 
 export async function getCitiesBetweenDatesStatistic(startDate?: Date, finishDate?: Date): Promise<Statistic[]> {
-    return await fetch(`localhost:8081/statistic/cities/date/between?startDate=${startDate}&finishDate=${finishDate}`)
+    return await fetch(`/statistic/cities/date/between?startDate=${startDate}&finishDate=${finishDate}`)
         .then(response => response.json())
         .catch(rejected => {
             console.log(rejected);
@@ -51,7 +51,7 @@ export async function getCitiesBetweenDatesStatistic(startDate?: Date, finishDat
 
 
 export async function getCitiesByCountryAndBetweenDatesStatistic(country: string, startDate?: Date, finishDate?: Date): Promise<Statistic[]> {
-    return await fetch(`localhost:8081/statistic/cities/${country}/date/between?startDate=${startDate}&finishDate=${finishDate}`)
+    return await fetch(`/statistic/cities/${country}/date/between?startDate=${startDate}&finishDate=${finishDate}`)
         .then(response => response.json())
         .catch(rejected => {
             console.log(rejected);
