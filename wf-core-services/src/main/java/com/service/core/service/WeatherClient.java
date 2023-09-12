@@ -1,6 +1,6 @@
 package com.service.core.service;
 
-import com.service.core.dto.response.ForecastDto;
+import com.service.core.dto.request.ForecastRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface WeatherClient {
     @RequestMapping(method = RequestMethod.GET,
             value = "/v1/current.json?key=${weather.key}&q={country}&q={city}")
-    ForecastDto getWeather(@RequestParam("country") String country,
-                           @RequestParam("city") String city);
+    ForecastRequest getForecast(@RequestParam("country") String country,
+                               @RequestParam("city") String city);
 }

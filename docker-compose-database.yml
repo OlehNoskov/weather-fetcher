@@ -11,3 +11,5 @@ services:
       MARIADB_DATABASE: "${MARIADB_DATABASE}"
     ports:
       - "3306:3306"
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d

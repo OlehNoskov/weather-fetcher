@@ -1,6 +1,6 @@
 package com.service.core.controller;
 
-import com.service.core.entity.Forecast;
+import com.service.core.dto.response.ForecastResponse;
 import com.service.core.service.ForecastService;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
@@ -16,7 +16,7 @@ public class WeatherControllerImpl implements WeatherController {
     private final ForecastService forecastService;
 
     @Override
-    public Forecast getWeatherByCityAndCountry(String country, String city) throws ParseException {
+    public ForecastResponse getWeatherByCityAndCountry(String country, String city) throws ParseException {
         return forecastService.getForecast(country, city);
     }
 }
