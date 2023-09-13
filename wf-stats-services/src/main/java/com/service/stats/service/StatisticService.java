@@ -1,21 +1,21 @@
 package com.service.stats.service;
 
-import com.service.stats.dto.response.StatisticResponse;
+import com.service.stats.repository.StatisticRepository;
 
 import java.util.Date;
 import java.util.List;
 
 public interface StatisticService {
-    List<StatisticResponse> getCountriesStatistic();
+    List<StatisticRepository.Statistic> getCountriesStatistic();
 
-    List<StatisticResponse> getCitiesStatistic();
+    List<StatisticRepository.Statistic> getCitiesStatistic();
 
-    List<StatisticResponse> getCitiesByCountryStatistic(String country);
+    List<StatisticRepository.Statistic> getCitiesByCountryStatistic(String country);
 
-    List<StatisticResponse> getCountriesByDateBetweenStatistic(Date startDate, Date finishDate);
+    List<StatisticRepository.Statistic> getCountriesByDateBetweenStatistic(Date startDate, Date finishDate);
 
-    List<StatisticResponse> getCitiesByDateBetweenStatistic(Date startDate, Date finishDate);
+    List<StatisticRepository.Statistic> getCitiesByDateBetweenStatistic(Date startDate, Date finishDate);
 
-    List<StatisticResponse> getCitiesByCountryAndDateBetweenStatistic(String country, Date startDate, Date finishDate);
+    List<StatisticRepository.Statistic> getCitiesByCountryAndDateBetweenStatistic(String country, Date startDate, Date finishDate);
 
 }
