@@ -9,27 +9,32 @@ import java.util.Date;
 import java.util.List;
 
 public interface StatisticRepository extends CrudRepository<Forecast, Long> {
-    @Query(value = "SELECT country, count(*) as count FROM forecast GROUP BY country ORDER by count desc LIMIT 5",
+    @Query(value = "SELECT country as data, count(*) as count FROM forecast GROUP BY country ORDER by count desc LIMIT 5",
             nativeQuery = true)
-    List<String> getCountriesStatistic();
+    List<Statistic> getCountriesStatistic();
 
-    @Query(value = "SELECT city, count(*) as count FROM forecast GROUP BY city ORDER by count desc LIMIT 5",
+    @Query(value = "SELECT city as data, count(*) as count FROM forecast GROUP BY city ORDER by count desc LIMIT 5",
             nativeQuery = true)
-    List<String> getCitiesStatistic();
+    List<Statistic> getCitiesStatistic();
 
-    @Query(value = "SELECT city, count(*) as count FROM forecast WHERE country =:country " +
+    @Query(value = "SELECT city as data, count(*) as count FROM forecast WHERE country =:country " +
             "GROUP BY city ORDER by count desc LIMIT 5", nativeQuery = true)
-    List<String> getCitiesByCountryStatistic(@Param("country") String country);
+    List<Statistic> getCitiesByCountryStatistic(@Param("country") String country);
 
-    @Query(value = "SELECT country, count(*) as count FROM forecast WHERE date >=:startDate " +
+    @Query(value = "SELECT country as data, count(*) as count FROM forecast WHERE date >=:startDate " +
             "and date <=:finishDate  GROUP BY country ORDER by count desc LIMIT 5", nativeQuery = true)
-    List<String> getCountriesByDateBetweenStatistic(@Param("startDate") Date startDate, @Param("finishDate") Date finishDate);
+    List<Statistic> getCountriesByDateBetweenStatistic(@Param("startDate") Date startDate, @Param("finishDate") Date finishDate);
 
-    @Query(value = "SELECT city, count(*) as count FROM forecast WHERE date >=:startDate " +
+    @Query(value = "SELECT city as data, count(*) as count FROM forecast WHERE date >=:startDate " +
             "and date <=:finishDate GROUP BY city ORDER by count desc LIMIT 5", nativeQuery = true)
-    List<String> getCitiesByDateBetweenStatistic(Date startDate, Date finishDate);
+    List<Statistic> getCitiesByDateBetweenStatistic(Date startDate, Date finishDate);
 
-    @Query(value = "SELECT city, count(*) as count FROM forecast WHERE country =:country AND date >=:startDate " +
+    @Query(value = "SELECT city as data, count(*) as count FROM forecast WHERE country =:country AND date >=:startDate " +
             "and date <=:finishDate GROUP BY city ORDER by count desc LIMIT 5", nativeQuery = true)
-    List<String> getCitiesByCountryAndDateBetweenStatistic(@Param("country") String country, Date startDate, Date finishDate);
+    List<Statistic> getCitiesByCountryAndDateBetweenStatistic(@Param("country") String country, Date startDate, Date finishDate);
+
+    interface Statistic {
+        String getData();
+        Integer getCount();
+    }
 }

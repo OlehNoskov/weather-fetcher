@@ -1,6 +1,6 @@
 package com.service.stats.controller;
 
-import com.service.stats.dto.response.StatisticResponse;
+import com.service.stats.repository.StatisticRepository;
 import com.service.stats.service.StatisticService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,42 +19,42 @@ public class StatisticController {
     private static final String FINISH_DATE = "finishDate";
 
     @GetMapping("/countries")
-    public List<StatisticResponse> getCountriesStatistic() {
+    public List<StatisticRepository.Statistic> getCountriesStatistic() {
         return statisticService.getCountriesStatistic();
     }
 
     @GetMapping("/cities")
-    public List<StatisticResponse> getCitiesStatistic() {
+    public List<StatisticRepository.Statistic> getCitiesStatistic() {
         return statisticService.getCitiesStatistic();
     }
 
     @GetMapping("/cities/{country}")
-    public List<StatisticResponse> getCitiesByCountryStatistic(@PathVariable String country) {
+    public List<StatisticRepository.Statistic> getCitiesByCountryStatistic(@PathVariable String country) {
         return statisticService.getCitiesByCountryStatistic(country);
     }
 
     @GetMapping("/countries/date/between")
-    public List<StatisticResponse> getCountriesBetweenDatesStatistic(@RequestParam(START_DATE)
-                                                                     @DateTimeFormat(pattern = DATE_PATTERN) Date startDate,
-                                                                     @RequestParam(FINISH_DATE)
-                                                                     @DateTimeFormat(pattern = DATE_PATTERN) Date finishDate) {
+    public List<StatisticRepository.Statistic> getCountriesBetweenDatesStatistic(@RequestParam(START_DATE)
+                                                                                 @DateTimeFormat(pattern = DATE_PATTERN) Date startDate,
+                                                                                 @RequestParam(FINISH_DATE)
+                                                                                 @DateTimeFormat(pattern = DATE_PATTERN) Date finishDate) {
         return statisticService.getCountriesByDateBetweenStatistic(startDate, finishDate);
     }
 
     @GetMapping("/cities/date/between")
-    public List<StatisticResponse> getCitiesBetweenDatesStatistic(@RequestParam(START_DATE)
-                                                                  @DateTimeFormat(pattern = DATE_PATTERN) Date startDate,
-                                                                  @RequestParam(FINISH_DATE)
-                                                                  @DateTimeFormat(pattern = DATE_PATTERN) Date finishDate) {
+    public List<StatisticRepository.Statistic> getCitiesBetweenDatesStatistic(@RequestParam(START_DATE)
+                                                                              @DateTimeFormat(pattern = DATE_PATTERN) Date startDate,
+                                                                              @RequestParam(FINISH_DATE)
+                                                                              @DateTimeFormat(pattern = DATE_PATTERN) Date finishDate) {
         return statisticService.getCitiesByDateBetweenStatistic(startDate, finishDate);
     }
 
     @GetMapping("/cities/{country}/date/between")
-    public List<StatisticResponse> getCitiesByCountryAndBetweenDatesStatistic(@PathVariable String country,
-                                                                              @RequestParam(START_DATE)
-                                                                              @DateTimeFormat(pattern = DATE_PATTERN) Date startDate,
-                                                                              @RequestParam(FINISH_DATE)
-                                                                              @DateTimeFormat(pattern = DATE_PATTERN) Date finishDate) {
+    public List<StatisticRepository.Statistic> getCitiesByCountryAndBetweenDatesStatistic(@PathVariable String country,
+                                                                                          @RequestParam(START_DATE)
+                                                                                          @DateTimeFormat(pattern = DATE_PATTERN) Date startDate,
+                                                                                          @RequestParam(FINISH_DATE)
+                                                                                          @DateTimeFormat(pattern = DATE_PATTERN) Date finishDate) {
         return statisticService.getCitiesByCountryAndDateBetweenStatistic(country, startDate, finishDate);
     }
 }
