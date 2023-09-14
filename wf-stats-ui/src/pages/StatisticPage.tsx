@@ -6,11 +6,6 @@ import {Statistic} from "../dto/Statistic";
 
 export default function StatisticPage() {
     const [statistics, setStatistics] = useState<Statistic[]>();
-    const navigate = useNavigate();
-
-    const navigateDashboard = () => {
-        navigate('/weather');
-    };
 
     const getForecastWeather = () => {
         getCountriesStatistic().then((response) => setStatistics(response));
@@ -21,8 +16,7 @@ export default function StatisticPage() {
 
     return (
         <div>
-            <h1>Statistic Page</h1>
-            <Button variant="contained" onClick={navigateDashboard}>Dashboard</Button>
+            <h1>Statistic Component</h1>
             <Button variant="contained" onClick={getForecastWeather}>Test</Button>
         </div>
     );

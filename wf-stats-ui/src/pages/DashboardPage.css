@@ -1,5 +1,6 @@
 .header {
-    background: #00ccff;
+    display: flex;
+    justify-content: center;
 }
 
 .main-title {
@@ -22,5 +23,35 @@
 
     .search-button {
         margin-left: 10px;
+    }
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    background-color: #f6f6f6;
+    padding: 4px;
+    border-radius: 5px;
+
+    .modal-close-button {
+        position: absolute;
+        margin-top: 10px;
+        margin-right: 10px;
+        right: 0;
+        float: right;
+        min-width: 0;
+        width: 20px;
+        height: 20px;
+        line-height: 0;
+    }
+
+    .close-image {
+        margin-top: 5px;
+        height: 20px;
     }
 }
