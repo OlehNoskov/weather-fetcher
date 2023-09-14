@@ -1,22 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {Alert, Box, Button, Icon, Modal, TextField, Typography} from "@mui/material";
-import {getForecast} from "../service/Service";
+import {Alert, TextField} from "@mui/material";
 import './DashboardPage.css';
-import {Forecast} from "../dto/Forecast";
 import StatisticPage from "./StatisticPage";
 import ModalForecast from "../components/ModalForecast";
 
 export default function DashboardPage() {
-    const [forecast, setForecast] = useState<Forecast>();
     const [country, setCountry] = useState(window.localStorage.getItem("country"));
     const [city, setCity] = useState(window.localStorage.getItem("city"));
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-
-    const getForecastWeather = () => {
-        getForecast(country!, city!).then((response) => setForecast(response));
-        handleOpen();
-    };
 
     const isDisabledButton = (): boolean => {
         return country?.length === 0 || city?.length === 0;
@@ -55,32 +45,13 @@ export default function DashboardPage() {
                                    setCity(value.target.value);
                                }} required={true}/>
                 </div>
-                <Button variant="contained" onClick={getForecastWeather}
-                        className={"search-button"} disabled={isDisabledButton()}>
-                    Search
-                </Button>
-                {/*<Modal*/}
-                {/*    open={open}*/}
-                {/*    onClose={handleClose}*/}
-                {/*    aria-labelledby="modal-modal-title"*/}
-                {/*    aria-describedby="modal-modal-description">*/}
-                {/*    <Box className={"box"}>*/}
-                {/*        <Typography id="modal-modal-title" variant="h6" component="h2">*/}
-                {/*            <Button className="modal-close-button" onClick={changeOpenState}>*/}
-                {/*                <Icon>*/}
-                {/*                    <img className="close-image" src="/images/close-icon.svg" alt={'close-icon'}/>*/}
-                {/*                </Icon>*/}
-                {/*            </Button>*/}
-                {/*            Forecast*/}
-                {/*        </Typography>*/}
-                {/*        <Typography id="modal-modal-description" sx={{mt: 2}}>*/}
-
-                {/*        </Typography>*/}
-                {/*    </Box>*/}
-                {/*</Modal>*/}
-                <ModalForecast open={open}/>
+                <ModalForecast
+                    country={country}
+                    city={city}
+                    isDisabled={isDisabledButton()}/>
             </div>
             <div className={"statistic-page"}>
+                <hr/>
                 <StatisticPage/>
             </div>
         </div>
