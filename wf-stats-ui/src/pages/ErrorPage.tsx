@@ -12,7 +12,8 @@ export default function ErrorPage() {
         <div className={"App"}>
             <div className={"not-found"}>
                 <h1>Ooops! Page not found!</h1>
-                <Button variant="contained" onClick={navigateDashboard} size={"large"} color={"info"}>
+                <Button className={"button-home"} variant="contained"
+                        onClick={navigateDashboard} size={"large"} color="error">
                     Dashboard
                 </Button>
             </div>

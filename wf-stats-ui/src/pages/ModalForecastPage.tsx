@@ -11,7 +11,7 @@ interface IModalWeather {
     isDisabled: boolean
 }
 
-export default function ModalForecast(props: IModalWeather) {
+export default function ModalForecastPage(props: IModalWeather) {
     const [forecast, setForecast] = useState<Forecast>();
     const [open, setOpen] = React.useState(false);
     const handleCloseModal = () => setOpen(false);
@@ -38,8 +38,8 @@ export default function ModalForecast(props: IModalWeather) {
 
     return (
         <div>
-            <Button variant="contained" onClick={getForecastWeather}
-                    className={"search-button"} disabled={props.isDisabled}>
+            <Button variant="contained" onClick={getForecastWeather} size={"large"}
+                    className={"search-button"} disabled={props.isDisabled}  color="success">
                 Search
             </Button>
             <Modal

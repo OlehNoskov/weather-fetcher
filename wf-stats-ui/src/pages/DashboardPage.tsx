@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Alert, TextField} from "@mui/material";
 import './DashboardPage.css';
+import ModalForecastPage from "./ModalForecastPage";
 import StatisticPage from "./StatisticPage";
-import ModalForecast from "../components/ModalForecast";
 
 export default function DashboardPage() {
     const [country, setCountry] = useState(window.localStorage.getItem("country"));
@@ -45,13 +45,9 @@ export default function DashboardPage() {
                                    setCity(value.target.value);
                                }} required={true}/>
                 </div>
-                <ModalForecast
-                    country={country}
-                    city={city}
-                    isDisabled={isDisabledButton()}/>
+                <ModalForecastPage country={country} city={city} isDisabled={isDisabledButton()}/>
             </div>
             <div className={"statistic-page"}>
-                <hr/>
                 <StatisticPage/>
             </div>
         </div>

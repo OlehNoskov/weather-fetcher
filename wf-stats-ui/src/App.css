@@ -1,21 +1,35 @@
 .App {
-    .cell-header {
-        font-size: 20px;
-        font-family: -apple-system, serif;
-    }
-
-    .cell-data {
-        font-size: 18px;
-        font-family: -moz-fixed, serif;
-        color: #3a3939;
-    }
 
     .not-found {
+        margin-top: 25px;
         text-align: center;
+
+        .button-home {
+            margin-top: 25px;
+        }
     }
 
     .statistic-page {
-        margin-top: 25px;
+        margin-top: 40px;
         text-align: center;
+
+        .title-statistic {
+            margin-bottom: 20px;
+        }
+
+        .get-statistic {
+            margin-top: 20px;
+
+            .search-statistic-button {
+                margin-top: 5px;
+                margin-left: 10px;
+            }
+        }
+
+        .statistic-diagram {
+            width: 1000px;
+            display: table;
+            margin: 30px auto;
+        }
     }
 }
