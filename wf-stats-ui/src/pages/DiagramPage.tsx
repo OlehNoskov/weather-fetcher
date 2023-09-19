@@ -10,7 +10,10 @@ import {
     Filler,
     Legend,
 } from 'chart.js';
-import {Line} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
+import {Chart, registerables} from 'chart.js'
+
+Chart.register(...registerables)
 
 ChartJS.register(
     CategoryScale,
@@ -20,7 +23,7 @@ ChartJS.register(
     Title,
     Tooltip,
     Filler,
-    Legend
+    Legend,
 );
 
 interface IDiagramPage {
@@ -45,14 +48,12 @@ export function DiagramPage(props: IDiagramPage) {
         labels,
         datasets: [
             {
-                fill: true,
                 label: props.labelDiagram,
                 data: props.count?.map((count) => count),
-                borderColor: 'rgb(53, 162, 235)',
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
-            },
+            }
         ],
     };
 
-    return <Line options={options} data={data}/>;
+    return <Bar options={options} data={data}/>;
 }

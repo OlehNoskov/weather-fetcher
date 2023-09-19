@@ -23,7 +23,7 @@ export default function DashboardPage() {
     return (
         <div className="App">
             {isDisabledButton() ?
-                <Alert severity="info" className={"header"}>
+                <Alert severity="warning" className={"header"}>
                     Please, input country and city for showing weather forecast!
                 </Alert>
                 :

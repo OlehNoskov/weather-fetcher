@@ -66,7 +66,7 @@ export default function ModalForecastPage(props: IModalWeather) {
                             <div className={"degrees"}>
                                 {forecast?.weather.temperature.degrees} {ScaleSymbols.CELSIUS}
                             </div>
-                            <p> {forecast?.weather.overall}</p>
+                            <p className={"overall-weather"}> {forecast?.weather.overall}</p>
                         </div>
                     </Typography>
                 </Box>

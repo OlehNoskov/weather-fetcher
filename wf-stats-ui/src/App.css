@@ -11,25 +11,45 @@
 
     .statistic-page {
         margin-top: 40px;
-        text-align: center;
 
-        .title-statistic {
-            margin-bottom: 20px;
+        .buttons-group {
+            display: flex;
+            flex-direction: row;
         }
 
-        .get-statistic {
-            margin-top: 20px;
-
-            .search-statistic-button {
-                margin-top: 5px;
-                margin-left: 10px;
-            }
+        .title-statistic {
+            text-align: center;
         }
 
         .statistic-diagram {
             width: 1000px;
             display: table;
             margin: 30px auto;
+        }
+
+        .buttons-group {
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            .filter-statistic {
+                margin-top: 10px;
+                margin-left: 150px;
+            }
+
+            .date-statistic {
+                margin-top: 10px;
+                margin-left: 100px;
+            }
+
+            .get-statistic {
+                text-align: center;
+                margin-left: 100px;
+
+                .search-statistic-button {
+                    margin-top: 5px;
+                    margin-left: 15px;
+                }
+            }
         }
     }
 }
