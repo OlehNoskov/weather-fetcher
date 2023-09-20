@@ -12,11 +12,6 @@
     .statistic-page {
         margin-top: 40px;
 
-        .buttons-group {
-            display: flex;
-            flex-direction: row;
-        }
-
         .title-statistic {
             text-align: center;
         }
@@ -28,6 +23,9 @@
         }
 
         .buttons-group {
+            display: flex;
+            flex-direction: row;
+            margin-left: 240px;
             margin-top: 20px;
             margin-bottom: 20px;
 
@@ -41,14 +39,17 @@
                 margin-left: 100px;
             }
 
-            .get-statistic {
-                text-align: center;
-                margin-left: 100px;
+            .reset-filter {
+                margin-left: 30px;
+            }
+        }
 
-                .search-statistic-button {
-                    margin-top: 5px;
-                    margin-left: 15px;
-                }
+        .get-statistic-country {
+            text-align: center;
+
+            .search-statistic-button {
+                margin-top: 5px;
+                margin-left: 15px;
             }
         }
     }
