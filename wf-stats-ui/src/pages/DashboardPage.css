@@ -81,7 +81,8 @@
         }
 
         .overall-weather {
-            margin-left: 330px;
+            text-align: right;
+            margin-right: 80px;
         }
     }
 }

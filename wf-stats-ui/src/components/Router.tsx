@@ -8,7 +8,7 @@ export const Router = () => {
     return (
         <div>
             <Routes>
-                <Route path="/weather" element={<DashboardPage/>}/>
+                <Route path="/" element={<DashboardPage/>}/>
                 <Route path="/statistic" element={<StatisticPage/>}/>
                 <Route path='/*' element={<ErrorPage/>}/>
             </Routes>
