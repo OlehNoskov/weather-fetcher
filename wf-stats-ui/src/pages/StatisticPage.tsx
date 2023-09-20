@@ -1,5 +1,5 @@
 import {Alert, Button, ButtonGroup, TextField,} from "@mui/material";
-import {getCitiesByCountryStatistic, getCitiesStatistic, getCountriesStatistic} from "../service/Service";
+import {getCitiesStatistic, getCountriesStatistic} from "../service/Service";
 import {Statistic} from "../dto/Statistic";
 import {DiagramPage} from "./DiagramPage";
 import React, {useEffect, useState} from 'react';
@@ -27,15 +27,16 @@ export default function StatisticPage() {
 
     const citiesStatistic = () => {
         setLabelDiagram(TypeStatistic.CITIES);
-        getCitiesStatistic(dateInterval).then((response) => setStatistics(response));
+        getCitiesStatistic('', dateInterval).then((response) => setStatistics(response));
         setOpenStatistic(true);
         setOpenButtonSearch(false);
     };
 
     const citiesByCountryStatistic = () => {
         setLabelDiagram(TypeStatistic.CITIES);
-        getCitiesByCountryStatistic(country, dateInterval).then((response) => setStatistics(response));
+        getCitiesStatistic(country, dateInterval).then((response) => setStatistics(response));
         setOpenStatistic(true);
+        openCountryInputField();
     };
 
     const openCountryInputField = () => {
@@ -60,6 +61,10 @@ export default function StatisticPage() {
     const resetDateInterval = () => {
         setDateInterval('');
         labelDiagram === TypeStatistic.COUNTRIES ? countriesStatistic() : citiesStatistic();
+    };
+
+    const isDisabledButton = (): boolean => {
+        return country?.length <= 2;
     };
 
     function getStatistic() {
@@ -105,7 +110,8 @@ export default function StatisticPage() {
                     <Button variant="contained" className={"search-statistic-button"}
                             onClick={citiesByCountryStatistic}
                             size={"large"}
-                            color="success">Search</Button></div> : <></>}
+                            color="success"
+                            disabled={isDisabledButton()}>Search</Button></div> : <></>}
             <div className={"statistic-diagram"}>
                 {openStatistic ? getStatistic() : <></>}
             </div>

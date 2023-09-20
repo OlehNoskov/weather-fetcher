@@ -9,7 +9,8 @@ export default function DashboardPage() {
     const [city, setCity] = useState(window.localStorage.getItem("city"));
 
     const isDisabledButton = (): boolean => {
-        return country?.length === 0 || city?.length === 0;
+        // @ts-ignore
+        return country?.length <= 2 || city?.length <= 2;
     };
 
     useEffect(() => {

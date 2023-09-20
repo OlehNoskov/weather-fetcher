@@ -17,16 +17,8 @@ export async function getCountriesStatistic(interval?: string): Promise<Statisti
         });
 }
 
-export async function getCitiesByCountryStatistic(country?: string, interval?: string,): Promise<Statistic[]> {
+export async function getCitiesStatistic(country?: string, interval?: string,): Promise<Statistic[]> {
     return await fetch(`/statistic/cities?country=${country}&interval=${interval}`)
-        .then(response => response.json())
-        .catch(rejected => {
-            console.log(rejected);
-        });
-}
-
-export async function getCitiesStatistic(interval?: string): Promise<Statistic[]> {
-    return await fetch(`/statistic/cities?interval=${interval}`)
         .then(response => response.json())
         .catch(rejected => {
             console.log(rejected);
