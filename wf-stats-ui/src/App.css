@@ -1,56 +1,10 @@
 .App {
-
     .not-found {
         margin-top: 25px;
         text-align: center;
 
         .button-home {
             margin-top: 25px;
-        }
-    }
-
-    .statistic-page {
-        margin-top: 40px;
-
-        .title-statistic {
-            text-align: center;
-        }
-
-        .statistic-diagram {
-            width: 1000px;
-            display: table;
-            margin: 30px auto;
-        }
-
-        .buttons-group {
-            display: flex;
-            flex-direction: row;
-            margin-left: 240px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-
-            .filter-statistic {
-                margin-top: 10px;
-                margin-left: 150px;
-            }
-
-            .date-statistic {
-                margin-top: 10px;
-                margin-left: 100px;
-            }
-
-            .reset-filter {
-                margin-left: 30px;
-            }
-        }
-
-        .get-statistic-country {
-            text-align: center;
-
-            .search-statistic-button {
-                margin-top: 5px;
-                margin-left: 15px;
-            }
         }
     }
 }

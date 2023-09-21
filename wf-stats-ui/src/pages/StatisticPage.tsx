@@ -1,4 +1,4 @@
-import {Alert, Button, ButtonGroup, TextField,} from "@mui/material";
+import {Alert, Button, ButtonGroup, TextField, Typography,} from "@mui/material";
 import {getCitiesStatistic, getCountriesStatistic} from "../service/Service";
 import {Statistic} from "../dto/Statistic";
 import {DiagramPage} from "./DiagramPage";
@@ -72,14 +72,16 @@ export default function StatisticPage() {
             <DiagramPage data={statistics?.map((data) => data.data)}
                          count={statistics?.map((count) => count.count)}
                          labelDiagram={labelDiagram}/>
-            : <Alert severity="info" className={"header"}>
+            : <Alert severity="info">
                 No available data for showing weather statistic!
             </Alert>;
     }
 
     return (
-        <div>
-            <h1 className={"title-statistic"}>Weather Statistic</h1>
+        <div className={"statistic-page"}>
+            <Typography variant="h6" className={"title-statistic"}>
+                Weather statistic
+            </Typography>
             <div className={"buttons-group"}>
                 <div className={"filter-statistic"}>
                     <ButtonGroup variant="contained" aria-label="outlined primary button group">

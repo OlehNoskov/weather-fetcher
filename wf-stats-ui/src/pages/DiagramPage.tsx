@@ -12,6 +12,7 @@ import {
 } from 'chart.js';
 import {Bar} from 'react-chartjs-2';
 import {Chart, registerables} from 'chart.js'
+import {Card} from "@mui/material";
 
 Chart.register(...registerables)
 
@@ -55,5 +56,9 @@ export function DiagramPage(props: IDiagramPage) {
         ],
     };
 
-    return <Bar options={options} data={data}/>;
+    return (
+        <Card sx={{padding: 4}}>
+            <Bar options={options} data={data}/>
+        </Card>
+    );
 }
