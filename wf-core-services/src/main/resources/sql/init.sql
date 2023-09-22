@@ -120,3 +120,44 @@ INSERT INTO weather.forecast (id, country, city, date)
 VALUES (59, 'Ukraine', 'Kharkiv', '2023-09-04 16:37:00');
 INSERT INTO weather.forecast (id, country, city, date)
 VALUES (60, 'Ukraine', 'Kharkiv', '2023-09-05 14:20:00');
+
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (61, 'Ukraine', 'Kharkiv', '2023-09-20 07:07:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (62, 'Poland', 'Warsaw', '2023-09-21 10:25:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (63, 'Ukraine', 'Poltava', '2023-09-18 10:20:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (64, 'Ukraine', 'Lviv', '2023-09-15 15:13:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (65, 'Ukraine', 'Kharkiv', '2023-09-19 15:35:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (66, 'Germany', 'Berlin', '2023-09-20 10:15:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (67, 'Ukraine', 'Kiev', '2023-09-14 10:14:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (68, 'Spain', 'Madrid', '2023-09-16 17:33:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (69, 'Spain', 'Barcelona', '2023-09-14 16:37:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (70, 'Poland', 'Gdansk', '2023-09-18 14:41:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (71, 'Poland', 'Gdansk', '2023-09-05 09:15:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (72, 'Spain', 'Madrid', '2023-09-14 10:15:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (73, 'Poland', 'Wroclaw', '2023-09-15 12:23:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (74, 'Ukraine', 'Kiev', '2023-09-11 20:15:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (75, 'Norway', 'Bergen', '2023-09-18 18:35:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (76, 'Germany', 'Berlin', '2023-09-12 11:05:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (77, 'Ukraine', 'Kiev', '2023-09-14 10:53:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (78, 'United Kingdom', 'London', '2023-09-16 18:25:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (79, 'Ukraine', 'Kharkiv', '2023-09-14 16:37:00');
+INSERT INTO weather.forecast (id, country, city, date)
+VALUES (80, 'Ukraine', 'Kharkiv', '2023-09-15 14:20:00');

@@ -49,6 +49,7 @@
 
         .get-statistic-country {
             text-align: center;
+            margin-top: 25px;
 
             .search-statistic-button {
                 margin-top: 5px;

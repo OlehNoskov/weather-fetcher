@@ -27,7 +27,7 @@ export default function StatisticPage() {
 
     const citiesStatistic = () => {
         setLabelDiagram(TypeStatistic.CITIES);
-        getCitiesStatistic('', dateInterval).then((response) => setStatistics(response));
+        getCitiesStatistic(country, dateInterval).then((response) => setStatistics(response));
         setOpenStatistic(true);
         setOpenButtonSearch(false);
     };
@@ -64,6 +64,11 @@ export default function StatisticPage() {
     };
 
     const isDisabledButton = (): boolean => {
+        return country?.length <= 2;
+    };
+
+    const isValidCountry = (): boolean => {
+        // @ts-ignore
         return country?.length <= 2;
     };
 
@@ -105,6 +110,7 @@ export default function StatisticPage() {
             {openButtonSearch ?
                 <div className={"get-statistic-country"}>
                     <TextField label="Country" variant="outlined"
+                               error={isValidCountry()}
                                type="text" value={country}
                                onChange={(value) => {
                                    setCountry(value.target.value);
