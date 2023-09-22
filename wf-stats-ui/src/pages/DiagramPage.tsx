@@ -28,8 +28,8 @@ ChartJS.register(
 );
 
 interface IDiagramPage {
-    data: string[] | undefined,
-    count: number[] | undefined,
+    data: string[],
+    count: number[],
     labelDiagram: string
 }
 
