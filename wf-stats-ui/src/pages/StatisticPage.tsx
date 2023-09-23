@@ -11,7 +11,7 @@ export default function StatisticPage() {
     const [dateInterval, setDateInterval] = useState<DateInterval>(DateInterval.UNKNOWN);
     const [labelDiagram, setLabelDiagram] = useState<TypeStatistic>(TypeStatistic.COUNTRIES);
     const [country, setCountry] = useState<string>('');
-    const [openStatistic, setOpenStatistic] = useState<boolean>(false);
+    const [openDiagram, setOpenDiagram] = useState<boolean>(false);
     const [openButtonSearch, setOpenButtonSearch] = useState<boolean>(false);
 
     useEffect(() => {
@@ -38,21 +38,21 @@ export default function StatisticPage() {
     const countriesStatistic = () => {
         setLabelDiagram(TypeStatistic.COUNTRIES);
         getCountriesStatistic(dateInterval).then((response) => setStatistics(response));
-        setOpenStatistic(true);
+        setOpenDiagram(true);
         setOpenButtonSearch(false);
     };
 
     const citiesStatistic = () => {
         setLabelDiagram(TypeStatistic.CITIES);
         getCitiesStatistic('', dateInterval).then((response) => setStatistics(response));
-        setOpenStatistic(true);
+        setOpenDiagram(true);
         setOpenButtonSearch(false);
     };
 
     const citiesByCountryStatistic = () => {
-        setLabelDiagram(TypeStatistic.CITIES);
+        setLabelDiagram(TypeStatistic.CITIES_IN_COUNTRY);
         getCitiesStatistic(country, dateInterval).then((response) => setStatistics(response));
-        setOpenStatistic(true);
+        setOpenDiagram(true);
         setOpenButtonSearch(true);
     };
 
@@ -60,8 +60,6 @@ export default function StatisticPage() {
         setDateInterval(DateInterval.ONE_WEEK);
         getStatistics();
     };
-
-    console.log(openButtonSearch);
 
     const twoWeeksStatistic = () => {
         setDateInterval(DateInterval.TWO_WEEK);
@@ -87,6 +85,11 @@ export default function StatisticPage() {
         return country?.length <= 2;
     };
 
+    const changeButtonState = () => {
+        setOpenButtonSearch(true);
+        setLabelDiagram(TypeStatistic.CITIES_IN_COUNTRY);
+    };
+
     const getStatistics = () => {
         switch (labelDiagram) {
             case TypeStatistic.COUNTRIES:
@@ -101,7 +104,7 @@ export default function StatisticPage() {
         }
     };
 
-    function getStatistic() {
+    function getDiagramStatistic() {
         return statistics?.length !== 0 ?
             <DiagramPage data={statistics.map((data) => data.data)}
                          count={statistics.map((count) => count.count)}
@@ -119,16 +122,29 @@ export default function StatisticPage() {
             <div className={"buttons-group"}>
                 <div className={"filter-statistic"}>
                     <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                        <Button onClick={countriesStatistic}>Countries</Button>
-                        <Button onClick={citiesStatistic}>Cities</Button>
-                        <Button onClick={() => setOpenButtonSearch(true)}>Cities in country</Button>
+                        <Button onClick={countriesStatistic}
+                                color={labelDiagram === TypeStatistic.COUNTRIES ? 'success' : 'primary'}>
+                            Countries
+                        </Button>
+                        <Button onClick={citiesStatistic}
+                                color={labelDiagram === TypeStatistic.CITIES ? 'success' : 'primary'}>
+                            Cities
+                        </Button>
+                        <Button onClick={changeButtonState}
+                                color={labelDiagram === TypeStatistic.CITIES_IN_COUNTRY ? 'success' : 'primary'}>
+                            Cities in country
+                        </Button>
                     </ButtonGroup>
                 </div>
                 <div className={"date-statistic"}>
                     <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                        <Button onClick={oneWeekStatistic}>1 week</Button>
-                        <Button onClick={twoWeeksStatistic}>2 weeks</Button>
-                        <Button onClick={oneMonthStatistic}>1 month</Button>
+                        <Button
+                            onClick={oneWeekStatistic}
+                            color={dateInterval === DateInterval.ONE_WEEK ? 'success' : 'primary'}>1 week</Button>
+                        <Button onClick={twoWeeksStatistic}
+                                color={dateInterval === DateInterval.TWO_WEEK ? 'success' : 'primary'}>2 weeks</Button>
+                        <Button onClick={oneMonthStatistic}
+                                color={dateInterval === DateInterval.ONE_MONTH ? 'success' : 'primary'}>1 month</Button>
                     </ButtonGroup>
                     <ButtonGroup className={"reset-filter"} variant="contained"
                                  aria-label="outlined primary button group">
@@ -150,7 +166,7 @@ export default function StatisticPage() {
                             color="success"
                             disabled={isDisabledButton()}>Search</Button></div> : <></>}
             <div className={"statistic-diagram"}>
-                {openStatistic ? getStatistic() : <></>}
+                {openDiagram ? getDiagramStatistic() : <></>}
             </div>
         </div>
     );

@@ -61,7 +61,6 @@ public class StatisticServiceImpl implements StatisticService {
                 query.multiselect(fieldExpression.alias(DATA_FIELD), countExpression.alias(COUNT_FIELD))
                         .where(criteriaBuilder.and(getCountryPredicate(criteriaBuilder, forecastRoot, country),
                                 getDatePredicate(criteriaBuilder, forecastRoot, getInterval(interval))))
-                        .where(getDatePredicate(criteriaBuilder, forecastRoot, getInterval(interval)))
                         .groupBy(fieldExpression)
                         .orderBy(criteriaBuilder.desc(countExpression));
             } else {
@@ -78,21 +77,20 @@ public class StatisticServiceImpl implements StatisticService {
     }
 
     private List<Statistic> getStatistics(TypedQuery<Object[]> typedQuery) {
-        return typedQuery.getResultList().isEmpty() ? List.of()
-                : typedQuery.getResultList().stream()
+        return typedQuery.getResultList().isEmpty() ? List.of() : typedQuery.getResultList().stream()
                 .map(result -> new Statistic((String) result[0], (Long) result[1])).toList();
     }
 
     private Date getInterval(String interval) {
         Calendar calendar = Calendar.getInstance();
-        int count = Integer.parseInt(interval.split(SPACE)[0]);
-        String duration = interval.split(SPACE)[1];
+        int amount = Integer.parseInt(interval.split(SPACE)[0]);
+        String period = interval.split(SPACE)[1];
 
-        if (duration.equals("WEEK")) {
-            calendar.add(Calendar.WEEK_OF_YEAR, -count);
+        if (period.equals("WEEK")) {
+            calendar.add(Calendar.WEEK_OF_YEAR, -amount);
         }
-        if (duration.equals("MONTH")) {
-            calendar.add(Calendar.MONTH, -count);
+        if (period.equals("MONTH")) {
+            calendar.add(Calendar.MONTH, -amount);
         }
         return calendar.getTime();
     }
