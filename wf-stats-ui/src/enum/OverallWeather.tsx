@@ -3,5 +3,5 @@ export enum OverallWeather {
     CLOUDY = 'CLOUDY',
     PARTLY_CLOUDY = 'PARTLY_CLOUDY',
     RAINY = 'RAINY',
-    UNKNOWN = ''
+    UNKNOWN = 'UNKNOWN'
 }

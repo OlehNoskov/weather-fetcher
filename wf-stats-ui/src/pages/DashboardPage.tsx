@@ -1,27 +1,30 @@
 import React, {useEffect, useState} from "react";
-import {Button, TextField} from "@mui/material";
-import {getForecast} from "../service/Service";
 import './DashboardPage.css';
+import StatisticPage from "./StatisticPage";
+import {Alert, Box, Button, Icon, Modal, TextField, Typography} from "@mui/material";
+import WeatherForecastPage from "./WeatherForecastPage";
 import {Forecast} from "../dto/Forecast";
-import ForecastPage from "./ForecastPage";
-import {useNavigate} from "react-router-dom";
+import {getForecast} from "../service/Service";
 
 export default function DashboardPage() {
     const [forecast, setForecast] = useState<Forecast>();
+    const [openModal, setOpenModal] = React.useState(false);
     const [country, setCountry] = useState(window.localStorage.getItem("country"));
     const [city, setCity] = useState(window.localStorage.getItem("city"));
-    const navigate = useNavigate();
-
-    const navigateToStatistic = () => {
-        navigate('/statistic');
-    };
-
-    const getForecastWeather = () => {
-        getForecast(country!, city!).then((response) => setForecast(response));
-    };
 
     const isDisabledButton = (): boolean => {
-        return country?.length === 0 || city?.length === 0;
+        // @ts-ignore
+        return country?.length <= 2 || city?.length <= 2;
+    };
+
+    const isValidCountry = (): boolean => {
+        // @ts-ignore
+        return country?.length <= 2;
+    };
+
+    const isValidCity = (): boolean => {
+        // @ts-ignore
+        return city?.length <= 2;
     };
 
     useEffect(() => {
@@ -32,38 +35,79 @@ export default function DashboardPage() {
         window.localStorage.setItem("city", city!);
     }, [city]);
 
+    const handleOpenModal = () => setOpenModal(true);
+
+    const handleCloseModal = () => setOpenModal(false);
+
+    const getForecastWeather = () => {
+        getForecast(country!, city!).then((response) => setForecast(response));
+        setOpenModal(false);
+    };
+
+    function getAlertMessage() {
+        return isDisabledButton() ?
+            <Alert severity="warning" className={"alert-message"}>
+                Please, input country and city for showing weather forecast!
+            </Alert>
+            :
+            <></>
+    }
+
+    function getWeatherForecast() {
+        return forecast !== undefined ? <WeatherForecastPage forecast={forecast}/> : <></>
+    }
+
     return (
         <div className="App">
-            <div className={"header"}>
-                <h1 className={"main-title"}>Weather forecast</h1>
-            </div>
-            <div className={"inputs"}>
-                <div>
-                    <TextField className={"input"}
-                               label="Country" variant="outlined"
-                               type="text" value={country}
-                               onChange={(value) => {
-                                   setCountry(value.target.value);
-                               }} required={true}/>
-                </div>
-                <div>
-                    <TextField label="City" variant="outlined"
-                               className={"city"} type="text" value={city}
-                               onChange={(value) => {
-                                   setCity(value.target.value);
-                               }} required={true}/>
-                </div>
-                <Button variant="contained" onClick={getForecastWeather}
-                        className={"search-button"} disabled={isDisabledButton()}>
-                    Search
-                </Button>
-            </div>
-            <ForecastPage forecast={forecast}/>
-            <div className={"statistic-page"}>
-                <Button variant="contained" color={"success"} size={"large"} onClick={navigateToStatistic}>
-                    Statistic page
-                </Button>
-            </div>
+            <Typography variant="h6" className={"change-location"}>
+                Change location
+                <Button variant="contained" onClick={handleOpenModal}
+                        size={"large"} color="success" className={"change-button"}>Change</Button>
+            </Typography>
+            <Modal
+                open={openModal}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description">
+                <Box className={"box"}>
+                    <Typography variant="h6" className={"title-modal"}>
+                        Weather forecast
+                        <Button className={"modal-close-button"} onClick={handleCloseModal}>
+                            <Icon>
+                                <img className={"close-image"} src="/images/close-icon.svg" alt={'close-icon'}/>
+                            </Icon>
+                        </Button>
+                    </Typography>
+                    {getAlertMessage()}
+                    <div className={"inputs"}>
+                        <div>
+                            <TextField
+                                error={isValidCountry()}
+                                label="Country" variant="outlined"
+                                type="text" value={country}
+                                onChange={(value) => {
+                                    setCountry(value.target.value);
+                                }} required={true}/>
+                        </div>
+                        <div>
+                            <TextField
+                                error={isValidCity()}
+                                label="City" variant="outlined"
+                                className={"city"} type="text" value={city}
+                                onChange={(value) => {
+                                    setCity(value.target.value);
+                                }} required={true}/>
+                        </div>
+                    </div>
+                    <div className={"search-button"}>
+                        <Button variant="contained" onClick={getForecastWeather}
+                                size={"large"} color="success" disabled={isDisabledButton()}>
+                            Search
+                        </Button>
+                    </div>
+                </Box>
+            </Modal>
+            {getWeatherForecast()}
+            <StatisticPage/>
         </div>
     );
 };

@@ -1,26 +1,10 @@
 .App {
-    background-color: #f6f6f6;
-    height: 100%;
-    margin: 0;
-
-    .cell-header {
-        font-size: 20px;
-        font-family: -apple-system, serif;
-    }
-
-    .cell-data {
-        font-size: 18px;
-        font-family: -moz-fixed, serif;
-        color: #3a3939;
-    }
-
     .not-found {
-        text-align: center;
-    }
-
-    .statistic-page {
         margin-top: 25px;
         text-align: center;
-        padding-bottom: 540px;
+
+        .button-home {
+            margin-top: 25px;
+        }
     }
 }
