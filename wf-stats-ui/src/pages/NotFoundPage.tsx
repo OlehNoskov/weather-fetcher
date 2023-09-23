@@ -2,7 +2,7 @@ import React from "react";
 import {Button} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 
-export default function ErrorPage() {
+export default function NotFoundPage() {
     const navigate = useNavigate();
     const navigateDashboard = () => {
         navigate('/');

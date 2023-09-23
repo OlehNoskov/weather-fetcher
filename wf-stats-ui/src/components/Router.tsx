@@ -1,15 +1,20 @@
 import React from "react";
 import {Route, Routes} from "react-router-dom";
-import ErrorPage from "../pages/ErrorPage";
+import NotFoundPage from "../pages/NotFoundPage";
 import DashboardPage from "../pages/DashboardPage";
+import {DiagramPage} from "../pages/DiagramPage";
 
 export const Router = () => {
     return (
-        <div>
+        <>
             <Routes>
-                <Route path="/" element={<DashboardPage/>}/>
-                <Route path='/*' element={<ErrorPage/>}/>
+                <Route path="/" element={<DashboardPage/>}>
+                    <Route path="countries" element={<DiagramPage/>}/>
+                    <Route path="cities" element={<DiagramPage/>}/>
+                    <Route path="cities/country" element={<DiagramPage/>}/>
+                </Route>
+                <Route path='/*' element={<NotFoundPage/>}/>
             </Routes>
-        </div>
+        </>
     );
 };
