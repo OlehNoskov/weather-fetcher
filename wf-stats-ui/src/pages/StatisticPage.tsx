@@ -1,10 +1,10 @@
 import {Alert, Button, ButtonGroup, TextField, Typography,} from "@mui/material";
 import {getCitiesStatistic, getCountriesStatistic} from "../service/Service";
 import {Statistic} from "../dto/Statistic";
-import {DiagramPage} from "./DiagramPage";
 import React, {useEffect, useState} from 'react';
 import {DateInterval} from "../enum/DateInterval";
 import {TypeStatistic} from "../enum/TypeStatistic";
+import {Link, Outlet} from "react-router-dom";
 
 export default function StatisticPage() {
     const [statistics, setStatistics] = useState<Statistic[]>([]);
@@ -106,9 +106,11 @@ export default function StatisticPage() {
 
     function getDiagramStatistic() {
         return statistics?.length !== 0 ?
-            <DiagramPage data={statistics.map((data) => data.data)}
-                         count={statistics.map((count) => count.count)}
-                         labelDiagram={labelDiagram}/>
+            <Outlet
+                context={[
+                    labelDiagram,
+                    statistics.map((data) => data.data),
+                    statistics.map((count) => count.count)]}/>
             : <Alert severity="info">
                 No available data for showing weather statistic!
             </Alert>;
@@ -122,15 +124,15 @@ export default function StatisticPage() {
             <div className={"buttons-group"}>
                 <div className={"filter-statistic"}>
                     <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                        <Button onClick={countriesStatistic}
+                        <Button onClick={countriesStatistic} component={Link} to="/countries"
                                 color={labelDiagram === TypeStatistic.COUNTRIES ? 'success' : 'primary'}>
                             Countries
                         </Button>
-                        <Button onClick={citiesStatistic}
+                        <Button onClick={citiesStatistic} component={Link} to="/cities"
                                 color={labelDiagram === TypeStatistic.CITIES ? 'success' : 'primary'}>
                             Cities
                         </Button>
-                        <Button onClick={changeButtonState}
+                        <Button onClick={changeButtonState} component={Link} to="/cities/country"
                                 color={labelDiagram === TypeStatistic.CITIES_IN_COUNTRY ? 'success' : 'primary'}>
                             Cities in country
                         </Button>
