@@ -124,16 +124,17 @@ export default function StatisticPage() {
             <div className={"buttons-group"}>
                 <div className={"filter-statistic"}>
                     <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                        <Button onClick={countriesStatistic} component={Link} to="/countries"
-                                color={labelDiagram === TypeStatistic.COUNTRIES ? 'success' : 'primary'}>
+                        <Button
+                            onClick={countriesStatistic} component={Link} to="/countries"
+                            disabled={labelDiagram === TypeStatistic.COUNTRIES}>
                             Countries
                         </Button>
                         <Button onClick={citiesStatistic} component={Link} to="/cities"
-                                color={labelDiagram === TypeStatistic.CITIES ? 'success' : 'primary'}>
+                                disabled={labelDiagram === TypeStatistic.CITIES}>
                             Cities
                         </Button>
                         <Button onClick={changeButtonState} component={Link} to="/cities/country"
-                                color={labelDiagram === TypeStatistic.CITIES_IN_COUNTRY ? 'success' : 'primary'}>
+                                disabled={labelDiagram === TypeStatistic.CITIES_IN_COUNTRY}>
                             Cities in country
                         </Button>
                     </ButtonGroup>
@@ -142,11 +143,11 @@ export default function StatisticPage() {
                     <ButtonGroup variant="contained" aria-label="outlined primary button group">
                         <Button
                             onClick={oneWeekStatistic}
-                            color={dateInterval === DateInterval.ONE_WEEK ? 'success' : 'primary'}>1 week</Button>
+                            disabled={dateInterval === DateInterval.ONE_WEEK}>1 week</Button>
                         <Button onClick={twoWeeksStatistic}
-                                color={dateInterval === DateInterval.TWO_WEEK ? 'success' : 'primary'}>2 weeks</Button>
+                                disabled={dateInterval === DateInterval.TWO_WEEK}>2 weeks</Button>
                         <Button onClick={oneMonthStatistic}
-                                color={dateInterval === DateInterval.ONE_MONTH ? 'success' : 'primary'}>1 month</Button>
+                                disabled={dateInterval === DateInterval.ONE_MONTH}>1 month</Button>
                     </ButtonGroup>
                     <ButtonGroup className={"reset-filter"} variant="contained"
                                  aria-label="outlined primary button group">
