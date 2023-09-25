@@ -1,5 +1,5 @@
 import {Alert, Button, ButtonGroup, TextField, Typography,} from "@mui/material";
-import {getCitiesStatistic, getCountriesStatistic} from "../service/Service";
+import {getCitiesByIntervalStatistic, getCitiesStatistic, getCountriesStatistic} from "../service/Service";
 import {Statistic} from "../dto/Statistic";
 import React, {useEffect, useState} from 'react';
 import {DateInterval} from "../enum/DateInterval";
@@ -37,21 +37,42 @@ export default function StatisticPage() {
 
     const countriesStatistic = () => {
         setLabelDiagram(TypeStatistic.COUNTRIES);
-        getCountriesStatistic(dateInterval).then((response) => setStatistics(response));
+        getCountriesStatistic().then((response) => setStatistics(response));
+        setOpenDiagram(true);
+        setOpenButtonSearch(false);
+    };
+
+    const countriesByIntervalStatistic = () => {
+        setLabelDiagram(TypeStatistic.COUNTRIES);
+        getCitiesByIntervalStatistic(dateInterval).then((response) => setStatistics(response));
         setOpenDiagram(true);
         setOpenButtonSearch(false);
     };
 
     const citiesStatistic = () => {
         setLabelDiagram(TypeStatistic.CITIES);
-        getCitiesStatistic('', dateInterval).then((response) => setStatistics(response));
+        getCitiesStatistic().then((response) => setStatistics(response));
+        setOpenDiagram(true);
+        setOpenButtonSearch(false);
+    };
+
+    const citiesByIntervalStatistic = () => {
+        setLabelDiagram(TypeStatistic.CITIES);
+        getCitiesByIntervalStatistic(dateInterval).then((response) => setStatistics(response));
         setOpenDiagram(true);
         setOpenButtonSearch(false);
     };
 
     const citiesByCountryStatistic = () => {
         setLabelDiagram(TypeStatistic.CITIES_IN_COUNTRY);
-        getCitiesStatistic(country, dateInterval).then((response) => setStatistics(response));
+        get(country).then((response) => setStatistics(response));
+        setOpenDiagram(true);
+        setOpenButtonSearch(true);
+    };
+
+    const citiesByCountryAndIntervalStatistic = () => {
+        setLabelDiagram(TypeStatistic.CITIES_IN_COUNTRY);
+        // getCitiesStatistic(country, dateInterval).then((response) => setStatistics(response));
         setOpenDiagram(true);
         setOpenButtonSearch(true);
     };
@@ -93,7 +114,7 @@ export default function StatisticPage() {
     const getStatistics = () => {
         switch (labelDiagram) {
             case TypeStatistic.COUNTRIES:
-                countriesStatistic();
+                countriesByIntervalStatistic();
                 break;
             case TypeStatistic.CITIES:
                 citiesStatistic();
