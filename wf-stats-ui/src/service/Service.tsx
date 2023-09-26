@@ -40,3 +40,19 @@ export async function getCitiesByIntervalStatistic(interval: string): Promise<St
             console.log(rejected);
         });
 }
+
+export async function getCitiesByCountryStatistic(country: string): Promise<Statistic[]> {
+    return await fetch(`/statistic/cities/country?country=${country}`)
+        .then(response => response.json())
+        .catch(rejected => {
+            console.log(rejected);
+        });
+}
+
+export async function getCitiesByCountryAndIntervalStatistic(country: string, interval: string): Promise<Statistic[]> {
+    return await fetch(`/statistic/cities/country/interval?country=${country}&interval=${interval}`)
+        .then(response => response.json())
+        .catch(rejected => {
+            console.log(rejected);
+        });
+}

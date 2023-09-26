@@ -6,7 +6,7 @@ import {ScaleSymbols} from "../enum/ScaleSymbols";
 import './WeatherForecastPage.css';
 
 interface IForecast {
-    forecast?: Forecast
+    forecast: Forecast
 }
 
 export default function WeatherForecastPage(props: IForecast) {
