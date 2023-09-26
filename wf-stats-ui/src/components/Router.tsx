@@ -4,7 +4,6 @@ import NotFoundPage from "../pages/NotFoundPage";
 import DashboardPage from "../pages/DashboardPage";
 import {DiagramPage} from "../pages/DiagramPage";
 
-// @ts-ignore
 const Location = React.lazy(() => import("Location/Test"));
 
 export const Router = () => {
