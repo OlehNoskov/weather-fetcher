@@ -63,7 +63,6 @@ module.exports = function (proxy, allowedHost) {
                 changeOrigin: true,
                 target: 'http://localhost:8081'
             }
-
         },
         onBeforeSetupMiddleware(devServer) {
             devServer.app.use(evalSourceMapMiddleware(devServer));
