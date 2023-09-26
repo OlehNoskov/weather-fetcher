@@ -1,5 +1,11 @@
 import {Alert, Button, ButtonGroup, TextField, Typography,} from "@mui/material";
-import {getCitiesStatistic, getCountriesStatistic} from "../service/Service";
+import {
+    getCitiesByCountryAndIntervalStatistic,
+    getCitiesByCountryStatistic,
+    getCitiesByIntervalStatistic,
+    getCitiesStatistic, getCountriesByIntervalStatistic,
+    getCountriesStatistic
+} from "../service/Service";
 import {Statistic} from "../dto/Statistic";
 import React, {useEffect, useState} from 'react';
 import {DateInterval} from "../enum/DateInterval";
@@ -8,7 +14,7 @@ import {Link, Outlet} from "react-router-dom";
 
 export default function StatisticPage() {
     const [statistics, setStatistics] = useState<Statistic[]>([]);
-    const [dateInterval, setDateInterval] = useState<DateInterval>(DateInterval.UNKNOWN);
+    const [dateInterval, setDateInterval] = useState<DateInterval>(DateInterval.DEFAULT);
     const [labelDiagram, setLabelDiagram] = useState<TypeStatistic>(TypeStatistic.COUNTRIES);
     const [country, setCountry] = useState<string>('');
     const [openDiagram, setOpenDiagram] = useState<boolean>(false);
@@ -29,7 +35,7 @@ export default function StatisticPage() {
             case DateInterval.ONE_MONTH:
                 oneMonthStatistic();
                 break;
-            case DateInterval.UNKNOWN:
+            case DateInterval.DEFAULT:
                 resetDateInterval();
                 break;
         }
@@ -37,23 +43,48 @@ export default function StatisticPage() {
 
     const countriesStatistic = () => {
         setLabelDiagram(TypeStatistic.COUNTRIES);
-        getCountriesStatistic(dateInterval).then((response) => setStatistics(response));
-        setOpenDiagram(true);
-        setOpenButtonSearch(false);
+        getCountriesStatistic().then((response) => setStatistics(response));
+        showDiagramAndHideCountryInput();
+    };
+
+    const countriesByIntervalStatistic = () => {
+        setLabelDiagram(TypeStatistic.COUNTRIES);
+        getCountriesByIntervalStatistic(dateInterval).then((response) => setStatistics(response));
+        showDiagramAndHideCountryInput();
     };
 
     const citiesStatistic = () => {
         setLabelDiagram(TypeStatistic.CITIES);
-        getCitiesStatistic('', dateInterval).then((response) => setStatistics(response));
-        setOpenDiagram(true);
-        setOpenButtonSearch(false);
+        getCitiesStatistic().then((response) => setStatistics(response));
+        showDiagramAndHideCountryInput();
+    };
+
+    const citiesByIntervalStatistic = () => {
+        setLabelDiagram(TypeStatistic.CITIES);
+        getCitiesByIntervalStatistic(dateInterval).then((response) => setStatistics(response));
+        showDiagramAndHideCountryInput();
     };
 
     const citiesByCountryStatistic = () => {
         setLabelDiagram(TypeStatistic.CITIES_IN_COUNTRY);
-        getCitiesStatistic(country, dateInterval).then((response) => setStatistics(response));
+        getCitiesByCountryStatistic(country).then((response) => setStatistics(response));
+        showDiagramAndCountryInput();
+    };
+
+    const citiesByCountryAndIntervalStatistic = () => {
+        setLabelDiagram(TypeStatistic.CITIES_IN_COUNTRY);
+        getCitiesByCountryAndIntervalStatistic(country, dateInterval).then((response) => setStatistics(response));
+        showDiagramAndCountryInput();
+    };
+
+    const showDiagramAndHideCountryInput = () => {
         setOpenDiagram(true);
-        setOpenButtonSearch(true);
+        setOpenButtonSearch(false);
+    };
+
+    const showDiagramAndCountryInput = () => {
+        setOpenDiagram(true);
+        setOpenButtonSearch(false);
     };
 
     const oneWeekStatistic = () => {
@@ -72,36 +103,35 @@ export default function StatisticPage() {
     };
 
     const resetDateInterval = () => {
-        setDateInterval(DateInterval.UNKNOWN);
+        setDateInterval(DateInterval.DEFAULT);
         getStatistics();
-    };
-
-    const isDisabledButton = (): boolean => {
-        return country?.length <= 2;
-    };
-
-    const isValidCountry = (): boolean => {
-        // @ts-ignore
-        return country?.length <= 2;
-    };
-
-    const changeButtonState = () => {
-        setOpenButtonSearch(true);
-        setLabelDiagram(TypeStatistic.CITIES_IN_COUNTRY);
     };
 
     const getStatistics = () => {
         switch (labelDiagram) {
             case TypeStatistic.COUNTRIES:
-                countriesStatistic();
+                countriesByIntervalStatistic();
                 break;
             case TypeStatistic.CITIES:
-                citiesStatistic();
+                citiesByIntervalStatistic();
                 break;
             case TypeStatistic.CITIES_IN_COUNTRY:
-                citiesByCountryStatistic();
+                citiesByCountryAndIntervalStatistic();
                 break;
         }
+    };
+
+    const openCountryInput = () => {
+        setOpenButtonSearch(true);
+        setLabelDiagram(TypeStatistic.CITIES_IN_COUNTRY);
+    };
+
+    const isDisabledButton = (): boolean => {
+        return country.length <= 2;
+    };
+
+    const isValidCountry = (): boolean => {
+        return country.length <= 2;
     };
 
     function getDiagramStatistic() {
@@ -132,7 +162,7 @@ export default function StatisticPage() {
                                 color={labelDiagram === TypeStatistic.CITIES ? 'success' : 'primary'}>
                             Cities
                         </Button>
-                        <Button onClick={changeButtonState} component={Link} to="/cities/country"
+                        <Button onClick={openCountryInput} component={Link} to="/cities/country"
                                 color={labelDiagram === TypeStatistic.CITIES_IN_COUNTRY ? 'success' : 'primary'}>
                             Cities in country
                         </Button>
@@ -166,7 +196,8 @@ export default function StatisticPage() {
                             onClick={citiesByCountryStatistic}
                             size={"large"}
                             color="success"
-                            disabled={isDisabledButton()}>Search</Button></div> : <></>}
+                            disabled={isDisabledButton()}>Search</Button>
+                </div> : <></>}
             <div className={"statistic-diagram"}>
                 {openDiagram ? getDiagramStatistic() : <></>}
             </div>
