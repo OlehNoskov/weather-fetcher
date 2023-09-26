@@ -15,9 +15,10 @@ export const Router = () => {
                     <Route path="cities" element={<DiagramPage/>}/>
                     <Route path="cities/country" element={<DiagramPage/>}/>
                 </Route>
-                <Route path="/location" element={<Suspense fallback={<p>Test Suspense</p>}>
-                    <Location/>
-                </Suspense>}/>
+                <Route path="/location" element={
+                    <Suspense fallback={<div>Loading remote page!</div>}>
+                        <Location/>
+                    </Suspense>}/>
                 <Route path='/*' element={<NotFoundPage/>}/>
             </Routes>
         </>

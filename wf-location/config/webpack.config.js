@@ -475,13 +475,13 @@ module.exports = function (webpackEnv) {
                 filename: 'static/css/[name].[contenthash:8].css',
                 chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
             }),
-            //TODO Issue [object%20Object] here !!!
             new ModuleFederationPlugin({
                 name: "location",
+                library: {type: 'var', name: 'remoteContainer'},
                 filename: "remoteEntry.js",
                 exposes: {
                     "./Test": "./src/components/Test",
-                }
+                },
             }),
             new WebpackManifestPlugin({
                 fileName: 'asset-manifest.json',

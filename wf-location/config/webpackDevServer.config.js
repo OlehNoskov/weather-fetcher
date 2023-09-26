@@ -23,7 +23,6 @@ module.exports = function (proxy, allowedHost) {
       'Access-Control-Allow-Methods': '*',
       'Access-Control-Allow-Headers': '*',
     },
-    // Enable gzip compression of generated files.
     compress: true,
     static: {
       directory: paths.appPublic,
