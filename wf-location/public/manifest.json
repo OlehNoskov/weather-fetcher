@@ -1,6 +1,7 @@
 {
   "short_name": "Location App",
   "name": "Location App remote",
+  "icons": [],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

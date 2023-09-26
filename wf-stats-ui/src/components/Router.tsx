@@ -7,7 +7,6 @@ import {DiagramPage} from "../pages/DiagramPage";
 // @ts-ignore
 const Location = React.lazy(() => import("Location/Test"));
 
-
 export const Router = () => {
     return (
         <>
