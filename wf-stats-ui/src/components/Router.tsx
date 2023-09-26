@@ -4,7 +4,9 @@ import NotFoundPage from "../pages/NotFoundPage";
 import DashboardPage from "../pages/DashboardPage";
 import {DiagramPage} from "../pages/DiagramPage";
 
+// @ts-ignore
 const Location = React.lazy(() => import("Location/Test"));
+
 
 export const Router = () => {
     return (
@@ -15,7 +17,7 @@ export const Router = () => {
                     <Route path="cities" element={<DiagramPage/>}/>
                     <Route path="cities/country" element={<DiagramPage/>}/>
                 </Route>
-                <Route path="/location" element={<Suspense fallback={<p>Test 123</p>}>
+                <Route path="/location" element={<Suspense fallback={<p>Test Suspense</p>}>
                     <Location/>
                 </Suspense>}/>
                 <Route path='/*' element={<NotFoundPage/>}/>

@@ -15,7 +15,7 @@ import {Link, Outlet} from "react-router-dom";
 export default function StatisticPage() {
     const [statistics, setStatistics] = useState<Statistic[]>([]);
     const [dateInterval, setDateInterval] = useState<DateInterval>(DateInterval.DEFAULT);
-    const [labelDiagram, setLabelDiagram] = useState<TypeStatistic>(TypeStatistic.COUNTRIES);
+    const [labelDiagram, setLabelDiagram] = useState<TypeStatistic>(TypeStatistic.DEFAULT);
     const [country, setCountry] = useState<string>('');
     const [openDiagram, setOpenDiagram] = useState<boolean>(false);
     const [openButtonSearch, setOpenButtonSearch] = useState<boolean>(false);
@@ -84,7 +84,7 @@ export default function StatisticPage() {
 
     const showDiagramAndCountryInput = () => {
         setOpenDiagram(true);
-        setOpenButtonSearch(false);
+        setOpenButtonSearch(true);
     };
 
     const oneWeekStatistic = () => {

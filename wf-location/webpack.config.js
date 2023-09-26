@@ -27,18 +27,7 @@ module.exports = {
             filename: "remoteEntry.js",
             exposes: {
                 "./Test": "./src/components/Test",
-            },
-            shared: {
-                react: {singleton: true, eager: true},
-                "react-dom": {
-                    singleton: true,
-                    eager: true,
-                },
-                "react-router-dom": {
-                    singleton: true,
-                    eager: true,
-                },
-            },
+            }
         }),
         new HtmlWebpackPlugin({
             template: "./public/index.html",

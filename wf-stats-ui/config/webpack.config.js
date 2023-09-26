@@ -656,17 +656,8 @@ module.exports = function (webpackEnv) {
             new ModuleFederationPlugin({
                 name: 'container',
                 remotes: {
-                    'Location': 'location@http://localhost:3001/remoteEntry.js',
-                },
-                shared: {
-                    react: {singleton: true, eager: true},
-                    "react-dom": {
-                        singleton: true,
-                    },
-                    "react-router-dom": {
-                        singleton: true,
-                    },
-                },
+                    Location: 'location@http://localhost:3001/remoteEntry.js'
+                }
             }),
             // Moment.js is an extremely popular library that bundles large locale files
             // by default due to how webpack interprets its code. This is a practical
