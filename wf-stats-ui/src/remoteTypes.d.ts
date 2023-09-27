@@ -1,5 +1,5 @@
 declare module 'Location/Test' {
-    const Test: React.ComponentType<any>;
+    const Location: React.ComponentType<any>;
 
-    export default Test;
+    export default Location;
 }
