@@ -480,7 +480,7 @@ module.exports = function (webpackEnv) {
                 library: {type: 'var', name: 'remoteContainer'},
                 filename: "remoteEntry.js",
                 exposes: {
-                    './Test': './src/components/Test',
+                    './LocationPage': './src/pages/LocationPage',
                 },
                 shared: {
                     react: {singleton: true},

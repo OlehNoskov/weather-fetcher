@@ -5,19 +5,6 @@
     .title {
         margin-top: 15px;
         margin-left: 25px;
-
-        .card-close-button {
-            margin-right: 10px;
-            float: right;
-            min-width: 0;
-            width: 20px;
-            height: 20px;
-            line-height: 0;
-        }
-
-        .close-image {
-            height: 20px;
-        }
     }
 
     .location {

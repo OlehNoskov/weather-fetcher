@@ -4,7 +4,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import DashboardPage from "../pages/DashboardPage";
 import {DiagramPage} from "../pages/DiagramPage";
 
-const Location = React.lazy(() => import("Location/Test"));
+const Location = React.lazy(() => import("Location/LocationPage"));
 
 export const Router = () => {
     return (
