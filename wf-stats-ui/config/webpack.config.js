@@ -497,7 +497,7 @@ module.exports = function (webpackEnv) {
                 name: 'container',
                 filename: "remoteEntry.js",
                 remotes: {
-                    Location: 'location@http://localhost:3001/remoteEntry.js'
+                    Location: 'remoteLocation@http://localhost:3001/remoteEntry.js'
                 },
                 shared: {
                     react: {singleton: true},
