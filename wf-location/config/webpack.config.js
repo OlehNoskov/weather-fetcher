@@ -476,11 +476,15 @@ module.exports = function (webpackEnv) {
                 chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
             }),
             new ModuleFederationPlugin({
-                name: "location",
+                name: 'location',
                 library: {type: 'var', name: 'remoteContainer'},
                 filename: "remoteEntry.js",
                 exposes: {
-                    "./Test": "./src/components/Test",
+                    './Test': './src/components/Test',
+                },
+                shared: {
+                    react: {singleton: true},
+                    'react-dom': {singleton: true}
                 },
             }),
             new WebpackManifestPlugin({

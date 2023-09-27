@@ -5,6 +5,7 @@ import DashboardPage from "../pages/DashboardPage";
 import {DiagramPage} from "../pages/DiagramPage";
 
 const Location = React.lazy(() => import("Location/Test"));
+// import Test from 'Location/Test';
 
 export const Router = () => {
     return (

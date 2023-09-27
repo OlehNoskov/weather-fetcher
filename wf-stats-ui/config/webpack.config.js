@@ -264,7 +264,6 @@ module.exports = function (webpackEnv) {
         module: {
             strictExportPresence: true,
             rules: [
-                // Handle node_modules packages that contain sourcemaps
                 shouldUseSourceMap && {
                     enforce: 'pre',
                     exclude: /@babel(?:\/|\\{1,2})runtime/,
@@ -496,13 +495,21 @@ module.exports = function (webpackEnv) {
             }),
             new ModuleFederationPlugin({
                 name: 'container',
+                filename: "remoteEntry.js",
                 remotes: {
                     Location: 'location@http://localhost:3001/remoteEntry.js'
-                }
+                },
+                shared: {
+                    react: {singleton: true},
+                    'react-dom': {singleton: true}
+                },
             }),
             new webpack.IgnorePlugin({
                 resourceRegExp: /^\.\/locale$/,
                 contextRegExp: /moment$/,
+            }),
+            new HtmlWebpackPlugin({
+                template: "./public/index.html",
             }),
             isEnvProduction &&
             fs.existsSync(swSrc) &&
