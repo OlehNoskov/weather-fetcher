@@ -3,7 +3,8 @@ import {
     getCitiesByCountryAndIntervalStatistic,
     getCitiesByCountryStatistic,
     getCitiesByIntervalStatistic,
-    getCitiesStatistic, getCountriesByIntervalStatistic,
+    getCitiesStatistic,
+    getCountriesByIntervalStatistic,
     getCountriesStatistic
 } from "../service/Service";
 import {Statistic} from "../dto/Statistic";
@@ -124,6 +125,7 @@ export default function StatisticPage() {
     const openCountryInput = () => {
         setOpenButtonSearch(true);
         setLabelDiagram(TypeStatistic.CITIES_IN_COUNTRY);
+        setStatistics([]);
     };
 
     const isDisabledButton = (): boolean => {
