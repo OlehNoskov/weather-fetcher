@@ -45,7 +45,7 @@ module.exports = {
             name: "location",
             filename: "remoteEntry.js",
             exposes: {
-                './LocationPage': './src/pages/LocationPage'
+                // './LocationPage': './src/pages/LocationPage'
             },
             shared: [{ react: deps.react, 'react-dom': deps['react-dom'] }],
         }),
