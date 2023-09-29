@@ -1,0 +1,48 @@
+.App {
+
+    .statistic-page {
+        margin-top: 40px;
+
+        .title-statistic {
+            text-align: center;
+            font-size: 32px;
+            font-family: sans-serif;
+        }
+
+        .statistic-diagram {
+            width: 1000px;
+            display: table;
+            margin: 30px auto;
+        }
+
+        .buttons-group {
+            display: flex;
+            margin: auto;
+            padding-left: 225px;
+
+            .filter-statistic {
+                margin-top: 10px;
+                margin-left: 150px;
+            }
+
+            .date-statistic {
+                margin-top: 10px;
+                margin-left: 100px;
+            }
+
+            .reset-filter {
+                margin-left: 30px;
+            }
+        }
+
+        .get-statistic-country {
+            text-align: center;
+            margin-top: 25px;
+
+            .search-statistic-button {
+                margin-top: 5px;
+                margin-left: 15px;
+            }
+        }
+    }
+}
