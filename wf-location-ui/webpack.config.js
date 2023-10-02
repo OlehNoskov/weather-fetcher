@@ -9,23 +9,22 @@ module.exports = {
     devServer: {
         port: 3001,
         open: true,
-        historyApiFallback: true,
         headers: {
             "Access-Control-Allow-Origin": "*",
         },
-        devMiddleware: {
-            writeToDisk: true,
-        },
         proxy: {
-            '/weather': {
+            "/weather": {
                 secure: false,
                 changeOrigin: true,
-                target: 'http://localhost:8080'
+                target: "http://localhost:8080"
             }
         },
     },
+    output: {
+        publicPath: "auto",
+    },
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".css"],
+        extensions: [".ts", ".tsx", ".js", ".css", ".json"],
     },
     module: {
         rules: [
@@ -38,16 +37,20 @@ module.exports = {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
+            {
+                test: /\.json$/,
+                loader: "json-loader"
+            }
         ],
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: "location",
+            name: "remote",
             filename: "remoteEntry.js",
             exposes: {
-                // './LocationPage': './src/pages/LocationPage'
+                "./LocationPage": "./src/pages/LocationPage",
             },
-            shared: [{ react: deps.react, 'react-dom': deps['react-dom'] }],
+            shared: [{react: deps.react, "react-dom": deps["react-dom"]}],
         }),
         new HtmlWebpackPlugin({
             template: "./public/index.html",

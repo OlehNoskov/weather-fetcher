@@ -4,6 +4,7 @@ import {Alert, Box, Button, Icon, Modal, TextField, Typography} from "@mui/mater
 import {Forecast} from "../dto/Forecast";
 import {getForecast} from "../service/Service";
 import WeatherForecastPage from "./WeatherForecastPage";
+
 export default function LocationPage() {
     const [forecast, setForecast] = useState<Forecast>();
     const [openModal, setOpenModal] = React.useState(false);
