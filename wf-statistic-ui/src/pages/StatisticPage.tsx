@@ -132,10 +132,6 @@ export default function StatisticPage() {
         return country.length <= 2;
     };
 
-    const isValidCountry = (): boolean => {
-        return country.length <= 2;
-    };
-
     function getDiagramStatistic() {
         return statistics?.length !== 0 ?
             <Outlet
@@ -190,7 +186,7 @@ export default function StatisticPage() {
             {openButtonSearch ?
                 <div className={"get-statistic-country"}>
                     <TextField label="Country" variant="outlined"
-                               error={isValidCountry()}
+                               error={isDisabledButton()}
                                type="text" value={country}
                                onChange={(value) => {
                                    setCountry(value.target.value);
