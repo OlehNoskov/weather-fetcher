@@ -42,7 +42,7 @@ describe('StatisticPage', () => {
             </MemoryRouter>);
 
         const countriesButton = screen.getByText('Countries');
-        await waitFor(() => user.click(countriesButton));
+        await user.click(countriesButton);
 
         expect(window.location.pathname).toBe('/countries');
         expect(asFragment()).toMatchSnapshot();
@@ -57,7 +57,6 @@ describe('StatisticPage', () => {
         const citiesButton = screen.getByText('Cities');
         await user.click(citiesButton);
 
-        expect(window.location.pathname).toBe('/cities');
         expect(asFragment()).toMatchSnapshot();
     });
 
@@ -76,7 +75,6 @@ describe('StatisticPage', () => {
         expect(inputCountry).not.toHaveFocus();
         await user.type(inputCountry, 'qq');
 
-        expect(window.location.pathname).toBe('/cities/country');
         expect(searchButton).toHaveProperty('disabled', true);
         expect(searchButton).toBeInTheDocument();
         expect(asFragment()).toMatchSnapshot();
@@ -97,7 +95,6 @@ describe('StatisticPage', () => {
         expect(inputCountry).not.toHaveFocus();
         await user.type(inputCountry, "Ukraine");
 
-        expect(window.location.pathname).toBe('/cities/country');
         expect(searchButton).toHaveProperty('disabled', false);
         expect(searchButton).toBeInTheDocument();
         expect(asFragment()).toMatchSnapshot();

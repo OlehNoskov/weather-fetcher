@@ -25,4 +25,16 @@ describe('NotFoundPage', () => {
 
         expect(window.location.pathname).toBe('/');
     });
+
+    it('should do not navigate to \'Countries\' page after click on \'Dashboard\' button', () => {
+        render(
+            <MemoryRouter>
+                <NotFoundPage/>
+            </MemoryRouter>);
+
+        const dashboardButton = screen.getByText('Dashboard');
+        userEvent.click(dashboardButton);
+
+        expect(window.location.pathname).not.toBe('/countries');
+    });
 });

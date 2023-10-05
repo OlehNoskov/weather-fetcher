@@ -32,10 +32,6 @@ describe('Fetch weather forecast', () => {
         }));
     }
 
-    afterEach(() => {
-        jest.restoreAllMocks();
-    });
-
     it('perform a fetch countries statistic', async () => {
         responsePromise(COUNTRIES);
 
