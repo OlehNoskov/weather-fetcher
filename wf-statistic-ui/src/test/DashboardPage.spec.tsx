@@ -1,7 +1,7 @@
 import {render, waitFor} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import {MemoryRouter} from "react-router-dom";
-import DashboardPage from "../src/pages/DashboardPage";
+import DashboardPage from "../pages/DashboardPage";
 
 describe('DashboardPage', () => {
     it('should render DashboardPage without open modal and statistic diagram', async () => {

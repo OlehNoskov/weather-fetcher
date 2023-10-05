@@ -27,11 +27,19 @@ export default function LocationPage() {
 
     return (
         <div className="App">
-            <Typography variant="h6" className={"change-location"}>
-                Change location
+            <div className={"change-location"}>
+                <Typography variant="h6" className={"title"}>
+                    Weather forecast
+                </Typography>
+                {forecast === undefined &&
+                    <Alert severity="info" sx={{display: "flex", justifyContent: "center"}}>
+                        Please, click on the Change button for getting weather forecast!
+                    </Alert>}
                 <Button variant="contained" onClick={() => setOpenModal(true)}
-                        size={"large"} color="success" className={"change-button"}>Change</Button>
-            </Typography>
+                        size={"large"} color="success" className={"change-button"}>
+                    Change
+                </Button>
+            </div>
             <Modal
                 open={openModal}
                 aria-labelledby="modal-modal-title"
@@ -39,14 +47,16 @@ export default function LocationPage() {
                 <Box className={"box"}>
                     <Typography variant="h6" className={"title-modal"}>
                         Weather forecast
-                        <Button className={"modal-close-button"} onClick={() => setOpenModal(false)}>
+                        <Button className={"modal-close-button"} onClick={() => setOpenModal(false)}
+                                data-testid={"close-modal"}>
                             <Icon>
                                 <img className={"close-image"} src="/images/close-icon.svg" alt={'close-icon'}/>
                             </Icon>
                         </Button>
                     </Typography>
                     {isDisabledButton() &&
-                        <Alert severity="warning" className={"alert-message"}>
+                        <Alert severity="warning" className={"alert-message"}
+                               sx={{display: "flex", justifyContent: "center"}}>
                             Please, input country and city for showing weather forecast!
                         </Alert>}
                     <div className={"inputs"}>

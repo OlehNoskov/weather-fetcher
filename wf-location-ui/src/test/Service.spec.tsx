@@ -1,4 +1,4 @@
-import {getForecast} from "../src/service/Service";
+import {getForecast} from "../service/Service";
 
 const MOCK_DATA = {
     "country": "Poland",

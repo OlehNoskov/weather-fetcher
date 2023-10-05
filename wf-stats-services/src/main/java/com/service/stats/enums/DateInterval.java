@@ -4,13 +4,13 @@ import lombok.Getter;
 
 @Getter
 public enum DateInterval {
-    ONE_WEEK("1 WEEK"),
+    ONE_WEEK("1 week"),
 
-    TWO_WEEK("2 WEEK"),
+    TWO_WEEK("2 week"),
 
-    ONE_MONTH("1 MONTH"),
+    ONE_MONTH("1 month"),
 
-    THREE_MONTH("3 MONTH"),
+    THREE_MONTH("3 month"),
 
     UNKNOWN("UNKNOWN");
 

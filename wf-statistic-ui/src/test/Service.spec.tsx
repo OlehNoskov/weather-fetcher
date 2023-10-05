@@ -5,9 +5,9 @@ import {
     getCitiesStatistic,
     getCountriesByIntervalStatistic,
     getCountriesStatistic
-} from "../src/service/Service";
-import {DateInterval} from "../src/enum/DateInterval";
-import {Statistic} from "../src/dto/Statistic";
+} from "../service/Service";
+import {DateInterval} from "../enum/DateInterval";
+import {Statistic} from "../dto/Statistic";
 
 const COUNTRIES = [
     {
@@ -23,17 +23,15 @@ const CITIES = [
     }
 ];
 
+global.fetch = jest.fn(() => Promise.resolve({
+    json: () => Promise.resolve()
+})) as jest.Mock;
+
+
 describe('Fetch weather forecast', () => {
 
-    const responsePromise = (data: Statistic[]) => {
-        // @ts-ignore
-        return global.fetch = jest.fn(() => Promise.resolve({
-            json: () => Promise.resolve(data)
-        }));
-    }
-
     it('perform a fetch countries statistic', async () => {
-        responsePromise(COUNTRIES);
+        // responsePromise(COUNTRIES);
 
         const response = getCountriesStatistic();
         const result = await response.then();
@@ -44,7 +42,7 @@ describe('Fetch weather forecast', () => {
     });
 
     it('perform a fetch countries by interval statistic', async () => {
-        responsePromise(COUNTRIES);
+        // responsePromise(COUNTRIES);
 
         const response = getCountriesByIntervalStatistic(DateInterval.ONE_WEEK);
         const result = await response.then();
@@ -55,7 +53,7 @@ describe('Fetch weather forecast', () => {
     });
 
     it('perform a fetch cities statistic', async () => {
-        responsePromise(CITIES);
+        // responsePromise(CITIES);
 
         const response = getCitiesStatistic();
         const result = await response.then();
@@ -66,7 +64,7 @@ describe('Fetch weather forecast', () => {
     });
 
     it('perform a fetch cities by interval statistic', async () => {
-        responsePromise(CITIES);
+        // responsePromise(CITIES);
         const response = getCitiesByIntervalStatistic(DateInterval.ONE_WEEK);
         const result = await response.then();
 
@@ -76,7 +74,7 @@ describe('Fetch weather forecast', () => {
     });
 
     it('perform a fetch cities by country statistic', async () => {
-        responsePromise(CITIES);
+        // responsePromise(CITIES);
 
         const response = getCitiesByCountryStatistic("Ukraine");
         const result = await response.then();
@@ -87,7 +85,7 @@ describe('Fetch weather forecast', () => {
     });
 
     it('perform a fetch cities by country and interval statistic', async () => {
-        responsePromise(CITIES);
+        // responsePromise(CITIES);
 
         const response = getCitiesByCountryAndIntervalStatistic("Ukraine", DateInterval.ONE_WEEK);
         const result = await response.then();

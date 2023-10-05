@@ -139,7 +139,8 @@ export default function StatisticPage() {
                     labelDiagram,
                     statistics.map((data) => data.data),
                     statistics.map((count) => count.count)]}/>
-            : <Alert severity="info">
+            : <Alert data-testid="message-empty-statistic" severity="info"
+                     sx={{display: "flex", justifyContent: "center"}}>
                 No available data for showing weather statistic!
             </Alert>;
     }

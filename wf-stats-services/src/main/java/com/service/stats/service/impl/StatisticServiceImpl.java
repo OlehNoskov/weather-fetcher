@@ -96,12 +96,12 @@ public class StatisticServiceImpl implements StatisticService {
 
         if (!DateInterval.getFromString(interval).equals(DateInterval.UNKNOWN)) {
             int amount = Integer.parseInt(interval.split(SPACE)[0]);
-            String period = interval.split(SPACE)[1];
+            String period = interval.split(SPACE)[1].toLowerCase();
 
-            if (period.equals("WEEK")) {
+            if (period.equals("week")) {
                 calendar.add(Calendar.WEEK_OF_YEAR, -amount);
             }
-            if (period.equals("MONTH")) {
+            if (period.equals("month")) {
                 calendar.add(Calendar.MONTH, -amount);
             }
         }
