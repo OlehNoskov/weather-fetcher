@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPage should render DashboardPage after click on Dashboard button 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="not-found"
+    >
+      <h1
+        data-testid="not-found-page"
+      >
+        Ooops! Page not found!
+      </h1>
+      <a
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeLarge MuiButton-containedSizeLarge button-home css-1i749hr-MuiButtonBase-root-MuiButton-root"
+        href="/"
+        tabindex="0"
+      >
+        Dashboard
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`NotFoundPage should render NotFoundPage when type incorrect url 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="not-found"
+    >
+      <h1
+        data-testid="not-found-page"
+      >
+        Ooops! Page not found!
+      </h1>
+      <a
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeLarge MuiButton-containedSizeLarge button-home css-1i749hr-MuiButtonBase-root-MuiButton-root"
+        href="/"
+        tabindex="0"
+      >
+        Dashboard
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`NotFoundPage should render NotFoundPage when typed incorrect url 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="not-found"
+    >
+      <h1
+        data-testid="not-found-page"
+      >
+        Ooops! Page not found!
+      </h1>
+      <a
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeLarge MuiButton-containedSizeLarge button-home css-1i749hr-MuiButtonBase-root-MuiButton-root"
+        href="/"
+        tabindex="0"
+      >
+        Dashboard
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`NotFoundPage should render NotFoundPage when typed incorrect url 2`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="not-found"
+    >
+      <h1
+        data-testid="not-found-page"
+      >
+        Ooops! Page not found!
+      </h1>
+      <a
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeLarge MuiButton-containedSizeLarge button-home css-1i749hr-MuiButtonBase-root-MuiButton-root"
+        href="/"
+        tabindex="0"
+      >
+        Dashboard
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
