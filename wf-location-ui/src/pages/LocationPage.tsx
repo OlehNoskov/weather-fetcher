@@ -2,27 +2,23 @@ import React, {useEffect, useState} from "react";
 import './LocationPage.css';
 import {Alert, Box, Button, Icon, Modal, TextField, Typography} from "@mui/material";
 import {Forecast} from "../dto/Forecast";
-import getForecast from "../service/Service";
+import {getForecast} from "../service/Service";
 import WeatherForecastPage from "./WeatherForecastPage";
 
 export default function LocationPage() {
     const [forecast, setForecast] = useState<Forecast>();
     const [openModal, setOpenModal] = React.useState(false);
-    const [country, setCountry] = useState(window.localStorage.getItem("country"));
-    const [city, setCity] = useState(window.localStorage.getItem("city"));
-
-    const isDisabledButton = (): boolean => {
-        // @ts-ignore
-        return country?.length <= 2 || city?.length <= 2;
-    };
-
-    useEffect(() => {
-        window.localStorage.setItem("country", country!);
-    }, [country]);
+    const [country, setCountry] = useState<string>("");
+    const [city, setCity] = useState<string>("");
 
     useEffect(() => {
         window.localStorage.setItem("city", city!);
-    }, [city]);
+        window.localStorage.setItem("country", country!);
+    }, [country, city]);
+
+    const isDisabledButton = (): boolean => {
+        return country?.length <= 2 || city?.length <= 2;
+    };
 
     const getForecastWeather = () => {
         getForecast(country!, city!).then((response) => setForecast(response));

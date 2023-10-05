@@ -2,6 +2,7 @@ package com.service.stats.service.impl;
 
 import com.service.stats.entity.Forecast;
 import com.service.stats.entity.Statistic;
+import com.service.stats.enums.DateInterval;
 import com.service.stats.service.StatisticService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -21,7 +22,6 @@ public class StatisticServiceImpl implements StatisticService {
     private static final String COUNT_FIELD = "count";
     private static final String CITY_FIELD = "city";
     private static final String SPACE = " ";
-    private static final int LIMIT_RESULT = 5;
 
     @Override
     public List<Statistic> getStatistic(String field) {
@@ -84,22 +84,26 @@ public class StatisticServiceImpl implements StatisticService {
     }
 
     private List<Statistic> getStatistics(CriteriaQuery<Statistic> query) {
+        int limitResult = 5;
         TypedQuery<Statistic> typedQuery = entityManager.createQuery(query);
-        typedQuery.setMaxResults(LIMIT_RESULT);
+        typedQuery.setMaxResults(limitResult);
 
         return typedQuery.getResultList().isEmpty() ? List.of() : typedQuery.getResultList();
     }
 
     private Date getInterval(String interval) {
         Calendar calendar = Calendar.getInstance();
-        int amount = Integer.parseInt(interval.split(SPACE)[0]);
-        String period = interval.split(SPACE)[1];
 
-        if (period.equals("WEEK")) {
-            calendar.add(Calendar.WEEK_OF_YEAR, -amount);
-        }
-        if (period.equals("MONTH")) {
-            calendar.add(Calendar.MONTH, -amount);
+        if (!DateInterval.getFromString(interval).equals(DateInterval.UNKNOWN)) {
+            int amount = Integer.parseInt(interval.split(SPACE)[0]);
+            String period = interval.split(SPACE)[1];
+
+            if (period.equals("WEEK")) {
+                calendar.add(Calendar.WEEK_OF_YEAR, -amount);
+            }
+            if (period.equals("MONTH")) {
+                calendar.add(Calendar.MONTH, -amount);
+            }
         }
         return calendar.getTime();
     }

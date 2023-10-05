@@ -29,10 +29,12 @@ For running only database in docker you can use command:
 For running react application in wf-statistic-ui you need use this command:
     npm i
     npm start
+    npm run test - for running UI tests
 
 For running remote react module in wf-location-ui you need use this command:
     npm i
     npm start
+    npm run test - for running UI tests
 
 For running project in docker you can use command (backend part and database):
     docker compose up

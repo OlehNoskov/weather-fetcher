@@ -10,6 +10,8 @@ public enum DateInterval {
 
     ONE_MONTH("1 MONTH"),
 
+    THREE_MONTH("3 MONTH"),
+
     UNKNOWN("UNKNOWN");
 
     private final String text;
