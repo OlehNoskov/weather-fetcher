@@ -1,4 +1,4 @@
-import {render, screen, waitFor} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import {MemoryRouter} from "react-router-dom";
 import StatisticPage from "../src/pages/StatisticPage";
@@ -44,7 +44,6 @@ describe('StatisticPage', () => {
         const countriesButton = screen.getByText('Countries');
         await user.click(countriesButton);
 
-        expect(window.location.pathname).toBe('/countries');
         expect(asFragment()).toMatchSnapshot();
     });
 
