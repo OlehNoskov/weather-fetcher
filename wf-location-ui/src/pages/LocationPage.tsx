@@ -8,61 +8,38 @@ import WeatherForecastPage from "./WeatherForecastPage";
 export default function LocationPage() {
     const [forecast, setForecast] = useState<Forecast>();
     const [openModal, setOpenModal] = React.useState(false);
-    const [country, setCountry] = useState(window.localStorage.getItem("country"));
-    const [city, setCity] = useState(window.localStorage.getItem("city"));
-
-    const isDisabledButton = (): boolean => {
-        // @ts-ignore
-        return country?.length <= 2 || city?.length <= 2;
-    };
-
-    const isValidCountry = (): boolean => {
-        // @ts-ignore
-        return country?.length <= 2;
-    };
-
-    const isValidCity = (): boolean => {
-        // @ts-ignore
-        return city?.length <= 2;
-    };
-
-    useEffect(() => {
-        window.localStorage.setItem("country", country!);
-    }, [country]);
+    const [country, setCountry] = useState<string>("");
+    const [city, setCity] = useState<string>("");
 
     useEffect(() => {
         window.localStorage.setItem("city", city!);
-    }, [city]);
+        window.localStorage.setItem("country", country!);
+    }, [country, city]);
 
-    const handleOpenModal = () => setOpenModal(true);
-
-    const handleCloseModal = () => setOpenModal(false);
+    const isDisabledButton = (): boolean => {
+        return country?.length <= 2 || city?.length <= 2;
+    };
 
     const getForecastWeather = () => {
         getForecast(country!, city!).then((response) => setForecast(response));
         setOpenModal(false);
     };
 
-    function getAlertMessage() {
-        return isDisabledButton() ?
-            <Alert severity="warning" className={"alert-message"}>
-                Please, input country and city for showing weather forecast!
-            </Alert>
-            :
-            <></>
-    }
-
-    function getWeatherForecast() {
-        return forecast !== undefined ? <WeatherForecastPage forecast={forecast}/> : <></>
-    }
-
     return (
         <div className="App">
-            <Typography variant="h6" className={"change-location"}>
-                Change location
-                <Button variant="contained" onClick={handleOpenModal}
-                        size={"large"} color="success" className={"change-button"}>Change</Button>
-            </Typography>
+            <div className={"change-location"}>
+                <Typography variant="h6" className={"title"}>
+                    Weather forecast
+                </Typography>
+                {forecast === undefined &&
+                    <Alert severity="info" sx={{display: "flex", justifyContent: "center"}}>
+                        Please, click on the Change button for getting weather forecast!
+                    </Alert>}
+                <Button variant="contained" onClick={() => setOpenModal(true)}
+                        size={"large"} color="success" className={"change-button"}>
+                    Change
+                </Button>
+            </div>
             <Modal
                 open={openModal}
                 aria-labelledby="modal-modal-title"
@@ -70,17 +47,22 @@ export default function LocationPage() {
                 <Box className={"box"}>
                     <Typography variant="h6" className={"title-modal"}>
                         Weather forecast
-                        <Button className={"modal-close-button"} onClick={handleCloseModal}>
+                        <Button className={"modal-close-button"} onClick={() => setOpenModal(false)}
+                                data-testid={"close-modal"}>
                             <Icon>
                                 <img className={"close-image"} src="/images/close-icon.svg" alt={'close-icon'}/>
                             </Icon>
                         </Button>
                     </Typography>
-                    {getAlertMessage()}
+                    {isDisabledButton() &&
+                        <Alert severity="warning" className={"alert-message"}
+                               sx={{display: "flex", justifyContent: "center"}}>
+                            Please, input country and city for showing weather forecast!
+                        </Alert>}
                     <div className={"inputs"}>
                         <div>
                             <TextField
-                                error={isValidCountry()}
+                                error={isDisabledButton()}
                                 label="Country" variant="outlined"
                                 type="text" value={country}
                                 onChange={(value) => {
@@ -89,7 +71,7 @@ export default function LocationPage() {
                         </div>
                         <div>
                             <TextField
-                                error={isValidCity()}
+                                error={isDisabledButton()}
                                 label="City" variant="outlined"
                                 className={"city"} type="text" value={city}
                                 onChange={(value) => {
@@ -105,7 +87,7 @@ export default function LocationPage() {
                     </div>
                 </Box>
             </Modal>
-            {getWeatherForecast()}
+            {forecast !== undefined && <WeatherForecastPage forecast={forecast}/>}
         </div>
     );
 };

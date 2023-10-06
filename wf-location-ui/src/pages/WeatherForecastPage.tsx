@@ -28,7 +28,7 @@ export default function WeatherForecastPage(props: IForecast) {
 
     return (
         <Card className={"weather-card"}>
-            <div className={"left-block-info"}>
+            <div className={"left-block-info"} data-testid="title">
                 <Typography variant="h6" className={"title"}>
                     CURRENT WEATHER
                     <p className={"location"}>{props.forecast?.country} {props.forecast?.city}</p>

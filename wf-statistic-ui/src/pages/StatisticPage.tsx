@@ -1,12 +1,5 @@
 import {Alert, Button, ButtonGroup, TextField, Typography,} from "@mui/material";
-import {
-    getCitiesByCountryAndIntervalStatistic,
-    getCitiesByCountryStatistic,
-    getCitiesByIntervalStatistic,
-    getCitiesStatistic,
-    getCountriesByIntervalStatistic,
-    getCountriesStatistic
-} from "../service/Service";
+import {getCitiesStatistic, getCountriesStatistic} from "../service/Service";
 import {Statistic} from "../dto/Statistic";
 import React, {useEffect, useState} from 'react';
 import {DateInterval} from "../enum/DateInterval";
@@ -44,38 +37,14 @@ export default function StatisticPage() {
 
     const countriesStatistic = () => {
         setLabelDiagram(TypeStatistic.COUNTRIES);
-        getCountriesStatistic().then((response) => setStatistics(response));
+        getCountriesStatistic(getParameter(dateInterval)).then((response) => setStatistics(response));
         showDiagramAndHideCountryInput();
     };
 
-    const countriesByIntervalStatistic = () => {
-        setLabelDiagram(TypeStatistic.COUNTRIES);
-        getCountriesByIntervalStatistic(dateInterval).then((response) => setStatistics(response));
-        showDiagramAndHideCountryInput();
-    };
-
-    const citiesStatistic = () => {
-        setLabelDiagram(TypeStatistic.CITIES);
-        getCitiesStatistic().then((response) => setStatistics(response));
-        showDiagramAndHideCountryInput();
-    };
-
-    const citiesByIntervalStatistic = () => {
-        setLabelDiagram(TypeStatistic.CITIES);
-        getCitiesByIntervalStatistic(dateInterval).then((response) => setStatistics(response));
-        showDiagramAndHideCountryInput();
-    };
-
-    const citiesByCountryStatistic = () => {
-        setLabelDiagram(TypeStatistic.CITIES_IN_COUNTRY);
-        getCitiesByCountryStatistic(country).then((response) => setStatistics(response));
-        showDiagramAndCountryInput();
-    };
-
-    const citiesByCountryAndIntervalStatistic = () => {
-        setLabelDiagram(TypeStatistic.CITIES_IN_COUNTRY);
-        getCitiesByCountryAndIntervalStatistic(country, dateInterval).then((response) => setStatistics(response));
-        showDiagramAndCountryInput();
+    const citiesStatistic = (typeStatistic: TypeStatistic) => {
+        setLabelDiagram(typeStatistic);
+        getCitiesStatistic(getParameter(country), getParameter(dateInterval)).then((response) => setStatistics(response));
+        typeStatistic === TypeStatistic.CITIES ? showDiagramAndHideCountryInput() : showDiagramAndCountryInput();
     };
 
     const showDiagramAndHideCountryInput = () => {
@@ -90,34 +59,34 @@ export default function StatisticPage() {
 
     const oneWeekStatistic = () => {
         setDateInterval(DateInterval.ONE_WEEK);
-        getStatistics();
+        getFilterStatistics();
     };
 
     const twoWeeksStatistic = () => {
         setDateInterval(DateInterval.TWO_WEEK);
-        getStatistics();
+        getFilterStatistics();
     };
 
     const oneMonthStatistic = () => {
         setDateInterval(DateInterval.ONE_MONTH);
-        getStatistics();
+        getFilterStatistics();
     };
 
     const resetDateInterval = () => {
         setDateInterval(DateInterval.DEFAULT);
-        getStatistics();
+        getFilterStatistics();
     };
 
-    const getStatistics = () => {
+    const getFilterStatistics = () => {
         switch (labelDiagram) {
             case TypeStatistic.COUNTRIES:
-                countriesByIntervalStatistic();
+                countriesStatistic();
                 break;
             case TypeStatistic.CITIES:
-                citiesByIntervalStatistic();
+                citiesStatistic(TypeStatistic.CITIES);
                 break;
             case TypeStatistic.CITIES_IN_COUNTRY:
-                citiesByCountryAndIntervalStatistic();
+                citiesStatistic(TypeStatistic.CITIES_IN_COUNTRY);
                 break;
         }
     };
@@ -128,11 +97,11 @@ export default function StatisticPage() {
         setStatistics([]);
     };
 
-    const isDisabledButton = (): boolean => {
-        return country.length <= 2;
-    };
+    const getParameter = (data: string) => {
+        return data === undefined ? "" : data;
+    }
 
-    const isValidCountry = (): boolean => {
+    const isDisabledSearchButton = (): boolean => {
         return country.length <= 2;
     };
 
@@ -143,7 +112,8 @@ export default function StatisticPage() {
                     labelDiagram,
                     statistics.map((data) => data.data),
                     statistics.map((count) => count.count)]}/>
-            : <Alert severity="info">
+            : <Alert data-testid="message-empty-statistic" severity="info"
+                     sx={{display: "flex", justifyContent: "center"}}>
                 No available data for showing weather statistic!
             </Alert>;
     }
@@ -161,7 +131,7 @@ export default function StatisticPage() {
                             disabled={labelDiagram === TypeStatistic.COUNTRIES}>
                             Countries
                         </Button>
-                        <Button onClick={citiesStatistic} component={Link} to="/cities"
+                        <Button onClick={() => citiesStatistic(TypeStatistic.CITIES)} component={Link} to="/cities"
                                 disabled={labelDiagram === TypeStatistic.CITIES}>
                             Cities
                         </Button>
@@ -190,16 +160,16 @@ export default function StatisticPage() {
             {openButtonSearch ?
                 <div className={"get-statistic-country"}>
                     <TextField label="Country" variant="outlined"
-                               error={isValidCountry()}
+                               error={isDisabledSearchButton()}
                                type="text" value={country}
                                onChange={(value) => {
                                    setCountry(value.target.value);
                                }} required={true}/>
                     <Button variant="contained" className={"search-statistic-button"}
-                            onClick={citiesByCountryStatistic}
+                            onClick={() => citiesStatistic(TypeStatistic.CITIES_IN_COUNTRY)}
                             size={"large"}
                             color="success"
-                            disabled={isDisabledButton()}>Search</Button>
+                            disabled={isDisabledSearchButton()}>Search</Button>
                 </div> : <></>}
             <div className={"statistic-diagram"}>
                 {openDiagram ? getDiagramStatistic() : <></>}

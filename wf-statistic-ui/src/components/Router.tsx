@@ -6,15 +6,13 @@ import {DiagramPage} from "../pages/DiagramPage";
 
 export const Router = () => {
     return (
-        <>
-            <Routes>
-                <Route path="/" element={<DashboardPage/>}>
-                    <Route path="countries" element={<DiagramPage/>}/>
-                    <Route path="cities" element={<DiagramPage/>}/>
-                    <Route path="cities/country" element={<DiagramPage/>}/>
-                </Route>
-                <Route path='/*' element={<NotFoundPage/>}/>
-            </Routes>
-        </>
+        <Routes>
+            <Route path="/" element={<DashboardPage/>}>
+                <Route path="countries" element={<DiagramPage/>}/>
+                <Route path="cities" element={<DiagramPage/>}/>
+                <Route path="cities/country" element={<DiagramPage/>}/>
+            </Route>
+            <Route path='*' element={<NotFoundPage/>}/>
+        </Routes>
     );
 };
