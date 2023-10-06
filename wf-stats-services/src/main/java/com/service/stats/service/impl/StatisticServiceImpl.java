@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -20,14 +21,22 @@ public class StatisticServiceImpl implements StatisticService {
     private final EntityManager entityManager;
     private static final String DATA_FIELD = "data";
     private static final String COUNT_FIELD = "count";
-    private static final String CITY_FIELD = "city";
     private static final String SPACE = " ";
 
     @Override
-    public List<Statistic> getStatistic(String field) {
+    public List<Statistic> getWeatherStatistic(String field, String country, String interval) {
+        if (isEmptyCountry(country) && isValidInterval(interval)) {
+            return getStatisticByInterval(field, interval);
+        }
+
+        if (!isEmptyCountry(country)) {
+            return !isValidInterval(interval)
+                    ? getCitiesByCountryStatistic(field, country)
+                    : getCitiesByCountryAndIntervalStatistic(field, country, interval);
+        }
+
         CriteriaQuery<Statistic> query = getCriteriaQuery();
         Root<Forecast> forecastRoot = query.from(Forecast.class);
-
         query.multiselect(
                         getExpression(forecastRoot, field).alias(DATA_FIELD),
                         getCountExpression(forecastRoot).alias(COUNT_FIELD))
@@ -37,8 +46,7 @@ public class StatisticServiceImpl implements StatisticService {
         return getStatistics(query);
     }
 
-    @Override
-    public List<Statistic> getStatisticByInterval(String field, String interval) {
+    private List<Statistic> getStatisticByInterval(String field, String interval) {
         CriteriaQuery<Statistic> query = getCriteriaQuery();
         Root<Forecast> forecastRoot = query.from(Forecast.class);
 
@@ -52,32 +60,30 @@ public class StatisticServiceImpl implements StatisticService {
         return getStatistics(query);
     }
 
-    @Override
-    public List<Statistic> getCitiesByCountryStatistic(String country) {
+    private List<Statistic> getCitiesByCountryStatistic(String field, String country) {
         CriteriaQuery<Statistic> query = getCriteriaQuery();
         Root<Forecast> forecastRoot = query.from(Forecast.class);
 
         query.multiselect(
-                        getExpression(forecastRoot, CITY_FIELD).alias(DATA_FIELD),
+                        getExpression(forecastRoot, field).alias(DATA_FIELD),
                         getCountExpression(forecastRoot).alias(COUNT_FIELD))
                 .where(getCountryPredicate(getCriteriaBuilder(), forecastRoot, country))
-                .groupBy(getExpression(forecastRoot, CITY_FIELD))
+                .groupBy(getExpression(forecastRoot, field))
                 .orderBy(getCriteriaBuilder().desc(getCountExpression(forecastRoot)));
 
         return getStatistics(query);
     }
 
-    @Override
-    public List<Statistic> getCitiesByCountryAndIntervalStatistic(String country, String interval) {
+    private List<Statistic> getCitiesByCountryAndIntervalStatistic(String field, String country, String interval) {
         CriteriaQuery<Statistic> query = getCriteriaQuery();
         Root<Forecast> forecastRoot = query.from(Forecast.class);
 
         query.multiselect(
-                        getExpression(forecastRoot, CITY_FIELD).alias(DATA_FIELD),
+                        getExpression(forecastRoot, field).alias(DATA_FIELD),
                         getCountExpression(forecastRoot).alias(COUNT_FIELD))
                 .where(getCriteriaBuilder().and(getCountryPredicate(getCriteriaBuilder(), forecastRoot, country),
                         getDatePredicate(getCriteriaBuilder(), forecastRoot, getInterval(interval))))
-                .groupBy(getExpression(forecastRoot, CITY_FIELD))
+                .groupBy(getExpression(forecastRoot, field))
                 .orderBy(getCriteriaBuilder().desc(getCountExpression(forecastRoot)));
 
         return getStatistics(query);
@@ -93,17 +99,14 @@ public class StatisticServiceImpl implements StatisticService {
 
     private Date getInterval(String interval) {
         Calendar calendar = Calendar.getInstance();
+        int amount = Integer.parseInt(interval.split(SPACE)[0]);
+        String period = interval.split(SPACE)[1].toLowerCase();
 
-        if (!DateInterval.getFromString(interval).equals(DateInterval.UNKNOWN)) {
-            int amount = Integer.parseInt(interval.split(SPACE)[0]);
-            String period = interval.split(SPACE)[1].toLowerCase();
-
-            if (period.equals("week")) {
-                calendar.add(Calendar.WEEK_OF_YEAR, -amount);
-            }
-            if (period.equals("month")) {
-                calendar.add(Calendar.MONTH, -amount);
-            }
+        if (period.equals("week")) {
+            calendar.add(Calendar.WEEK_OF_YEAR, -amount);
+        }
+        if (period.equals("month")) {
+            calendar.add(Calendar.MONTH, -amount);
         }
         return calendar.getTime();
     }
@@ -130,5 +133,13 @@ public class StatisticServiceImpl implements StatisticService {
 
     private Expression<Long> getCountExpression(Root<Forecast> forecastRoot) {
         return getCriteriaBuilder().count(forecastRoot);
+    }
+
+    private boolean isValidInterval(String interval) {
+        return !DateInterval.getFromString(interval).equals(DateInterval.UNKNOWN);
+    }
+
+    private boolean isEmptyCountry(String country) {
+        return Objects.equals("", country) || Objects.equals(null, country);
     }
 }
