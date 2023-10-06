@@ -4,7 +4,7 @@ import {MemoryRouter} from "react-router-dom";
 import StatisticPage from "../pages/StatisticPage";
 import userEvent from "@testing-library/user-event";
 
-const MOCK_DATA = [
+const MOCK_STATISTIC = [
     {
         "data": "test",
         "count": 1
@@ -21,10 +21,9 @@ describe('StatisticPage', () => {
             </MemoryRouter>);
     };
 
-
     beforeEach(() => {
         global.fetch = jest.fn(() => Promise.resolve({
-            json: () => Promise.resolve(MOCK_DATA)
+            json: () => Promise.resolve(MOCK_STATISTIC)
         })) as jest.Mock
     });
 
@@ -108,8 +107,8 @@ describe('StatisticPage', () => {
         expect(searchButton).toBeInTheDocument();
 
         await user.type(inputCountry, 'Ukraine');
-        expect(searchButton).toHaveProperty('disabled', false);
         await user.click(searchButton);
         await user.click(oneWeekButton);
+        expect(searchButton).toHaveProperty('disabled', false);
     });
 });

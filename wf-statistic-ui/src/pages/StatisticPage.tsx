@@ -98,7 +98,7 @@ export default function StatisticPage() {
     };
 
     const getParameter = (data: string) => {
-        return data === undefined ? '' : data;
+        return data === undefined ? "" : data;
     }
 
     const isDisabledSearchButton = (): boolean => {
@@ -131,7 +131,7 @@ export default function StatisticPage() {
                             disabled={labelDiagram === TypeStatistic.COUNTRIES}>
                             Countries
                         </Button>
-                        <Button onClick={()=> citiesStatistic(TypeStatistic.CITIES)} component={Link} to="/cities"
+                        <Button onClick={() => citiesStatistic(TypeStatistic.CITIES)} component={Link} to="/cities"
                                 disabled={labelDiagram === TypeStatistic.CITIES}>
                             Cities
                         </Button>

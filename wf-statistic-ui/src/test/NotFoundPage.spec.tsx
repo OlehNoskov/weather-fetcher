@@ -5,6 +5,11 @@ import NotFoundPage from "../pages/NotFoundPage";
 import {MemoryRouter} from "react-router-dom";
 
 describe('NotFoundPage', () => {
+    const renderNotFoundPage = () => render(
+        <MemoryRouter>
+            <NotFoundPage/>
+        </MemoryRouter>);
+
     it('should render NotFoundPage when type incorrect url', () => {
         const {asFragment} = render(
             <MemoryRouter>
@@ -15,26 +20,18 @@ describe('NotFoundPage', () => {
     });
 
     it('should navigate to DashboardPage after click on \'Dashboard\' button', () => {
-        render(
-            <MemoryRouter>
-                <NotFoundPage/>
-            </MemoryRouter>);
+        renderNotFoundPage();
 
         const dashboardButton = screen.getByText('Dashboard');
         userEvent.click(dashboardButton);
-
         expect(window.location.pathname).toBe('/');
     });
 
-    it('should do not navigate to \'Countries\' page after click on \'Dashboard\' button', () => {
-        render(
-            <MemoryRouter>
-                <NotFoundPage/>
-            </MemoryRouter>);
+    it('should do not navigate to \'countries\' page after click on \'Dashboard\' button', () => {
+        renderNotFoundPage();
 
         const dashboardButton = screen.getByText('Dashboard');
         userEvent.click(dashboardButton);
-
         expect(window.location.pathname).not.toBe('/countries');
     });
 });
