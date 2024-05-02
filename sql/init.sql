@@ -24,3 +24,5 @@ CREATE TABLE forecast
     date       TIMESTAMP    NOT NULL,
     weather_id INTEGER      NOT NULL
 );
+
+SET FOREIGN_KEY_CHECKS=1

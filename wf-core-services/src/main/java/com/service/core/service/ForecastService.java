@@ -1,9 +1,9 @@
 package com.service.core.service;
 
-import com.service.core.dto.response.ForecastResponse;
+import com.service.core.entity.Forecast;
 
 import java.text.ParseException;
 
 public interface ForecastService {
-    ForecastResponse getForecast(String country, String city) throws ParseException;
+    Forecast getForecast(String country, String city) throws ParseException;
 }
