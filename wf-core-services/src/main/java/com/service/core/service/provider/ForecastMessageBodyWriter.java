@@ -1,7 +1,7 @@
 package com.service.core.service.provider;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.service.core.dto.response.ForecastResponse;
+import com.service.core.entity.Forecast;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.MediaType;
@@ -16,14 +16,14 @@ import java.lang.reflect.Type;
 
 @Provider
 @Produces(MediaType.APPLICATION_JSON)
-public class ForecastMessageBodyWriter implements MessageBodyWriter<ForecastResponse> {
+public class ForecastMessageBodyWriter implements MessageBodyWriter<Forecast> {
     @Override
     public boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-        return ForecastResponse.class.isAssignableFrom(type);
+        return Forecast.class.isAssignableFrom(type);
     }
 
     @Override
-    public void writeTo(ForecastResponse customType, Class<?> type, Type genericType,
+    public void writeTo(Forecast customType, Class<?> type, Type genericType,
                         Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> httpHeaders,
                         OutputStream entityStream) throws IOException, WebApplicationException {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -31,7 +31,7 @@ public class ForecastMessageBodyWriter implements MessageBodyWriter<ForecastResp
     }
 
     @Override
-    public long getSize(ForecastResponse customType, Class<?> type, Type genericType,
+    public long getSize(Forecast customType, Class<?> type, Type genericType,
                         Annotation[] annotations, MediaType mediaType) {
         return -1;
     }
