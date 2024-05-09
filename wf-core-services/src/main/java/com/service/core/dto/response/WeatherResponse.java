@@ -1,16 +1,16 @@
-package com.service.core.dto.request;
+package com.service.core.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class WeatherRequest {
+public class WeatherResponse {
     @JsonProperty("last_updated")
     private String updateDate;
     @JsonProperty("temp_c")
     private String temperature;
     @JsonProperty("condition")
-    private OverallWeatherRequest overallWeatherRequest;
+    private OverallWeatherResponse overallWeatherResponse;
     private String humidity;
     private String cloud;
     @JsonProperty("uv")

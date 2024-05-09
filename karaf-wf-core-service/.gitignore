@@ -1,0 +1,7 @@
+# Project exclude paths
+/weather-fetcher-api/target/
+/weather-fetcher-features/target/
+/weather-fetcher-impl/target/
+/weather-fetcher-persistence/datasource/target/
+/weather-fetcher-persistence/impl/target/
+/.idea/

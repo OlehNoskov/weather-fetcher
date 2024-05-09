@@ -1,10 +1,10 @@
-package com.service.core.dto.request;
+package com.service.core.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class LocationRequest {
+public class LocationResponse {
     @JsonProperty("name")
     private String city;
     private String region;

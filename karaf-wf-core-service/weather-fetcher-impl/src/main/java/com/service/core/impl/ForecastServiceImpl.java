@@ -1,38 +1,34 @@
-package com.service.core.service.impl;
+package com.service.core.impl;
 
-
-import com.service.core.dto.response.ForecastResponse;
-import com.service.core.entity.Forecast;
-import com.service.core.entity.Temperature;
-import com.service.core.entity.Weather;
-import com.service.core.repository.ForecastRepository;
-import com.service.core.repository.TemperatureRepository;
-import com.service.core.repository.WeatherRepository;
+import com.service.core.enums.OverallWeather;
+import com.service.core.enums.Scale;
+import com.service.core.model.Forecast;
+import com.service.core.model.Temperature;
+import com.service.core.model.Weather;
 import com.service.core.service.ForecastService;
-import com.service.core.service.WeatherClient;
-import com.service.core.util.enums.OverallWeather;
-import com.service.core.util.enums.Scale;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.service.core.api.WeatherClient;
+import com.service.core.response.ForecastResponse;
+import com.service.core.persistence.impl.repository.Repository;
+import lombok.AllArgsConstructor;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class ForecastServiceImpl implements ForecastService {
     private final WeatherClient weatherClient;
-    private final ForecastRepository forecastRepository;
-    private final WeatherRepository weatherRepository;
-    private final TemperatureRepository temperatureRepository;
+    private final Repository repository;
 
     private final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 
     @Override
-    public Forecast getForecast(String country, String city) throws ParseException {
+    public Forecast getForecast(String country, String city) throws ParseException, IOException, URISyntaxException, InterruptedException {
         ForecastResponse forecastResponse = weatherClient.getForecast(country, city);
+
         Forecast forecast = Forecast.builder()
                 .country(forecastResponse.getLocationResponse().getCountry())
                 .city(forecastResponse.getLocationResponse().getCity())
@@ -40,7 +36,11 @@ public class ForecastServiceImpl implements ForecastService {
                 .weather(getWeather(forecastResponse))
                 .build();
 
-        return forecastRepository.save(forecast);
+        com.service.core.persistence.impl.entity.Forecast forecastEntity = ForecastModelToForecastEntity.convertToForecastEntity(forecast);
+
+        repository.saveForecast(forecastEntity);
+
+        return forecast;
     }
 
     private Weather getWeather(ForecastResponse forecast) {
@@ -50,7 +50,9 @@ public class ForecastServiceImpl implements ForecastService {
                 .degrees((int) Math.round(Double.parseDouble(forecast.getWeatherResponse().getTemperature())))
                 .build();
 
-        temperatureRepository.save(temperature);
+        com.service.core.persistence.impl.entity.Temperature temperatureEntity = TemperatureModelToTemperatureEntity.convertToTemperatureEntity(temperature);
+
+        repository.saveTemperature(temperatureEntity);
 
         Weather weather = Weather
                 .builder()
@@ -61,7 +63,11 @@ public class ForecastServiceImpl implements ForecastService {
                 .temperature(temperature)
                 .build();
 
-        return weatherRepository.save(weather);
+        com.service.core.persistence.impl.entity.Weather weatherEntity = WeatherModelToWeatherEntity.convertToWeatherEntity(weather);
+
+        repository.saveWeather(weatherEntity);
+
+        return weather;
     }
 
     private Date getDate(ForecastResponse forecastResponse) throws ParseException {
