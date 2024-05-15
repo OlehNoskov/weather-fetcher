@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<features name="weather-fetcher-features-0.0.1-SNAPSHOT" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
-    <feature name='weather-fetcher-features' version='0.0.1-SNAPSHOT'>
+<features name="weather-fetcher-features-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+    <feature name='weather-fetcher-features' version='${project.version}'>
         <feature>aries-blueprint</feature>
         <feature>http</feature>
         <feature>cxf</feature>
@@ -20,13 +20,9 @@
     <feature name="dependencies" version="1.0.0">
         <bundle>wrap:mvn:org.mariadb.jdbc/mariadb-java-client/${mariadb.version}</bundle>
         <bundle>mvn:org.apache.cxf/cxf-rt-rs-client/${cxf-client.version}</bundle>
-        <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${jackson.version}</bundle>
-        <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
         <bundle>mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
         <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
-        <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${jackson.version}</bundle>
-
-        <bundle>mvn:org.codehaus.jackson/jackson-mapper-asl/1.9.13</bundle>
     </feature>
 
 </features>

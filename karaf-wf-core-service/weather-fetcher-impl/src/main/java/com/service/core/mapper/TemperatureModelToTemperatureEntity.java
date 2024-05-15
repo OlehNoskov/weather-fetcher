@@ -1,4 +1,4 @@
-package com.service.core.impl;
+package com.service.core.mapper;
 
 import com.service.core.persistence.impl.Scale;
 import com.service.core.persistence.impl.entity.Temperature;

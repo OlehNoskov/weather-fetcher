@@ -24,7 +24,7 @@
         <mariadb.version>3.3.3</mariadb.version>
         <osgi.version>7.0.0</osgi.version>
         <lombok.version>1.18.32</lombok.version>
-        <maven-bundle-plugin.version>5.1.2</maven-bundle-plugin.version>
+        <maven-bundle-plugin.version>5.1.9</maven-bundle-plugin.version>
         <karaf-maven-plugin.version>4.4.6</karaf-maven-plugin.version>
         <javax.ws.rs-api.version>2.1.1</javax.ws.rs-api.version>
         <jackson.version>2.17.1</jackson.version>
@@ -56,7 +56,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 
     <build>
         <pluginManagement>

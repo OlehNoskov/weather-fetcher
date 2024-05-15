@@ -2,6 +2,9 @@ package com.service.core.impl;
 
 import com.service.core.enums.OverallWeather;
 import com.service.core.enums.Scale;
+import com.service.core.mapper.ForecastModelToForecastEntity;
+import com.service.core.mapper.TemperatureModelToTemperatureEntity;
+import com.service.core.mapper.WeatherModelToWeatherEntity;
 import com.service.core.model.Forecast;
 import com.service.core.model.Temperature;
 import com.service.core.model.Weather;

@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>weather-fetcher-impl</artifactId>
-    <name>Karaf :: Weather :: Fetcher :: Impl</name>
+    <name>Weather :: Fetcher :: Impl</name>
     <packaging>bundle</packaging>
 
     <dependencies>
@@ -25,7 +25,6 @@
             <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>osgi.core</artifactId>
@@ -38,11 +37,6 @@
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-client</artifactId>
             <version>${cxf-client.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.jaxrs</groupId>
-            <artifactId>jackson-jaxrs-json-provider</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -68,20 +62,13 @@
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <Export-Package>
                             com.service.core.impl*;version=${project.version},
-                            com.service.core.service;version=${project.version}
+                            com.service.core.service;version=${project.version},
+                            com.service.core.mapper;version=${project.version},
                         </Export-Package>
                         <Import-Package>
                             *
                         </Import-Package>
                     </instructions>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
