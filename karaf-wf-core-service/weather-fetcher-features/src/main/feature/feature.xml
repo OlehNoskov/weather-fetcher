@@ -25,6 +25,8 @@
         <bundle>mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
         <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
         <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${jackson.version}</bundle>
+
+        <bundle>mvn:org.codehaus.jackson/jackson-mapper-asl/1.9.13</bundle>
     </feature>
 
 </features>

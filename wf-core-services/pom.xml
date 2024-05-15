@@ -9,13 +9,15 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <groupId>com.core.service</groupId>
     <artifactId>wf-core-services</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Weather Fetcher :: Core :: Service :: SpringBoot</name>
+    <name>wf-core-services</name>
 
     <properties>
         <openfeign.version>4.0.4</openfeign.version>
         <apache.cxf.version>4.0.2</apache.cxf.version>
+        <jackson-jaxrs.version>1.9.13</jackson-jaxrs.version>
     </properties>
 
     <dependencies>
@@ -23,6 +25,11 @@
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
             <version>${apache.cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,23 +45,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>${jackson-jaxrs.version}</version>
+        </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

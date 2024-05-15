@@ -7,11 +7,10 @@
         <groupId>com.weather.fetcher</groupId>
         <artifactId>weather-fetcher-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>karaf-wf-core-service</artifactId>
-    <name>Karaf :: Weather :: Fetcher :: Core :: Service :: Parent</name>
+    <name>Weather :: Fetcher :: Core :: Service :: Parent</name>
     <packaging>pom</packaging>
 
     <properties>
@@ -20,8 +19,6 @@
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
         <jackson-jaxrs.version>1.9.13</jackson-jaxrs.version>
         <cxf-client.version>3.4.4</cxf-client.version>
-
-
         <hibernate.javax.version>1.0.0.Final</hibernate.javax.version>
         <hibernate.version>5.4.30.Final</hibernate.version>
         <mariadb.version>3.3.3</mariadb.version>

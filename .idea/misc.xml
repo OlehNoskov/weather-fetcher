@@ -7,17 +7,7 @@
         <option value="$PROJECT_DIR$/wf-core-services/pom.xml" />
         <option value="$PROJECT_DIR$/wf-stats-services/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/features/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-wf-core-service/features/pom.xml" />
-        <option value="$MAVEN_REPOSITORY$/com/core/service/wf-core-services/0.0.1-SNAPSHOT/wf-core-services-0.0.1-SNAPSHOT.pom" />
       </list>
-    </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$MAVEN_REPOSITORY$/com/core/service/wf-core-services/0.0.1-SNAPSHOT/wf-core-services-0.0.1-SNAPSHOT.pom" />
-        <option value="$PROJECT_DIR$/karaf-wf-core-service/persistence/entities/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-persistence/persistence-api/pom.xml" />
-      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="corretto-19" project-jdk-type="JavaSDK">
