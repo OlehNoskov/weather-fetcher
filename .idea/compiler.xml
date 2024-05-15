@@ -11,15 +11,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="weather-fetcher-api" />
+        <module name="weather-fetcher-persistence-datasource" />
         <module name="weather-fetcher-features" />
         <module name="weather-fetcher-persistence-impl" />
-        <module name="datasource" />
         <module name="wf-core-services" />
         <module name="weather-fetcher-impl" />
         <module name="wf-stats-services" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="datasource" target="17" />
       <module name="entities" target="17" />
       <module name="impl" target="17" />
       <module name="karaf-wf-core-service-persistence-api" target="17" />
@@ -27,6 +28,7 @@
       <module name="persistence-api" target="17" />
       <module name="persistence-impl" target="17" />
       <module name="weather-fercher-features" target="1.5" />
+      <module name="wf-core-services (1)" target="17" />
       <module name="wf-core-services (1) (com.core.service)" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -41,11 +43,13 @@
       <module name="persistence-api" options="-parameters" />
       <module name="persistence-impl" options="-parameters" />
       <module name="weather-fercher-features" options="" />
-      <module name="weather-fetcher-api" options="-parameters" />
-      <module name="weather-fetcher-impl" options="-parameters" />
+      <module name="weather-fetcher-api" options="" />
+      <module name="weather-fetcher-impl" options="" />
       <module name="weather-fetcher-persistence" options="" />
-      <module name="weather-fetcher-persistence-impl" options="-parameters" />
+      <module name="weather-fetcher-persistence-datasource" options="" />
+      <module name="weather-fetcher-persistence-impl" options="" />
       <module name="wf-core-services" options="-parameters" />
+      <module name="wf-core-services (1)" options="-parameters" />
       <module name="wf-core-services (1) (com.core.service)" options="-parameters" />
       <module name="wf-stats-services" options="-parameters" />
     </option>
