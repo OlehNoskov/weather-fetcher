@@ -5,6 +5,8 @@
              version="2.0">
 
     <persistence-unit name="weather-hibernate" transaction-type="JTA">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+<!--        <provider>org.hibernate.ejb.HibernatePersistence</provider>-->
         <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=weather_data_source)</jta-data-source>
 
         <properties>

@@ -11,21 +11,21 @@
                              update-strategy="reload">
     </cm:property-placeholder>
 
-<!--    <bean id="dataSource" class="org.mariadb.jdbc.MariaDbDataSource">-->
-<!--        <argument value="${hostname}"/>-->
-<!--        <argument value="${port}"/>-->
-<!--        <argument value="${database}"/>-->
-<!--        <property name="user" value="${user}"/>-->
-<!--        <property name="password" value="${password}"/>-->
-<!--    </bean>-->
-
     <bean id="dataSource" class="org.mariadb.jdbc.MariaDbDataSource">
-        <property name="URL" value="jdbc:mariadb://db:3306/weather"/>
-        <property name="user" value="root"/>
-        <property name="password" value="root"/>
-        <property name="databaseName" value="weather"/>
-        <property name="portNumber" value="3306"/>
+        <argument value="${hostname}"/>
+        <argument value="${port}"/>
+        <argument value="${database}"/>
+        <property name="user" value="${user}"/>
+        <property name="password" value="${password}"/>
     </bean>
+
+<!--    <bean id="dataSource" class="org.mariadb.jdbc.MariaDbDataSource">-->
+<!--        <property name="URL" value="jdbc:mariadb://db:3306/weather"/>-->
+<!--        <property name="user" value="root"/>-->
+<!--        <property name="password" value="root"/>-->
+<!--        <property name="databaseName" value="weather"/>-->
+<!--        <property name="portNumber" value="3306"/>-->
+<!--    </bean>-->
 
     <service interface="javax.sql.DataSource" ref="dataSource">
         <service-properties>
