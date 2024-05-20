@@ -1,4 +1,4 @@
-package org.apache.karaf.examples.rest.blueprint;
+package com.weather.fetcher.blueprint;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -13,8 +13,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import org.apache.karaf.examples.rest.api.Booking;
-import org.apache.karaf.examples.rest.api.BookingService;
+import com.weather.fetcher.api.Booking;
+import com.weather.fetcher.api.BookingService;
 
 @Path("/")
 public class BookingServiceRest implements BookingService {

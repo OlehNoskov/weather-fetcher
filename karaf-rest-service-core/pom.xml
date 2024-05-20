@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -20,12 +21,9 @@
     </modules>
 
     <properties>
-        <cxf.version>3.5.5</cxf.version>
-        <jackson.version>2.14.1</jackson.version>
         <felix.maven-bundle-plugin.version>5.1.9</felix.maven-bundle-plugin.version>
-        <aries.jax.rs.whiteboard.version>2.0.2</aries.jax.rs.whiteboard.version>
-
-        <bnd.version.policy>[$(version;==;$(@)),$(version;+;$(@)))</bnd.version.policy>
+        <jackson.version>2.14.1</jackson.version>
+        <cxf.version>3.5.5</cxf.version>
     </properties>
 
     <build>
@@ -34,31 +32,13 @@
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <version>${felix.maven-bundle-plugin.version}</version>
-                <inherited>true</inherited>
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
                         <nsh_interface>org.apache.aries.blueprint.NamespaceHandler</nsh_interface>
                         <nsh_namespace>osgi.service.blueprint.namespace</nsh_namespace>
-                        <_removeheaders>Private-Package,Include-Resource,Embed-Dependency,Created-By,Bnd-LastModified,Built-By,Tool</_removeheaders>
-                        <_versionpolicy>${bnd.version.policy}</_versionpolicy>
-                        <Bundle-DocURL>http://karaf.apache.org/</Bundle-DocURL>
                     </instructions>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>cleanVersions</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>cleanVersions</goal>
-                        </goals>
-                        <configuration>
-                            <versions>
-                                <karaf.osgi.version>${project.version}</karaf.osgi.version>
-                            </versions>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

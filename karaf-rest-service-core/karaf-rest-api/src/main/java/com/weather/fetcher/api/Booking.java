@@ -1,5 +1,5 @@
 
-package org.apache.karaf.examples.rest.api;
+package com.weather.fetcher.api;
 
 /**
  * A regular POJO.

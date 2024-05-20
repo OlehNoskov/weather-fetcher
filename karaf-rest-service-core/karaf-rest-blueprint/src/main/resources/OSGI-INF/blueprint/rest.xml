@@ -25,6 +25,6 @@
         </jaxrs:providers>
     </jaxrs:server>
 
-    <bean id="bookingBean" class="org.apache.karaf.examples.rest.blueprint.BookingServiceRest"/>
+    <bean id="bookingBean" class="com.weather.fetcher.blueprint.BookingServiceRest"/>
 
 </blueprint>
