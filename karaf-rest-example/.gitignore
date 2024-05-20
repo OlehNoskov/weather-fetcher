@@ -1,5 +1,0 @@
-# Project exclude paths
-/karaf-rest-example-api/target/
-/karaf-rest-example-blueprint/target/
-/karaf-rest-example-features/target/
-/target

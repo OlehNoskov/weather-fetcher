@@ -10,11 +10,22 @@
         <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-impl/pom.xml" />
         <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-persistence/impl/pom.xml" />
         <option value="$MAVEN_REPOSITORY$/com/core/service/wf-core-services/0.0.1-SNAPSHOT/wf-core-services-0.0.1-SNAPSHOT.pom" />
+        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-api/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-blueprint/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-features/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-example/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-client/karaf-rest-example-client-cxf/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-scr/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-client/karaf-rest-example-client-jersey/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$MAVEN_REPOSITORY$/com/core/service/wf-core-services/0.0.1-SNAPSHOT/wf-core-services-0.0.1-SNAPSHOT.pom" />
+        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-client/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-scr/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-whiteboard/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-example/pom.xml" />
       </set>
     </option>
   </component>

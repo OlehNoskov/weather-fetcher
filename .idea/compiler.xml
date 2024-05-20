@@ -13,16 +13,25 @@
         <module name="weather-fetcher-api" />
         <module name="weather-fetcher-persistence-datasource" />
         <module name="weather-fetcher-features" />
-        <module name="weather-fetcher-persistence-impl" />
-        <module name="wf-core-services" />
         <module name="weather-fetcher-impl" />
+        <module name="weather-fetcher-persistence-impl" />
+        <module name="karaf-rest-example-blueprint" />
+        <module name="wf-core-services" />
         <module name="wf-stats-services" />
+        <module name="karaf-rest-example-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="datasource" target="17" />
       <module name="entities" target="17" />
       <module name="impl" target="17" />
+      <module name="karaf-rest-example" target="1.5" />
+      <module name="karaf-rest-example-client" target="1.5" />
+      <module name="karaf-rest-example-client-cxf" target="1.5" />
+      <module name="karaf-rest-example-client-http" target="1.5" />
+      <module name="karaf-rest-example-client-jersey" target="1.5" />
+      <module name="karaf-rest-example-scr" target="1.5" />
+      <module name="karaf-rest-example-whiteboard" target="1.5" />
       <module name="karaf-wf-core-service-persistence-api" target="17" />
       <module name="metadata-service-features" target="1.5" />
       <module name="persistence-api" target="17" />
