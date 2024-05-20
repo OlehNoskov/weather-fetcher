@@ -19,6 +19,10 @@
         <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-client/karaf-rest-example-client-jersey/pom.xml" />
         <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-whiteboard/pom.xml" />
         <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-client/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-features/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-blueprint/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-api/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-service-core/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

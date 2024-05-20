@@ -13,11 +13,11 @@
         <requirement>osgi.service;effective:=active;filter:=(objectClass=org.osgi.service.http.HttpService)</requirement>
         <feature dependency="true">aries-blueprint</feature>
         <feature version="3.5.5" dependency="true">cxf-jaxrs</feature>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/2.14.1</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/2.14.1</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/2.14.1</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.14.1</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.14.1</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/2.17.1</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/2.17.1</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/2.17.1</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.17.1</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.17.1</bundle>
         <bundle>mvn:com.weather.fetcher/karaf-rest-blueprint/0.0.1-SNAPSHOT</bundle>
     </feature>
 

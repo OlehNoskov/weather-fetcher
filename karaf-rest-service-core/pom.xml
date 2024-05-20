@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>karaf-rest-service-core</artifactId>
-    <name>Apache Karaf :: Examples :: REST</name>
+    <name>Apache Karaf :: Service Core :: REST</name>
     <packaging>pom</packaging>
 
     <modules>
@@ -22,9 +22,30 @@
 
     <properties>
         <felix.maven-bundle-plugin.version>5.1.9</felix.maven-bundle-plugin.version>
-        <jackson.version>2.14.1</jackson.version>
+        <jackson.version>2.17.1</jackson.version>
         <cxf.version>3.5.5</cxf.version>
+        <lombok.version>1.18.32</lombok.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

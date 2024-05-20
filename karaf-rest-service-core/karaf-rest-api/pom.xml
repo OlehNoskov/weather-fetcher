@@ -21,7 +21,11 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <configuration>
                     <instructions>
-                        <Export-Package>com.weather.fetcher.api</Export-Package>
+                        <Export-Package>
+                            com.weather.fetcher.api.enums,
+                            com.weather.fetcher.api.model,
+                            com.weather.fetcher.api.service
+                        </Export-Package>
                     </instructions>
                 </configuration>
             </plugin>
