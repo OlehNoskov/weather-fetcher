@@ -1,0 +1,5 @@
+.idea
+
+karaf-rest-api/target
+karaf-rest-blueprint/target
+karaf-rest-features/target

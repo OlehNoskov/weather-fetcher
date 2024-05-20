@@ -1,7 +1,9 @@
-package com.weather.fetcher.blueprint.service;
+package com.weather.fetcher.blueprint.service.impl;
 
 import com.weather.fetcher.api.model.Forecast;
 import com.weather.fetcher.api.service.ForecastService;
+import com.weather.fetcher.blueprint.service.ForecastResponseService;
+import lombok.AllArgsConstructor;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,10 +14,10 @@ import java.net.URISyntaxException;
 import java.text.ParseException;
 
 @Path("/")
-//@AllArgsConstructor
-public class ForecastRestService implements ForecastService {
+@AllArgsConstructor
+public class ForecastServiceImpl implements ForecastService {
 
-//    private final WeatherClientService weatherClientService;
+    private final ForecastResponseService forecastResponseService;
 
     @Override
     @Path("/countries/{country}/cities/{city}")
@@ -24,6 +26,6 @@ public class ForecastRestService implements ForecastService {
     public Forecast getForecast(@PathParam("country") String country,
                                 @PathParam("city") String city) throws IOException, URISyntaxException, InterruptedException, ParseException {
 
-        return ForecastResponseService.getForecast(country, city);
+        return forecastResponseService.getForecast(country, city);
     }
 }
