@@ -25,6 +25,7 @@
         <jackson.version>2.17.1</jackson.version>
         <cxf.version>3.5.5</cxf.version>
         <lombok.version>1.18.32</lombok.version>
+        <javax.ws.version>2.1</javax.ws.version>
     </properties>
 
     <dependencies>

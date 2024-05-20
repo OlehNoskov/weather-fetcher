@@ -19,10 +19,6 @@ import java.util.Date;
 
 @RequiredArgsConstructor
 public class ForecastResponseServiceImpl implements ForecastResponseService {
-//    private final WeatherClient weatherClient;
-//    private final ForecastRepository forecastRepository;
-//    private final WeatherRepository weatherRepository;
-//    private final TemperatureRepository temperatureRepository;
 
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 
