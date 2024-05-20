@@ -23,12 +23,12 @@
 
     <parent>
         <groupId>com.weather.fetcher</groupId>
-        <artifactId>karaf-rest-example</artifactId>
+        <artifactId>karaf-rest-service-core</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>karaf-rest-example-api</artifactId>
-    <name>Apache Karaf :: Examples :: REST :: API</name>
+    <artifactId>karaf-rest-api</artifactId>
+    <name>Apache Karaf :: REST :: API</name>
     <packaging>bundle</packaging>
 
     <build>

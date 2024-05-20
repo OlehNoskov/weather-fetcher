@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>com.weather.fetcher</groupId>
-        <artifactId>karaf-rest-example</artifactId>
+        <artifactId>karaf-rest-service-core</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>karaf-rest-example-features</artifactId>
-    <name>Apache Karaf :: Examples :: REST :: Features</name>
+    <artifactId>karaf-rest-features</artifactId>
+    <name>Apache Karaf :: REST :: Features</name>
     <packaging>pom</packaging>
 
     <build>
