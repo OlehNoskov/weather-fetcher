@@ -1,8 +1,8 @@
 package com.weather.fetcher.persistence;
 
-import com.weather.fetcher.api.model.Forecast;
-import com.weather.fetcher.api.model.Temperature;
-import com.weather.fetcher.api.model.Weather;
+import com.weather.fetcher.api.entity.Forecast;
+import com.weather.fetcher.api.entity.Temperature;
+import com.weather.fetcher.api.entity.Weather;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

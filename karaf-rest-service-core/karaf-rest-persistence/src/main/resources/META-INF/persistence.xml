@@ -10,9 +10,9 @@
 
         <!--        <non-jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=weather)</non-jta-data-source>-->
 
-        <class>com.weather.fetcher.api.model.Forecast</class>
-        <class>com.weather.fetcher.api.model.Weather</class>
-        <class>com.weather.fetcher.api.model.Temperature</class>
+        <class>com.weather.fetcher.api.entity.Forecast</class>
+        <class>com.weather.fetcher.api.entity.Weather</class>
+        <class>com.weather.fetcher.api.entity.Temperature</class>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>

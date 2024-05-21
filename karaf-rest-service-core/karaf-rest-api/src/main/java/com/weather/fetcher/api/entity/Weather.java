@@ -1,4 +1,4 @@
-package com.weather.fetcher.api.model;
+package com.weather.fetcher.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

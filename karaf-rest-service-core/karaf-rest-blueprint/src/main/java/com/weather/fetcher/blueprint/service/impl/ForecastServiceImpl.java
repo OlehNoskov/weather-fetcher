@@ -1,6 +1,6 @@
 package com.weather.fetcher.blueprint.service.impl;
 
-import com.weather.fetcher.api.model.Forecast;
+import com.weather.fetcher.api.model.ForecastModel;
 import com.weather.fetcher.api.service.ForecastService;
 import com.weather.fetcher.blueprint.service.ForecastResponseService;
 import lombok.AllArgsConstructor;
@@ -23,8 +23,8 @@ public class ForecastServiceImpl implements ForecastService {
     @Path("/countries/{country}/cities/{city}")
     @Produces("application/json")
     @GET
-    public Forecast getForecast(@PathParam("country") String country,
-                                @PathParam("city") String city) throws IOException, URISyntaxException, InterruptedException, ParseException {
+    public ForecastModel getForecast(@PathParam("country") String country,
+                                     @PathParam("city") String city) throws IOException, URISyntaxException, InterruptedException, ParseException {
 
         return forecastResponseService.getForecast(country, city);
     }

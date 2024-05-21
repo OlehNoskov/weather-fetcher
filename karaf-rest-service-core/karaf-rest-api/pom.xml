@@ -30,6 +30,7 @@
                 <configuration>
                     <instructions>
                         <Export-Package>
+                            com.weather.fetcher.api.entity,
                             com.weather.fetcher.api.enums,
                             com.weather.fetcher.api.model,
                             com.weather.fetcher.api.service
