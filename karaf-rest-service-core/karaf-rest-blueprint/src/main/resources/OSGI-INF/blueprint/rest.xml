@@ -17,7 +17,11 @@
         </jaxrs:providers>
     </jaxrs:server>
 
-    <bean id="forecastResponseService" class="com.weather.fetcher.blueprint.service.impl.ForecastResponseServiceImpl"/>
+<!--    <reference id="repository" interface="com.weather.fetcher.persistence.Repository"/>-->
+
+    <bean id="forecastResponseService" class="com.weather.fetcher.blueprint.service.impl.ForecastResponseServiceImpl">
+<!--        <argument ref="repository"/>-->
+    </bean>
 
     <bean id="forecastBean" class="com.weather.fetcher.blueprint.service.impl.ForecastServiceImpl">
         <argument ref="forecastResponseService"/>

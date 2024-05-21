@@ -25,6 +25,11 @@
             <artifactId>karaf-rest-api</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.weather.fetcher</groupId>
+            <artifactId>karaf-rest-persistence</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

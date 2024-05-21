@@ -3,22 +3,56 @@
 <features name="karaf-rest-example-0.0.1-SNAPSHOT" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
 
     <repository>mvn:org.apache.cxf.karaf/apache-cxf/3.5.5/xml/features</repository>
-    
+
+    <feature name="karaf-rest-datasource" version="0.0.1-SNAPSHOT">
+        <config name="org.ops4j.datasource-weather">
+            osgi.jdbc.driver.class=org.mariadb.jdbc.Driver
+            dataSourceName=weather
+            databaseName=weather
+            user=root
+            password=root
+            port=3306
+        </config>
+        <capability>
+            osgi.service;objectClass=javax.sql.DataSource;effective:=active;osgi.jndi.service.name=weather
+        </capability>
+    </feature>
+
     <feature name="karaf-rest-common" version="0.0.1-SNAPSHOT">
+        <feature>transaction</feature>
+        <feature>jndi</feature>
+        <feature>pax-jdbc-config</feature>
+        <feature>pax-jdbc-mariadb</feature>
+        <feature>pax-jdbc-pool-dbcp2</feature>
+        <feature>jdbc</feature>
+        <feature dependency="true">aries-blueprint</feature>
+        <feature version="[2,3)">jpa</feature>
+        <feature version="[2,3)">eclipselink</feature>
+        <feature version="[5,6)">hibernate</feature>
+        <feature version="[3,4)">openjpa</feature>
+
         <bundle>mvn:com.weather.fetcher/karaf-rest-api/0.0.1-SNAPSHOT</bundle>
     </feature>
 
     <feature name="karaf-rest-blueprint" version="0.0.1-SNAPSHOT">
         <feature version="0.0.1-SNAPSHOT">karaf-rest-common</feature>
+<!--        <feature version="0.0.1-SNAPSHOT">karaf-rest-persistence</feature>-->
+
         <requirement>osgi.service;effective:=active;filter:=(objectClass=org.osgi.service.http.HttpService)</requirement>
         <feature dependency="true">aries-blueprint</feature>
         <feature version="3.5.5" dependency="true">cxf-jaxrs</feature>
+
         <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/2.17.1</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/2.17.1</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/2.17.1</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.17.1</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.17.1</bundle>
         <bundle>mvn:com.weather.fetcher/karaf-rest-blueprint/0.0.1-SNAPSHOT</bundle>
+    </feature>
+
+    <feature name="karaf-rest-persistence" version="0.0.1-SNAPSHOT">
+        <feature version="0.0.1-SNAPSHOT">karaf-rest-common</feature>
+        <bundle>mvn:com.weather.fetcher/karaf-rest-persistence/0.0.1-SNAPSHOT</bundle>
     </feature>
 
 </features>

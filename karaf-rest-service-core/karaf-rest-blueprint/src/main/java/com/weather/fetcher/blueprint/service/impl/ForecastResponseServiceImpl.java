@@ -1,5 +1,6 @@
 package com.weather.fetcher.blueprint.service.impl;
 
+//import com.weather.fetcher.persistence.Repository;
 import com.weather.fetcher.api.enums.OverallWeather;
 import com.weather.fetcher.api.enums.Scale;
 import com.weather.fetcher.api.model.Forecast;
@@ -19,8 +20,9 @@ import java.util.Date;
 
 @RequiredArgsConstructor
 public class ForecastResponseServiceImpl implements ForecastResponseService {
+//    private final Repository repository;
 
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+    private final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 
     public Forecast getForecast(String country, String city) throws ParseException, IOException, URISyntaxException, InterruptedException {
         ForecastResponse forecastResponse = WeatherClientService.getForecast(country, city);
@@ -31,18 +33,19 @@ public class ForecastResponseServiceImpl implements ForecastResponseService {
                 .weather(getWeather(forecastResponse))
                 .build();
 
-//        return forecastRepository.save(forecast);
+//        repository.saveForecast(forecast);
+
         return forecast;
     }
 
-    private static Weather getWeather(ForecastResponse forecast) {
+    private Weather getWeather(ForecastResponse forecast) {
         Temperature temperature = Temperature
                 .builder()
                 .scale(Scale.CELSIUS)
                 .degrees((int) Math.round(Double.parseDouble(forecast.getWeatherResponse().getTemperature())))
                 .build();
 
-//        temperatureRepository.save(temperature);
+//        repository.saveTemperature(temperature);
 
         Weather weather = Weather
                 .builder()
@@ -53,11 +56,12 @@ public class ForecastResponseServiceImpl implements ForecastResponseService {
                 .temperature(temperature)
                 .build();
 
-//        return weatherRepository.save(weather);
+//        repository.saveWeather(weather);
+
         return weather;
     }
 
-    private static Date getDate(ForecastResponse forecastResponse) throws ParseException {
+    private Date getDate(ForecastResponse forecastResponse) throws ParseException {
         return DATE_FORMAT.parse(forecastResponse.getWeatherResponse().getUpdateDate());
     }
 }

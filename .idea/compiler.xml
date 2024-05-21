@@ -21,6 +21,7 @@
         <module name="karaf-rest-api" />
         <module name="wf-stats-services" />
         <module name="karaf-rest-example-api" />
+        <module name="karaf-rest-persistence" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

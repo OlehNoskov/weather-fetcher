@@ -2,24 +2,44 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.weather.fetcher</groupId>
         <artifactId>karaf-rest-service-core</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>karaf-rest-api</artifactId>
-    <name>Apache Karaf :: REST :: API</name>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>karaf-rest-persistence</artifactId>
+    <name>Apache Karaf :: Rest :: Persistence</name>
     <packaging>bundle</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>com.weather.fetcher</groupId>
+            <artifactId>karaf-rest-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
             <version>${javax.persistence.version}</version>
         </dependency>
+        <dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>javax.transaction-api</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.interceptor</groupId>
+            <artifactId>javax.interceptor-api</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.mariadb.jdbc</groupId>-->
+        <!--            <artifactId>mariadb-java-client</artifactId>-->
+        <!--            <version>${mariadb.version}</version>-->
+        <!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -29,15 +49,9 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <configuration>
                     <instructions>
-                        <Export-Package>
-                            com.weather.fetcher.api.enums,
-                            com.weather.fetcher.api.model,
-                            com.weather.fetcher.api.service
-                        </Export-Package>
+                        <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
                         <Import-Package>
                             javax.persistence;version="[2,3)",
-                            org.hibernate.proxy,
-                            javassist.util.proxy,
                             *
                         </Import-Package>
                     </instructions>

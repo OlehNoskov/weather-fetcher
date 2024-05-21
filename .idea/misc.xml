@@ -23,6 +23,8 @@
         <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-blueprint/pom.xml" />
         <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-api/pom.xml" />
         <option value="$PROJECT_DIR$/karaf-rest-service-core/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-jpa-example-provider-blueprint-openjpa/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-persistence/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
