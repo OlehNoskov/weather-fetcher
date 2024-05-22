@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>karaf-rest-persistence</artifactId>
-    <name>Apache Karaf :: Rest :: Persistence</name>
+    <name>Apache Karaf :: REST :: Persistence</name>
     <packaging>bundle</packaging>
 
     <dependencies>
@@ -28,18 +28,8 @@
         <dependency>
             <groupId>javax.transaction</groupId>
             <artifactId>javax.transaction-api</artifactId>
-            <version>1.2</version>
+            <version>${javax.transaction-api.version}</version>
         </dependency>
-        <dependency>
-            <groupId>javax.interceptor</groupId>
-            <artifactId>javax.interceptor-api</artifactId>
-            <version>1.2.2</version>
-        </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.mariadb.jdbc</groupId>-->
-        <!--            <artifactId>mariadb-java-client</artifactId>-->
-        <!--            <version>${mariadb.version}</version>-->
-        <!--        </dependency>-->
     </dependencies>
 
     <build>

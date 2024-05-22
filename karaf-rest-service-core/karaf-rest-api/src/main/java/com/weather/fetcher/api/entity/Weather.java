@@ -26,8 +26,8 @@ public class Weather {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id;
-    @Enumerated (EnumType.ORDINAL)
-    private OverallWeather overall;
+//    @Enumerated (EnumType.ORDINAL)
+//    private OverallWeather overall;
     @OneToOne
     @JsonProperty("temperature")
     private Temperature temperature;

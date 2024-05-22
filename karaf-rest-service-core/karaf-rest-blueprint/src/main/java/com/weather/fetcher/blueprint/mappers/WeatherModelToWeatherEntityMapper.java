@@ -7,7 +7,7 @@ public class WeatherModelToWeatherEntityMapper {
 
     public static Weather getWeatherEntityFromWeatherModel(WeatherModel weatherModel) {
         return Weather.builder()
-                .overall(weatherModel.getOverall())
+//                .overall(weatherModel.getOverall())
                 .temperature(TemperatureModelToTemperatureEntityMapper.getTemperatureEntityFromTemperatureModel(weatherModel.getTemperatureModel()))
                 .build();
     }

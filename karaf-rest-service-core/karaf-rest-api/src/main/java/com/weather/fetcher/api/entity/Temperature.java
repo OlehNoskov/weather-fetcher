@@ -24,7 +24,7 @@ public class Temperature {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id;
-    @Enumerated(EnumType.ORDINAL)
-    private Scale scale;
+//    @Enumerated(EnumType.ORDINAL)
+//    private Scale scale;
     private int degrees;
 }

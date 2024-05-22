@@ -8,19 +8,21 @@
 
         <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=weather)</jta-data-source>
 
-        <!--        <non-jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=weather)</non-jta-data-source>-->
+        <non-jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=weather)</non-jta-data-source>
 
         <class>com.weather.fetcher.api.entity.Forecast</class>
         <class>com.weather.fetcher.api.entity.Weather</class>
         <class>com.weather.fetcher.api.entity.Temperature</class>
 
         <properties>
+            <property name="osgi.jdbc.driver.class" value="org.mariadb.jdbc.Driver"/>
+            <property name="osgi.jndi.service.name" value="weather"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-            <!--            <property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver"/>-->
-            <!--            <property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/weather"/>-->
-            <!--            <property name="hibernate.connection.username" value="root"/>-->
-            <!--            <property name="hibernate.connection.password" value="root"/>-->
+            <property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/weather"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="root"/>
         </properties>
     </persistence-unit>
 

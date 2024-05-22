@@ -11,6 +11,7 @@ import com.weather.fetcher.api.model.WeatherModel;
 import com.weather.fetcher.blueprint.response.ForecastResponse;
 import com.weather.fetcher.blueprint.service.ForecastResponseService;
 import com.weather.fetcher.blueprint.service.WeatherClientService;
+//import com.weather.fetcher.persistence.Repository;
 import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;

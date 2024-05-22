@@ -25,6 +25,9 @@
         <option value="$PROJECT_DIR$/karaf-rest-service-core/pom.xml" />
         <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-jpa-example-provider-blueprint-openjpa/pom.xml" />
         <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-persistence/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-persistence/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-api/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-features/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
