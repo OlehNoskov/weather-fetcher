@@ -10,6 +10,10 @@
     <file url="file://$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-features/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/karaf-rest-example/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/karaf-rest-example/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/karaf-rest-service-core/karaf-persistence/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/karaf-rest-service-core/karaf-persistence/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/karaf-rest-service-core/karaf-persistence/weather-fetcher-datasource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/karaf-rest-service-core/karaf-persistence/weather-fetcher-datasource/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/karaf-wf-core-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/karaf-wf-core-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-api/src/main/java" charset="UTF-8" />

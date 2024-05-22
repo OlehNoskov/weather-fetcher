@@ -1,0 +1,12 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jpa="http://aries.apache.org/xmlns/jpa/v2.0.0"
+           xmlns:tx="http://aries.apache.org/xmlns/transactions/v2.0.0">
+
+    <jpa:enable/>
+    <tx:enable/>
+
+    <bean id="repositoryImpl" class="com.weather.fetcher.repository.RepositoryImpl"/>
+    <service ref="repositoryImpl" interface="com.weather.fetcher.repository.Repository"/>
+
+</blueprint>

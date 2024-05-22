@@ -25,9 +25,11 @@ karaf@root()> feature:repo-add mvn:com.weather.fetcher/karaf-rest-features/LATES
 
 Then, you can install the datasource feature:
 
-```
-karaf@root()> feature:install karaf-rest-datasource
-```
+[//]: # (```)
+
+[//]: # (karaf@root&#40;&#41;> feature:install karaf-rest-datasource)
+
+[//]: # (```)
 
 Then, you can install the service blueprint provider:
 

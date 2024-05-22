@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.weather.fetcher</groupId>
@@ -8,27 +8,14 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <modelVersion>4.0.0</modelVersion>
-
     <artifactId>karaf-rest-persistence</artifactId>
-    <name>Apache Karaf :: REST :: Persistence</name>
-    <packaging>bundle</packaging>
+    <packaging>pom</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>com.weather.fetcher</groupId>
-            <artifactId>karaf-rest-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>${javax.persistence.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.transaction</groupId>
-            <artifactId>javax.transaction-api</artifactId>
-            <version>${javax.transaction-api.version}</version>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>${mariadb.version}</version>
         </dependency>
     </dependencies>
 
@@ -37,17 +24,9 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <configuration>
-                    <instructions>
-                        <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
-                        <Import-Package>
-                            javax.persistence;version="[2,3)",
-                            *
-                        </Import-Package>
-                    </instructions>
-                </configuration>
+                <version>${felix.maven-bundle-plugin.version}</version>
+                <extensions>true</extensions>
             </plugin>
         </plugins>
     </build>
-
 </project>

@@ -13,7 +13,6 @@
     <modules>
         <module>wf-core-services</module>
         <module>wf-stats-services</module>
-        <module>karaf-wf-core-service</module>
     </modules>
 
 </project>

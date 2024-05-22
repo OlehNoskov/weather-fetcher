@@ -1,59 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<features name="karaf-rest-example-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0"
+<features name="karaf-rest-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
 
-    <repository>mvn:org.apache.cxf.karaf/apache-cxf/${cxf.version}/xml/features</repository>
-
-    <feature name="mariadb-jdbc" version="3.4.0">
-        <bundle>mvn:org.mariadb.jdbc/mariadb-java-client/3.4.0</bundle>
-    </feature>
-
-    <feature name="karaf-rest-datasource" version="${project.version}">
-        <config name="org.ops4j.datasource-weather">
-            osgi.jdbc.driver.class=org.mariadb.jdbc.Driver
-            user=root
-            password=root
-            port=3306
-            url=jdbc:mariadb://localhost:3306/weather
-        </config>
-        <capability>
-            osgi.service;objectClass=javax.sql.DataSource;effective:=active;osgi.jndi.service.name=weather
-        </capability>
-    </feature>
-
-    <feature name="karaf-rest-common" version="${project.version}">
-        <feature>transaction</feature>
-        <feature>jndi</feature>
-        <feature>pax-jdbc-config</feature>
-        <feature>pax-jdbc-mariadb</feature>
-        <feature>pax-jdbc-pool-dbcp2</feature>
-        <feature>jdbc</feature>
-        <feature dependency="true">aries-blueprint</feature>
-        <feature version="[2,3)">jpa</feature>
-        <feature version="[5,6)">hibernate</feature>
-
-        <bundle>mvn:com.weather.fetcher/karaf-rest-api/${project.version}</bundle>
-    </feature>
+    <repository>mvn:org.apache.cxf.karaf/apache-cxf/3.5.3/xml/features</repository>
+    <repository>mvn:org.hibernate/hibernate-osgi/5.5.9.Final/xml/karaf</repository>
 
     <feature name="karaf-rest-blueprint" version="${project.version}">
-        <bundle>mvn:org.mariadb.jdbc/mariadb-java-client/3.4.0</bundle>
-        <feature version="${project.version}">karaf-rest-common</feature>
-        <feature version="${project.version}">karaf-rest-datasource</feature>
-        <feature version="${project.version}">karaf-rest-persistence</feature>
+        <feature>aries-blueprint</feature>
+        <feature>http</feature>
+        <feature>cxf</feature>
+<!--        <feature>transaction</feature>-->
+<!--        <feature>jpa</feature>-->
+<!--        <feature>hibernate-orm</feature>-->
+        <bundle>wrap:mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
+        <bundle>wrap:mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
+        <bundle>wrap:mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
+<!--        <bundle>wrap:mvn:org.mariadb.jdbc/mariadb-java-client/${mariadb.version}</bundle>-->
 
-        <feature version="${cxf.version}" dependency="true">cxf-jaxrs</feature>
-
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
-        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
-        <bundle>mvn:com.weather.fetcher/karaf-rest-blueprint/${project.version}</bundle>
-    </feature>
-
-    <feature name="karaf-rest-persistence" version="${project.version}">
-        <feature version="${project.version}">karaf-rest-common</feature>
-        <bundle>mvn:com.weather.fetcher/karaf-rest-persistence/${project.version}</bundle>
+        <bundle>mvn:com.weather.fetcher/karaf-rest-api/${project.version}</bundle>
+<!--        <bundle>mvn:com.weather.fetcher/weather-fetcher-datasource/${project.version}</bundle>-->
+<!--        <bundle>mvn:com.weather.fetcher/weather-fetcher-repository/${project.version}</bundle>-->
     </feature>
 
 </features>
