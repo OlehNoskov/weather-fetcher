@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>weather-fetcher-repository</artifactId>
-    <name>Apache Karaf :: Persistence :: Repository</name>
+    <name>Weather Fetcher :: Persistence :: Repository</name>
     <packaging>bundle</packaging>
 
     <dependencies>

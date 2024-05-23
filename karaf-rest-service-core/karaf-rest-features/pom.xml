@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>karaf-rest-features</artifactId>
-    <name>Apache Karaf :: REST :: Features</name>
+    <name>Weather Fetcher :: Features</name>
 
     <build>
         <resources>

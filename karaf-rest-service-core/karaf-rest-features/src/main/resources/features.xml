@@ -15,9 +15,9 @@
         <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
         <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
         <bundle>wrap:mvn:org.mariadb.jdbc/mariadb-java-client/${mariadb-java-client.version}</bundle>
-        <bundle>mvn:com.weather.fetcher/karaf-rest-api/${project.version}</bundle>
         <bundle>mvn:com.weather.fetcher/weather-fetcher-datasource/${project.version}</bundle>
         <bundle>mvn:com.weather.fetcher/weather-fetcher-repository/${project.version}</bundle>
+        <bundle>mvn:com.weather.fetcher/weather-fetcher-api/${project.version}</bundle>
     </feature>
 
 </features>

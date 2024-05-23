@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>weather-fetcher-datasource</artifactId>
-    <name>Apache Karaf :: Persistence :: Datasource</name>
+    <name>Weather Fetcher :: Persistence :: Datasource</name>
     <packaging>bundle</packaging>
 
 </project>

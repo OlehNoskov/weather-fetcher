@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>karaf-rest-persistence</artifactId>
-    <name>Apache Karaf :: REST :: Persistence</name>
+    <name>Weather Fetcher :: Persistence</name>
     <packaging>pom</packaging>
 
     <modules>
