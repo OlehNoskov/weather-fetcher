@@ -9,7 +9,7 @@ import com.weather.fetcher.api.model.ForecastModel;
 import com.weather.fetcher.api.model.TemperatureModel;
 import com.weather.fetcher.api.model.WeatherModel;
 import com.weather.fetcher.api.response.ForecastResponse;
-import com.weather.fetcher.repository.Repository;
+//import com.weather.fetcher.repository.Repository;
 import lombok.AllArgsConstructor;
 
 import java.io.IOException;
@@ -19,10 +19,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@AllArgsConstructor
+//@AllArgsConstructor
 public class ForecastServiceImpl implements ForecastService {
 
-    private final Repository repository;
+//    private final Repository repository;
 
     private final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 
@@ -37,7 +37,7 @@ public class ForecastServiceImpl implements ForecastService {
                 .weatherModel(getWeather(forecastResponse))
                 .build();
 
-        repository.saveForecast(ForecastModelToForecastEntityMapper.getForecastEntityFromForecastModel(forecastModel));
+//        repository.saveForecast(ForecastModelToForecastEntityMapper.getForecastEntityFromForecastModel(forecastModel));
 
         return forecastModel;
     }
@@ -49,7 +49,7 @@ public class ForecastServiceImpl implements ForecastService {
                 .degrees((int) Math.round(Double.parseDouble(forecast.getWeatherResponse().getTemperature())))
                 .build();
 
-        repository.saveTemperature(TemperatureModelToTemperatureEntityMapper.getTemperatureEntityFromTemperatureModel(temperatureModel));
+//        repository.saveTemperature(TemperatureModelToTemperatureEntityMapper.getTemperatureEntityFromTemperatureModel(temperatureModel));
 
         WeatherModel weatherModel = WeatherModel
                 .builder()
@@ -60,7 +60,7 @@ public class ForecastServiceImpl implements ForecastService {
                 .temperatureModel(temperatureModel)
                 .build();
 
-        repository.saveWeather(WeatherModelToWeatherEntityMapper.getWeatherEntityFromWeatherModel(weatherModel));
+//        repository.saveWeather(WeatherModelToWeatherEntityMapper.getWeatherEntityFromWeatherModel(weatherModel));
 
         return weatherModel;
     }

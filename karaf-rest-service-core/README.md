@@ -20,7 +20,7 @@ mvn clean install
 On a running Karaf instance, register the features repository using:
 
 ```
-karaf@root()> feature:repo-add mvn:com.weather.fetcher/karaf-rest-features/LATEST/xml
+karaf@root()> feature:repo-add mvn:com.weather.fetcher/karaf-rest-features/LATEST/xml/features
 ```
 
 Then, you can install the service blueprint provider:
