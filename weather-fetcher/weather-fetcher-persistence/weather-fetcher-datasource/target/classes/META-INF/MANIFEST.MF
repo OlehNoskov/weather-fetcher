@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1716495660654
+Build-Jdk: 11.0.19
+Built-By: noskov
+Bundle-Blueprint: OSGI-INF/blueprint/weather-fetcher-datasource.xml
+Bundle-Description: weather-fetcher OSGi bundle project
+Bundle-ManifestVersion: 2
+Bundle-Name: weather-fetcher-datasource
+Bundle-SymbolicName: com.weather.fetcher-datasource
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Service: javax.sql.DataSource;osgi.jndi.service.name=weatherDs;os
+ gi.service.blueprint.compname=weatherDataSource
+Import-Package: javax.sql,org.mariadb.jdbc;version="[3.0,4)",org.osgi.se
+ rvice.blueprint;version="[1.0.0,2.0.0)"
+Tool: Bnd-4.2.0.201903051501

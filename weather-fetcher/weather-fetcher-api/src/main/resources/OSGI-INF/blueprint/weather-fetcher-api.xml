@@ -1,0 +1,22 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs" xmlns:util="http://www.w3.org/2001/XMLSchema"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0
+           https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <reference id="repository" interface="com.weather.fetcher.repo.Repository"/>
+
+    <bean id="forecastBean" class="com.weather.fetcher.api.service.ForecastServiceImpl">
+        <argument ref="repository"/>
+    </bean>
+
+    <jaxrs:server address="/forecast" id="forecastRest">
+        <jaxrs:serviceBeans>
+            <ref component-id="forecastBean"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+
+</blueprint>
