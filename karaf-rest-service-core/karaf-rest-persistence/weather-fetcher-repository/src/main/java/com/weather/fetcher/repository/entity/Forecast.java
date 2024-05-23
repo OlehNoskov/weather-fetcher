@@ -1,4 +1,4 @@
-package com.weather.fetcher.entity;
+package com.weather.fetcher.repository.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;

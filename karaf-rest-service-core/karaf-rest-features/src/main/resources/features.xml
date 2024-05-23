@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<features name="karaf-rest-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0"
+<features name="karaf-rest-features" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
 
@@ -11,17 +11,17 @@
         <feature>aries-blueprint</feature>
         <feature>http</feature>
         <feature>cxf</feature>
-<!--        <feature>transaction</feature>-->
-<!--        <feature>jpa</feature>-->
-<!--        <feature>hibernate-orm</feature>-->
+        <feature>transaction</feature>
+        <feature>jpa</feature>
+        <feature>hibernate-orm</feature>
         <bundle>wrap:mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
         <bundle>wrap:mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
         <bundle>wrap:mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
-<!--        <bundle>wrap:mvn:org.mariadb.jdbc/mariadb-java-client/${mariadb.version}</bundle>-->
+        <bundle>wrap:mvn:org.mariadb.jdbc/mariadb-java-client/${mariadb-java-client.version}</bundle>
 
         <bundle>mvn:com.weather.fetcher/karaf-rest-api/${project.version}</bundle>
-<!--        <bundle>mvn:com.weather.fetcher/weather-fetcher-datasource/${project.version}</bundle>-->
-<!--        <bundle>mvn:com.weather.fetcher/weather-fetcher-repository/${project.version}</bundle>-->
+        <bundle>mvn:com.weather.fetcher/weather-fetcher-datasource/${project.version}</bundle>
+        <bundle>mvn:com.weather.fetcher/weather-fetcher-repository/${project.version}</bundle>
     </feature>
 
 </features>

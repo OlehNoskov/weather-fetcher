@@ -4,43 +4,33 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.weather.fetcher</groupId>
-        <artifactId>weather-fetcher-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
-
+    <groupId>com.weather.fetcher</groupId>
     <artifactId>karaf-rest-service-core</artifactId>
     <name>Apache Karaf :: REST :: Service Core</name>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>karaf-rest-api</module>
         <module>karaf-rest-features</module>
         <module>karaf-rest-persistence</module>
-        <module>karaf-rest-persistence/weather-fetcher-datasource</module>
-        <module>karaf-rest-persistence/weather-fetcher-repository</module>
     </modules>
 
     <properties>
-        <felix.maven-bundle-plugin.version>5.1.9</felix.maven-bundle-plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
         <jackson.version>2.17.1</jackson.version>
-        <cxf.version>3.5.5</cxf.version>
         <lombok.version>1.18.32</lombok.version>
+
         <javax.ws.version>2.1</javax.ws.version>
-        <javax.persistence.version>2.1.0</javax.persistence.version>
-        <mariadb.version>3.3.3</mariadb.version>
-        <javax.transaction-api.version>1.2</javax.transaction-api.version>
+        <mariadb-java-client.version>3.0.8</mariadb-java-client.version>
+        <hibernate-jpa-2.1-api.version>1.0.2.Final</hibernate-jpa-2.1-api.version>
+        <hibernate.version>5.5.9.Final</hibernate.version>
 
         <maven-bundle-plugin.version>4.2.0</maven-bundle-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <build.helper.maven.plugin.version>1.10</build.helper.maven.plugin.version>
-
-        <osgi.version>5.0.0</osgi.version>
-        <hibernate.version>5.5.9.Final</hibernate.version>
-        <mariadb-java-client.version>3.0.8</mariadb-java-client.version>
-        <hibernate-jpa-2.1-api.version>1.0.2.Final</hibernate-jpa-2.1-api.version>
-        <cxf.version>3.5.3</cxf.version>
     </properties>
 
     <dependencies>
@@ -66,16 +56,10 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>${felix.maven-bundle-plugin.version}</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
                 <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <nsh_interface>org.apache.aries.blueprint.NamespaceHandler</nsh_interface>
-                        <nsh_namespace>osgi.service.blueprint.namespace</nsh_namespace>
-                    </instructions>
-                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -28,6 +28,8 @@
         <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-persistence/pom.xml" />
         <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-api/pom.xml" />
         <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-features/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-persistence/weather-fetcher-repository/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-persistence/weather-fetcher-datasource/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -36,6 +38,8 @@
         <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-client/pom.xml" />
         <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-scr/pom.xml" />
         <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-whiteboard/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-blueprint/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-wf-core-service/pom.xml" />
       </set>
     </option>
   </component>

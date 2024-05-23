@@ -4,13 +4,13 @@
 
     <parent>
         <groupId>com.weather.fetcher</groupId>
-        <artifactId>karaf-rest-service-core</artifactId>
+        <artifactId>karaf-rest-persistence</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>weather-fetcher-datasource</artifactId>
+    <name>Apache Karaf :: Persistence :: Datasource</name>
     <packaging>bundle</packaging>
-    <name>weather-fetcher-datasource</name>
 
 </project>

@@ -16,6 +16,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.weather.fetcher</groupId>
+            <artifactId>weather-fetcher-repository</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>
             <version>${javax.ws.version}</version>
@@ -27,7 +32,7 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-<!--                <version>4.2.0</version>-->
+                <version>${maven-bundle-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
@@ -36,14 +41,6 @@
                             *
                         </Import-Package>
                     </instructions>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>11</source>
-                    <target>11</target>
                 </configuration>
             </plugin>
         </plugins>

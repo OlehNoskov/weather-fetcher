@@ -23,14 +23,6 @@ On a running Karaf instance, register the features repository using:
 karaf@root()> feature:repo-add mvn:com.weather.fetcher/karaf-rest-features/LATEST/xml
 ```
 
-Then, you can install the datasource feature:
-
-[//]: # (```)
-
-[//]: # (karaf@root&#40;&#41;> feature:install karaf-rest-datasource)
-
-[//]: # (```)
-
 Then, you can install the service blueprint provider:
 
 ```

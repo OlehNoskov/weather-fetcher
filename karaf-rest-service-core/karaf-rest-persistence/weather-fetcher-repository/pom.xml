@@ -3,24 +3,25 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.weather.fetcher</groupId>
-        <artifactId>karaf-rest-service-core</artifactId>
+        <artifactId>karaf-rest-persistence</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>weather-fetcher-repository</artifactId>
+    <name>Apache Karaf :: Persistence :: Repository</name>
     <packaging>bundle</packaging>
 
     <dependencies>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.5.9.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
-            <version>1.0.2.Final</version>
+            <version>${hibernate-jpa-2.1-api.version}</version>
         </dependency>
     </dependencies>
 
@@ -33,7 +34,7 @@
                 <configuration>
                     <instructions>
                         <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
-                        <Export-Package>org.weather.fetcher.repo.*</Export-Package>
+                        <Export-Package>com.weather.fetcher.repository.*</Export-Package>
                         <Import-Package>
                             org.hibernate.proxy,
                             javassist.util.proxy,

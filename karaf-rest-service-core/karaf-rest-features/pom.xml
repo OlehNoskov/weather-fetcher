@@ -16,9 +16,8 @@
     <build>
         <resources>
             <resource>
-                <directory>src/main/feature</directory>
+                <directory>src/main/resources</directory>
                 <filtering>true</filtering>
-                <targetPath>${project.build.directory}/feature</targetPath>
             </resource>
         </resources>
         <plugins>
@@ -27,6 +26,8 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
                     <execution>
+                        <id>filter</id>
+                        <phase>generate-resources</phase>
                         <goals>
                             <goal>resources</goal>
                         </goals>
@@ -46,7 +47,8 @@
                         <configuration>
                             <artifacts>
                                 <artifact>
-                                    <file>target/feature/feature.xml</file>
+                                    <file>target/classes/features.xml</file>
+                                    <classifier>features</classifier>
                                     <type>xml</type>
                                 </artifact>
                             </artifacts>

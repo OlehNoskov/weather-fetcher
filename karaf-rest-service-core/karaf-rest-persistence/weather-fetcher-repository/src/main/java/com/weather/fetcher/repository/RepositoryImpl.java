@@ -1,9 +1,9 @@
 package com.weather.fetcher.repository;
 
-
-import com.weather.fetcher.entity.Forecast;
-import com.weather.fetcher.entity.Temperature;
-import com.weather.fetcher.entity.Weather;
+import com.weather.fetcher.repository.entity.Forecast;
+import com.weather.fetcher.repository.entity.Temperature;
+import com.weather.fetcher.repository.entity.Weather;
+import lombok.Getter;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,6 +12,7 @@ import javax.transaction.Transactional;
 @Transactional
 public class RepositoryImpl implements Repository {
 
+    @Getter
     @PersistenceContext(unitName = "weather-hibernate")
     private EntityManager entityManager;
 

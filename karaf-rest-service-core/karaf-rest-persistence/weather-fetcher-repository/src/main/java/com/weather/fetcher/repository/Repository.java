@@ -1,8 +1,8 @@
 package com.weather.fetcher.repository;
 
-import com.weather.fetcher.entity.Forecast;
-import com.weather.fetcher.entity.Temperature;
-import com.weather.fetcher.entity.Weather;
+import com.weather.fetcher.repository.entity.Forecast;
+import com.weather.fetcher.repository.entity.Temperature;
+import com.weather.fetcher.repository.entity.Weather;
 
 public interface Repository {
     void saveForecast(Forecast forecast);
