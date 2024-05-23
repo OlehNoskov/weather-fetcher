@@ -7,10 +7,10 @@
            https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
 
-<!--    <reference id="repository" interface="com.weather.fetcher.repository.Repository"/>-->
+    <reference id="repository" interface="com.weather.fetcher.repository.Repository"/>
 
     <bean id="forecastBean" class="com.weather.fetcher.api.service.ForecastServiceImpl">
-<!--        <argument ref="repository"/>-->
+        <argument ref="repository"/>
     </bean>
 
     <jaxrs:server id="forecastRest" address="/forecast">

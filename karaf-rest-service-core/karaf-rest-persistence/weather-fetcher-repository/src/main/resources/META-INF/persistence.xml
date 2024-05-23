@@ -5,6 +5,7 @@
 
     <persistence-unit name="weather-hibernate" transaction-type="JTA">
         <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=weather)</jta-data-source>
+
         <properties>
             <property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDB103Dialect"/>
