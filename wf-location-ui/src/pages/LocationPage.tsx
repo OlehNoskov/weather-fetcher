@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
-import './LocationPage.css';
+
 import {Alert, Box, Button, Icon, Modal, TextField, Typography} from "@mui/material";
 import {Forecast} from "../dto/Forecast";
 import {getForecast} from "../service/Service";
 import WeatherForecastPage from "./WeatherForecastPage";
+
+import './LocationPage.css';
 
 export default function LocationPage() {
     const [forecast, setForecast] = useState<Forecast>();

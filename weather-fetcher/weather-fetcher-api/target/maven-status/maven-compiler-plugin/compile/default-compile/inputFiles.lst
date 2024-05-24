@@ -1,6 +1,4 @@
-/home/noskov/IdeaProjects/weather-fetcher/weather-fetcher/weather-fetcher-api/src/main/java/org/weather/fetcher/api/model/TemperatureModel.java
 /home/noskov/IdeaProjects/weather-fetcher/weather-fetcher/weather-fetcher-api/src/main/java/org/weather/fetcher/api/response/ForecastResponse.java
-/home/noskov/IdeaProjects/weather-fetcher/weather-fetcher/weather-fetcher-api/src/main/java/org/weather/fetcher/api/model/WeatherModel.java
 /home/noskov/IdeaProjects/weather-fetcher/weather-fetcher/weather-fetcher-api/src/main/java/org/weather/fetcher/api/service/ForecastServiceImpl.java
 /home/noskov/IdeaProjects/weather-fetcher/weather-fetcher/weather-fetcher-api/src/main/java/org/weather/fetcher/api/response/LocationResponse.java
 /home/noskov/IdeaProjects/weather-fetcher/weather-fetcher/weather-fetcher-api/src/main/java/org/weather/fetcher/api/model/ForecastModel.java

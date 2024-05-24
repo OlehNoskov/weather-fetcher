@@ -1,7 +1,7 @@
 export enum OverallWeather {
-    SUNNY = 'SUNNY',
-    CLOUDY = 'CLOUDY',
-    PARTLY_CLOUDY = 'PARTLY_CLOUDY',
-    RAINY = 'RAINY',
-    UNKNOWN = 'UNKNOWN'
+    SUNNY = 'Sunny',
+    CLOUDY = 'Cloudy',
+    PARTLY_CLOUDY = 'Partly_cloudy',
+    RAINY = 'Rainy',
+    UNKNOWN = ''
 }

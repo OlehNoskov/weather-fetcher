@@ -10,7 +10,7 @@
         <argument ref="repository"/>
     </bean>
 
-    <jaxrs:server address="/forecast" id="forecastRest">
+    <jaxrs:server address="/weather" id="forecastRest">
         <jaxrs:serviceBeans>
             <ref component-id="forecastBean"/>
         </jaxrs:serviceBeans>
