@@ -11,7 +11,7 @@ const MOCK_FORECAST: Forecast = {
     city: "Warsaw",
     date: new Date(),
     overall: OverallWeather.UNKNOWN,
-    scale: 'CELSIUS',
+    scale: 'Celsius',
     degrees: 15
 }
 

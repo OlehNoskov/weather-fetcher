@@ -22,7 +22,7 @@ export default function WeatherForecastPage(props: IForecast) {
                 return <img src={"/images/cloudy.png"} alt="Cloudy"/>;
             case OverallWeather.RAINY:
                 return <img src={"/images/rainy.png"} alt="Rainy"/>;
-            case OverallWeather.UNKNOWN:
+            default:
                 return <img src={"/images/unknown.png"} alt="Unknown weather"/>;
         }
     }

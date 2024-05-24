@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  api:
+    build: ./weather-fetcher
+    container_name: weather-api
+    expose:
+      - "1099"
+      - "44444"
+      - "8101"
+      - "8181"
+    ports:
+      - "8101:8101"
+      - "1099:1099"
+      - "44444:44444"
+      - "8181:8181"
+    stdin_open: true

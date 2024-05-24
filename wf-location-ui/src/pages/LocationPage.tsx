@@ -24,9 +24,6 @@ export default function LocationPage() {
 
     const getForecastWeather = () => {
         getForecast(country!, city!).then((response) => setForecast(response));
-
-
-        console.log(getForecast(country!, city!));
         setOpenModal(false);
     };
 

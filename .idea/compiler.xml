@@ -53,7 +53,7 @@
       <module name="weatherModel-fetcher-persistence" target="1.5" />
       <module name="weatherModel-fetcher-persistence-datasource" target="1.5" />
       <module name="wf-core-services (1)" target="17" />
-      <module name="wf-core-services (1) (com.core.service)" target="17" />
+      <module name="wf-core-services (1) (com.core.service)" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

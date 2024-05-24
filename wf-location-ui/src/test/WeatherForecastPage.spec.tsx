@@ -10,7 +10,7 @@ const MOCK_FORECAST : Forecast = {
     city: "Warsaw",
     date: new Date(),
     overall: OverallWeather.UNKNOWN,
-    scale: 'CELSIUS',
+    scale: 'Celsius',
     degrees: 15
 }
 
@@ -51,7 +51,7 @@ describe('LocationPage', () => {
 
         const location = screen.getByText('Poland Warsaw');
         const degrees = screen.getByText('15 °C');
-        const overall = screen.getByText('RAINY');
+        const overall = screen.getByText('Rainy');
 
         expect(location).toBeInTheDocument();
         expect(degrees).toBeInTheDocument();

@@ -8,7 +8,7 @@ public class ForecastModelToForecastEntityMapper {
     public static Forecast getForecastEntityFromForecastModel(ForecastModel forecastModel) {
         return Forecast
                 .builder()
-                .country(forecastModel.getCity())
+                .country(forecastModel.getCountry())
                 .city(forecastModel.getCity())
                 .date(forecastModel.getDate())
                 .overall(forecastModel.getOverall())

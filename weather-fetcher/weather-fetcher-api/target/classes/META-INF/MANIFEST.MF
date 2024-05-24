@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1716536776748
+Bnd-LastModified: 1716546778637
 Build-Jdk: 11.0.19
 Built-By: noskov
 Bundle-Blueprint: OSGI-INF/blueprint/weather-fetcher-api.xml

@@ -1,6 +1,10 @@
 HELP.md
 wf-core-services/target/
 wf-stats-services/target/
+weather-fetcher/weather-fetcher-api/target/
+weather-fetcher/weather-fetcher-features/target/
+weather-fetcher/weather-fetcher-persistence/weather-fetcher-datasource/target/
+weather-fetcher/weather-fetcher-persistence/weather-fetcher-repository/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

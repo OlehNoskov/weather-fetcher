@@ -29,7 +29,7 @@ public class ForecastServiceImpl implements ForecastService {
                 .city(forecastResponse.getLocationResponse().getCity())
                 .date(getDate(forecastResponse))
                 .overall(forecastResponse.getWeatherResponse().getOverallWeatherResponse().getOverallWeather())
-                .scale("CELSIUS")
+                .scale("Celsius")
                 .degrees((int) Math.round(Double.parseDouble(forecastResponse.getWeatherResponse().getTemperature())))
                 .build();
 

@@ -9,5 +9,4 @@ CREATE TABLE forecast
     overall    VARCHAR(100)      NOT NULL,
     scale      VARCHAR(100)     NOT NULL,
     degrees    INTEGER      NOT NULL
-
 );
