@@ -11,10 +11,10 @@
         <feature>transaction</feature>
         <feature>jpa</feature>
         <feature>hibernate-orm</feature>
-        <bundle>wrap:mvn:org.mariadb.jdbc/mariadb-java-client/${mariadb-java-client.version}</bundle>
-        <bundle>mvn:com.weather/weather-fetcher-datasource/${project.version}</bundle>
-        <bundle>mvn:com.weather/weather-fetcher-repo/${project.version}</bundle>
-        <bundle>mvn:com.weather/weather-fetcher-api/${project.version}</bundle>
+<!--        <bundle>wrap:mvn:org.mariadb.jdbc/mariadb-java-client/${mariadb-java-client.version}</bundle>-->
+<!--        <bundle>mvn:org.weather/weather-fetcher-datasource/${project.version}</bundle>-->
+<!--        <bundle>mvn:org.weather/weather-fetcher-repo/${project.version}</bundle>-->
+        <bundle>mvn:org.weather/weather-fetcher-api/${project.version}</bundle>
     </feature>
 
 </features>

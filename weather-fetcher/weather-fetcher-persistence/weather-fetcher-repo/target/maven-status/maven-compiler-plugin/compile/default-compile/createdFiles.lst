@@ -1,0 +1,3 @@
+org/weather/fetcher/repo/WeatherStatRepo.class
+org/weather/fetcher/repo/model/WeatherStat.class
+org/weather/fetcher/repo/WeatherStatRepoImpl.class

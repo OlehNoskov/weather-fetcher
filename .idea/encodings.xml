@@ -35,6 +35,30 @@
     <file url="file://$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-persistence/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/weather-fetcher-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/weather-fetcher-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/weather-fetcher-features/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/weather-fetcher-features/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/weather-fetcher-persistence/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/weather-fetcher-persistence/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/weather-fetcher-persistence/weather-fetcher-datasource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/weather-fetcher-persistence/weather-fetcher-datasource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/weather-fetcher-persistence/weather-fetcher-repository/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testasdasd/weather-fetcher-persistence/weather-fetcher-repository/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/weather-fetcher-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/weather-fetcher-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/weather-fetcher-features/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/weather-fetcher-features/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/weather-fetcher-persistence/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/weather-fetcher-persistence/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/weather-fetcher-persistence/weather-fetcher-datasource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/weather-fetcher-persistence/weather-fetcher-datasource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/weather-fetcher-persistence/weather-fetcher-repo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weather-fetcher/weather-fetcher-persistence/weather-fetcher-repo/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wf-core-services/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wf-stats-services/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wf-stats-services/src/main/resources" charset="UTF-8" />
