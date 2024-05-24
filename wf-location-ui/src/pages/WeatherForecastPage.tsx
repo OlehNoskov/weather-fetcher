@@ -1,8 +1,9 @@
 import React from "react";
+
 import {Card, Typography} from "@mui/material";
 import {Forecast} from "../dto/Forecast";
 import {OverallWeather} from "../enum/OverallWeather";
-import {ScaleSymbols} from "../enum/ScaleSymbols";
+
 import './WeatherForecastPage.css';
 
 interface IForecast {
@@ -11,7 +12,7 @@ interface IForecast {
 
 export default function WeatherForecastPage(props: IForecast) {
 
-    function getWeatherImage(overallWeather: OverallWeather) {
+    function getWeatherImage(overallWeather: string) {
         switch (overallWeather) {
             case OverallWeather.SUNNY:
                 return <img src={"/images/sunny.png"} alt="Sunny"/>;
@@ -31,15 +32,15 @@ export default function WeatherForecastPage(props: IForecast) {
             <div className={"left-block-info"} data-testid="title">
                 <Typography variant="h6" className={"title"}>
                     CURRENT WEATHER
-                    <p className={"location"}>{props.forecast?.country} {props.forecast?.city}</p>
+                    <p className={"location"}>{props.forecast.country} {props.forecast.city}</p>
                 </Typography>
                 <div className={"image-info"}>
-                    {getWeatherImage(props.forecast?.weather.overall!)}
+                    {getWeatherImage(props.forecast.overall!)}
                 </div>
             </div>
             <div className={"degrees"}>
-                {props.forecast?.weather.temperature.degrees} {ScaleSymbols.CELSIUS}
-                <p className={"overall-weather"}> {props.forecast?.weather.overall}</p>
+                {props.forecast.degrees} {'°C'}
+                <p className={"overall-weather"}> {props.forecast.overall}</p>
             </div>
         </Card>
     );

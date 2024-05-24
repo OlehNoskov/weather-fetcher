@@ -4,6 +4,7 @@ services:
   db:
     image: mariadb:latest
     restart: always
+    container_name: weather-fetcher-db
     environment:
       MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD}"
       MARIADB_USER": "${MARIADB_USER}"

@@ -1,20 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/features/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="weather-fetcher-api" />
+        <module name="weather-fetcher-features" />
+        <module name="karaf-rest-example-blueprint" />
+        <module name="weather-fetcher-repository" />
         <module name="wf-core-services" />
+        <module name="karaf-rest-api" />
         <module name="wf-stats-services" />
+        <module name="karaf-rest-example-api" />
+        <module name="karaf-rest-features" />
+        <module name="weather-fetcher-datasource" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="datasource" target="17" />
+      <module name="entities" target="17" />
+      <module name="impl" target="17" />
+      <module name="karaf-rest-blueprint" target="17" />
+      <module name="karaf-rest-example" target="1.5" />
+      <module name="karaf-rest-example-api" target="1.5" />
+      <module name="karaf-rest-example-blueprint" target="1.5" />
+      <module name="karaf-rest-example-client" target="1.5" />
+      <module name="karaf-rest-example-client-cxf" target="1.5" />
+      <module name="karaf-rest-example-client-http" target="1.8" />
+      <module name="karaf-rest-example-client-jersey" target="1.8" />
+      <module name="karaf-rest-example-features" target="1.5" />
+      <module name="karaf-rest-example-scr" target="1.5" />
+      <module name="karaf-rest-example-whiteboard" target="1.5" />
+      <module name="karaf-wf-core-service" target="1.5" />
+      <module name="karaf-wf-core-service-persistence-api" target="17" />
+      <module name="metadata-service-features" target="1.5" />
+      <module name="persistence" target="1.5" />
+      <module name="persistence-api" target="17" />
+      <module name="persistence-impl" target="17" />
+      <module name="testasdasd" target="11" />
+      <module name="weather-fercher-features" target="1.5" />
+      <module name="weather-fetcher-impl" target="1.8" />
+      <module name="weather-fetcher-persistence-datasource" target="1.5" />
+      <module name="weather-fetcher-persistence-impl" target="17" />
+      <module name="weatherModel-fetcher-api" target="17" />
+      <module name="weatherModel-fetcher-features" target="1.5" />
+      <module name="weatherModel-fetcher-persistence" target="1.5" />
+      <module name="weatherModel-fetcher-persistence-datasource" target="1.5" />
+      <module name="wf-core-services (1)" target="17" />
+      <module name="wf-core-services (1) (com.core.service)" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="datasource" options="-parameters" />
+      <module name="entities" options="-parameters" />
+      <module name="impl" options="-parameters" />
+      <module name="karaf-wf-core-service" options="" />
+      <module name="karaf-wf-core-service-persistence-api" options="-parameters" />
+      <module name="metadata-service-features" options="" />
+      <module name="persistence-api" options="-parameters" />
+      <module name="persistence-impl" options="-parameters" />
+      <module name="weather-fercher-features" options="" />
+      <module name="weather-fetcher-api" options="" />
+      <module name="weather-fetcher-impl" options="" />
+      <module name="weather-fetcher-persistence" options="" />
+      <module name="weather-fetcher-persistence-datasource" options="" />
+      <module name="weather-fetcher-persistence-impl" options="" />
       <module name="wf-core-services" options="-parameters" />
+      <module name="wf-core-services (1)" options="-parameters" />
+      <module name="wf-core-services (1) (com.core.service)" options="-parameters" />
       <module name="wf-stats-services" options="-parameters" />
     </option>
   </component>

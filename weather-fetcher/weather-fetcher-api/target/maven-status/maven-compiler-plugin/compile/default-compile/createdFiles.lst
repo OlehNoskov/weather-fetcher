@@ -1,0 +1,10 @@
+org/weather/fetcher/api/service/ForecastService.class
+org/weather/fetcher/api/mappers/ForecastModelToForecastEntityMapper.class
+org/weather/fetcher/api/response/OverallWeatherResponse.class
+org/weather/fetcher/api/response/ForecastResponse.class
+org/weather/fetcher/api/model/ForecastModel$ForecastModelBuilder.class
+org/weather/fetcher/api/service/ForecastServiceImpl.class
+org/weather/fetcher/api/model/ForecastModel.class
+org/weather/fetcher/api/response/WeatherResponse.class
+org/weather/fetcher/api/service/WeatherClientService.class
+org/weather/fetcher/api/response/LocationResponse.class
