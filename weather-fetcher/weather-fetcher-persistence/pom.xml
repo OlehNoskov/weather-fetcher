@@ -10,11 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>weather-fetcher-persistence</artifactId>
+    <name>Weather fetcher :: Persistence</name>
     <packaging>pom</packaging>
 
     <modules>
         <module>weather-fetcher-datasource</module>
-        <module>weather-fetcher-repo</module>
+        <module>weather-fetcher-repository</module>
     </modules>
 
     <dependencies>

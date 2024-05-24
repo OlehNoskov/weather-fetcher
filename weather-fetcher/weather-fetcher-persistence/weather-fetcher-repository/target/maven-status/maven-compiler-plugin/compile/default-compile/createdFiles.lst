@@ -1,0 +1,4 @@
+org/weather/fetcher/repo/model/Forecast.class
+org/weather/fetcher/repo/model/Forecast$ForecastBuilder.class
+org/weather/fetcher/repo/Repository.class
+org/weather/fetcher/repo/RepositoryImpl.class

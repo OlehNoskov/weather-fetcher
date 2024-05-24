@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>weather-fetcher-api</artifactId>
+    <name>Weather fetcher :: API</name>
     <packaging>bundle</packaging>
 
     <dependencies>
@@ -23,11 +24,11 @@
             <artifactId>cxf-rt-rs-client</artifactId>
             <version>${cxf.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.weather</groupId>-->
-<!--            <artifactId>weather-fetcher-repo</artifactId>-->
-<!--            <version>${project.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.weather</groupId>
+            <artifactId>weather-fetcher-repository</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>

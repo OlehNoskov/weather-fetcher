@@ -5,9 +5,7 @@
             http://www.w3.org/2001/XMLSchema-instance https://www.w3.org/2001/XMLSchema-instance">
 
     <bean id="weatherDataSource" class="org.mariadb.jdbc.MariaDbDataSource">
-        <property name="url" value="jdbc:mariadb://localhost:3307/weatherDb" />
-<!--        <property name="url" value="jdbc:mariadb://weather-db:3306/weatherDb" />-->
-<!--        <property name="url" value="jdbc:mariadb://aws-weather-fetcher-db.czcrf0kccauh.us-east-1.rds.amazonaws.com:3320/weatherDb" />-->
+        <property name="url" value="jdbc:mariadb://localhost:3306/weather" />
         <property name="user" value="root" />
         <property name="password" value="root" />
     </bean>

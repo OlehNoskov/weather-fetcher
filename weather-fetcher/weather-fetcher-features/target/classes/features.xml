@@ -11,9 +11,9 @@
         <feature>transaction</feature>
         <feature>jpa</feature>
         <feature>hibernate-orm</feature>
-<!--        <bundle>wrap:mvn:org.mariadb.jdbc/mariadb-java-client/3.0.8</bundle>-->
-<!--        <bundle>mvn:org.weather/weather-fetcher-datasource/1.0-SNAPSHOT</bundle>-->
-<!--        <bundle>mvn:org.weather/weather-fetcher-repo/1.0-SNAPSHOT</bundle>-->
+        <bundle>wrap:mvn:org.mariadb.jdbc/mariadb-java-client/3.0.8</bundle>
+        <bundle>mvn:org.weather/weather-fetcher-datasource/1.0-SNAPSHOT</bundle>
+        <bundle>mvn:org.weather/weather-fetcher-repository/1.0-SNAPSHOT</bundle>
         <bundle>mvn:org.weather/weather-fetcher-api/1.0-SNAPSHOT</bundle>
     </feature>
 

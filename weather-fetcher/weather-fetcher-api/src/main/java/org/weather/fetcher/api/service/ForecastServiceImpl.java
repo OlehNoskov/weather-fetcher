@@ -1,8 +1,10 @@
 package org.weather.fetcher.api.service;
 
 import lombok.AllArgsConstructor;
+import org.weather.fetcher.api.mappers.ForecastModelToForecastEntityMapper;
 import org.weather.fetcher.api.model.ForecastModel;
 import org.weather.fetcher.api.response.ForecastResponse;
+import org.weather.fetcher.repo.Repository;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -14,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class ForecastServiceImpl implements ForecastService {
 
-//    private final Repository repository;
+    private final Repository repository;
 
     private final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 
@@ -31,11 +33,10 @@ public class ForecastServiceImpl implements ForecastService {
                 .degrees((int) Math.round(Double.parseDouble(forecastResponse.getWeatherResponse().getTemperature())))
                 .build();
 
-//        repository.saveForecast(ForecastModelToForecastEntityMapper.getForecastEntityFromForecastModel(forecastModel));
+        repository.saveForecast(ForecastModelToForecastEntityMapper.getForecastEntityFromForecastModel(forecastModel));
 
         return forecastModel;
     }
-
 
     private Date getDate(ForecastResponse forecastResponse) throws ParseException {
         return DATE_FORMAT.parse(forecastResponse.getWeatherResponse().getUpdateDate());

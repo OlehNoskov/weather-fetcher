@@ -1,5 +1,5 @@
 FROM maven:3.6.0-jdk-11-slim
-ENV KARAF_VERSION=4.3.9
+ENV KARAF_VERSION=4.4.6
 
 COPY . /home/app/
 RUN mvn -f /home/app/pom.xml clean install

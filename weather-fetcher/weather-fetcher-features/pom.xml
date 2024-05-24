@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>weather-fetcher-features</artifactId>
+    <name>Weather fetcher :: Features</name>
 
     <build>
         <resources>

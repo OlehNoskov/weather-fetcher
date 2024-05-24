@@ -6,16 +6,15 @@
 
     <groupId>org.weather</groupId>
     <artifactId>weather-fetcher</artifactId>
+    <name>Weather fetcher :: Parent</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <modules>
         <module>weather-fetcher-api</module>
         <module>weather-fetcher-persistence</module>
         <module>weather-fetcher-features</module>
     </modules>
-
-    <name>weather-fetcher</name>
-    <description>weather-fetcher OSGi bundle project</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
