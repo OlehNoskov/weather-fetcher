@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
@@ -6,50 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/wf-core-services/pom.xml" />
         <option value="$PROJECT_DIR$/wf-stats-services/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-impl/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-persistence/impl/pom.xml" />
-        <option value="$MAVEN_REPOSITORY$/com/core/service/wf-core-services/0.0.1-SNAPSHOT/wf-core-services-0.0.1-SNAPSHOT.pom" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-api/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-blueprint/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-features/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-client/karaf-rest-example-client-cxf/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-scr/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-client/karaf-rest-example-client-jersey/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-whiteboard/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-client/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-features/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-blueprint/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-api/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-service-core/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-jpa-example-provider-blueprint-openjpa/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-persistence/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-persistence/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-api/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-wf-core-service/weather-fetcher-features/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-persistence/weather-fetcher-repository/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-persistence/weather-fetcher-datasource/pom.xml" />
-        <option value="$PROJECT_DIR$/weather-fetcher/weather-fetcher-persistence/pom.xml" />
-        <option value="$PROJECT_DIR$/weather-fetcher/weather-fetcher-features/pom.xml" />
-        <option value="$PROJECT_DIR$/weather-fetcher/pom.xml" />
-        <option value="$PROJECT_DIR$/testasdasd/weather-fetcher-features/pom.xml" />
-        <option value="$PROJECT_DIR$/testasdasd/weather-fetcher-persistence/weather-fetcher-datasource/pom.xml" />
-        <option value="$PROJECT_DIR$/testasdasd/weather-fetcher-api/pom.xml" />
-        <option value="$PROJECT_DIR$/testasdasd/pom.xml" />
-        <option value="$PROJECT_DIR$/weather-fetcher/weather-fetcher-api/pom.xml" />
       </list>
-    </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$MAVEN_REPOSITORY$/com/core/service/wf-core-services/0.0.1-SNAPSHOT/wf-core-services-0.0.1-SNAPSHOT.pom" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-client/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-scr/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-example/karaf-rest-example-whiteboard/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-rest-service-core/karaf-rest-blueprint/pom.xml" />
-        <option value="$PROJECT_DIR$/karaf-wf-core-service/pom.xml" />
-        <option value="$PROJECT_DIR$/testasdasd/pom.xml" />
-      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="corretto-19" project-jdk-type="JavaSDK">

@@ -1,18 +1,22 @@
 import {screen, render} from '@testing-library/react';
 import '@testing-library/jest-dom';
-import userEvent from '@testing-library/user-event';
-
 import LocationPage from '../pages/LocationPage';
+import userEvent from '@testing-library/user-event';
 import {Forecast} from "../dto/Forecast";
 import {OverallWeather} from "../enum/OverallWeather";
+import {Scale} from "../enum/Scale";
 
 const MOCK_FORECAST: Forecast = {
     country: "Poland",
     city: "Warsaw",
     date: new Date(),
-    overall: OverallWeather.UNKNOWN,
-    scale: 'CELSIUS',
-    degrees: 15
+    weather: {
+        overall: OverallWeather.UNKNOWN,
+        temperature: {
+            scale: Scale.CELSIUS,
+            degrees: 15
+        }
+    }
 }
 
 describe('LocationPage', () => {

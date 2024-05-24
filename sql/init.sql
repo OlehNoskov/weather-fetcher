@@ -5,14 +5,14 @@ DROP TABLE IF EXISTS forecast;
 CREATE TABLE temperature
 (
     id      SERIAL PRIMARY KEY,
-    scale   VARCHAR(100) NOT NULL,
+    scale   INTEGER NOT NULL,
     degrees INTEGER NOT NULL
 );
 
 CREATE TABLE weather
 (
     id             SERIAL PRIMARY KEY,
-    overall        VARCHAR(100) NOT NULL,
+    overall        INTEGER NOT NULL,
     temperature_id INTEGER NOT NULL
 );
 

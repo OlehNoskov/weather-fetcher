@@ -1,7 +1,6 @@
 package com.service.core.service.impl;
 
-
-import com.service.core.dto.response.ForecastResponse;
+import com.service.core.dto.request.ForecastRequest;
 import com.service.core.entity.Forecast;
 import com.service.core.entity.Temperature;
 import com.service.core.entity.Weather;
@@ -32,22 +31,22 @@ public class ForecastServiceImpl implements ForecastService {
 
     @Override
     public Forecast getForecast(String country, String city) throws ParseException {
-        ForecastResponse forecastResponse = weatherClient.getForecast(country, city);
+        ForecastRequest forecastRequest = weatherClient.getForecast(country, city);
         Forecast forecast = Forecast.builder()
-                .country(forecastResponse.getLocationResponse().getCountry())
-                .city(forecastResponse.getLocationResponse().getCity())
-                .date(getDate(forecastResponse))
-                .weather(getWeather(forecastResponse))
+                .country(forecastRequest.getLocationRequest().getCountry())
+                .city(forecastRequest.getLocationRequest().getCity())
+                .date(getDate(forecastRequest))
+                .weather(getWeather(forecastRequest))
                 .build();
 
         return forecastRepository.save(forecast);
     }
 
-    private Weather getWeather(ForecastResponse forecast) {
+    private Weather getWeather(ForecastRequest forecast) {
         Temperature temperature = Temperature
                 .builder()
                 .scale(Scale.CELSIUS)
-                .degrees((int) Math.round(Double.parseDouble(forecast.getWeatherResponse().getTemperature())))
+                .degrees((int) Math.round(Double.parseDouble(forecast.getWeatherRequest().getTemperature())))
                 .build();
 
         temperatureRepository.save(temperature);
@@ -55,8 +54,8 @@ public class ForecastServiceImpl implements ForecastService {
         Weather weather = Weather
                 .builder()
                 .overall(OverallWeather.getFromString(forecast
-                        .getWeatherResponse()
-                        .getOverallWeatherResponse()
+                        .getWeatherRequest()
+                        .getOverallWeatherRequest()
                         .getOverallWeather()))
                 .temperature(temperature)
                 .build();
@@ -64,7 +63,7 @@ public class ForecastServiceImpl implements ForecastService {
         return weatherRepository.save(weather);
     }
 
-    private Date getDate(ForecastResponse forecastResponse) throws ParseException {
-        return DATE_FORMAT.parse(forecastResponse.getWeatherResponse().getUpdateDate());
+    private Date getDate(ForecastRequest forecastRequest) throws ParseException {
+        return DATE_FORMAT.parse(forecastRequest.getWeatherRequest().getUpdateDate());
     }
 }

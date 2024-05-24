@@ -16,7 +16,7 @@ module.exports = {
             "/weather": {
                 secure: false,
                 changeOrigin: true,
-                target: "http://localhost:8181/cxf"
+                target: "http://localhost:8080"
             }
         },
     },
